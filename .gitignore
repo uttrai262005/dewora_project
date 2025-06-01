@@ -1,0 +1,43 @@
+# General
+.DS_Store
+*.log
+*.tmp
+*.swp
+
+# Frontend (dewora) - Assuming it's a Node.js project (React, Vue, Angular, etc.)
+dewora/node_modules/
+dewora/dist/
+dewora/build/
+dewora/.env
+dewora/.env.local
+dewora/.env.*.local
+dewora/npm-debug.log*
+dewora/yarn-debug.log*
+dewora/yarn-error.log*
+dewora/coverage/
+
+# Backend (dewora_api) - Laravel specific
+dewora_api/vendor/
+dewora_api/node_modules/ # If you use npm for frontend assets within Laravel
+dewora_api/public/storage
+dewora_api/storage/*.key
+dewora_api/storage/framework/sessions/*
+dewora_api/storage/framework/cache/data/*
+dewora_api/storage/framework/views/*.php
+dewora_api/storage/logs/*.log
+dewora_api/.env
+dewora_api/.phpunit.result.cache
+dewora_api/Homestead.yaml
+dewora_api/Homestead.json
+dewora_api/npm-debug.log*
+dewora_api/yarn-debug.log*
+dewora_api/yarn-error.log*
+dewora_api/coverage/
+dewora_api/public/hot # For Laravel Mix
+dewora_api/public/mix-manifest.json # If you don't want to track the compiled assets manifest
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
