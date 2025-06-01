@@ -1,0 +1,309 @@
+/* css/order-status.css */
+
+/* Kế thừa một số biến màu và font từ dh.css nếu có thể và nếu styles.css không có */
+:root {
+  --pink_400: #e5536b; /* Màu hồng chủ đạo */
+  --pink_light: #fff2fb;
+  --yellow_light: #ffffeb;
+  --gray_text: #555;
+  --border_color: #e0e0e0;
+  --success_color: #4caf50;
+  --warning_color: #ffc107;
+  --danger_color: #f44336;
+  --white: #ffffff;
+  --black: #000000;
+  --text_dark: #333;
+  --text_light: #777;
+  --link_color: var(--pink_400);
+
+  --radius-md: 5px;
+  --radius-lg: 8px;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Lexend Deca", sans-serif; /* Đảm bảo font nhất quán */
+  background-color: var(--pink_light); /* Màu nền chung của trang */
+  color: var(--text_dark);
+}
+
+.container {
+  max-width: 900px; /* Giới hạn chiều rộng nội dung chính */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: var(--pink_400);
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 2em;
+}
+
+#order-code-display {
+  font-weight: bold;
+  color: var(--pink_400);
+}
+
+#status-notification {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: 0.95em;
+}
+
+/* Status Tracker Styles */
+.status-tracker {
+  display: flex;
+  justify-content: space-around; /* Phân bố đều các bước */
+  margin: 30px 0 40px 0;
+  padding: 20px 0;
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.status-step {
+  text-align: center;
+  width: 20%; /* Chiều rộng mỗi bước */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-step .icon {
+  width: 45px; /* Kích thước icon */
+  height: 45px;
+  border-radius: 50%;
+  background: #eee; /* Màu nền mặc định cho icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px; /* Khoảng cách từ icon đến text */
+  border: 3px solid #ddd; /* Viền mặc định */
+  color: var(--text_light);
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.status-step p {
+  margin-top: 5px;
+  font-weight: 500; /* Độ đậm chữ */
+  font-size: 0.85em; /* Kích thước chữ */
+  color: var(--text_light);
+  transition: color 0.3s ease;
+}
+
+/* Styling for active step */
+.status-step.active .icon {
+  background: var(--pink_400);
+  border-color: var(--pink_400); /* Màu viền đậm hơn chút */
+  color: var(--white);
+}
+.status-step.active p {
+  color: var(--text_dark);
+  font-weight: 600;
+}
+
+/* Styling for completed step */
+.status-step.completed .icon {
+  background: var(--success_color);
+  border-color: #388e3c; /* Màu viền đậm hơn chút */
+  color: var(--white);
+}
+.status-step.completed p {
+  color: var(--success_color);
+}
+
+/* Lines between steps (optional, can be complex with space-around) */
+/* If you need lines, consider using justify-content: space-between and adjust widths */
+
+/* Order Details Container */
+.order-details-container {
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-top: 30px;
+}
+
+.order-details-container h3 {
+  color: var(--pink_400);
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border_color);
+}
+.order-details-container h4 {
+  color: var(--text_dark);
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.order-details-container p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: var(--gray_text);
+  font-size: 0.95em;
+}
+.order-details-container p strong {
+  color: var(--text_dark);
+  min-width: 150px; /* Giúp các label căn đều hơn nếu dùng display:flex */
+  display: inline-block;
+}
+
+/* Styling for checkout items (products) - kế thừa và tùy chỉnh từ thanhtoan.css nếu cần */
+.checkout-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0; /* Đường kẻ mờ giữa các sản phẩm */
+}
+.checkout-item:last-child {
+  border-bottom: none;
+}
+
+.checkout-item-image {
+  width: 80px; /* Kích thước ảnh sản phẩm */
+  height: 80px;
+  object-fit: cover; /* Đảm bảo ảnh vừa vặn, không bị méo */
+  border-radius: var(--radius-md); /* Bo góc ảnh */
+  margin-right: 15px;
+  border: 1px solid var(--border_color);
+}
+
+.checkout-item-info {
+  flex-grow: 1;
+}
+
+.checkout-item-info .item-name {
+  font-weight: 600;
+  color: var(--text_dark);
+  margin-bottom: 5px;
+}
+.checkout-item-info .item-quantity,
+.checkout-item-info .item-color, /* Thêm style cho màu sắc nếu có */
+.checkout-item-info .item-price-single {
+  /* Thêm style cho đơn giá nếu có */
+  font-size: 0.9em;
+  color: var(--text_light);
+  margin-bottom: 3px;
+}
+
+.checkout-item-price {
+  font-weight: 600;
+  color: var(--pink_400);
+  font-size: 1em;
+  margin-left: 15px; /* Khoảng cách với thông tin sản phẩm */
+}
+
+/* Summary Calculation */
+.summary-calculation {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border_color);
+}
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+.calc-row span:first-child {
+  color: var(--text_light);
+}
+.calc-row span:last-child {
+  font-weight: 500;
+  color: var(--text_dark);
+}
+.calc-row.total span {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.calc-row.total span:last-child {
+  color: var(--pink_400);
+}
+.calc-row.discount span:last-child {
+  color: var(--success_color);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .status-tracker {
+    flex-direction: column; /* Xếp chồng các bước trên mobile */
+    align-items: center; /* Căn giữa các bước */
+  }
+  .status-step {
+    width: 80%; /* Chiều rộng lớn hơn trên mobile */
+    margin-bottom: 20px; /* Khoảng cách giữa các bước */
+  }
+  .status-step:last-child {
+    margin-bottom: 0;
+  }
+  /* Bỏ đường kẻ nếu có */
+  .status-step::after {
+    display: none;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+  .order-details-container h3 {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .checkout-item-image {
+    margin-bottom: 10px;
+  }
+  .checkout-item-price {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+/* Trong css/order-status.css hoặc cuối styles.css */
+
+.order-status-actions-container {
+  text-align: center; /* Để căn giữa nút */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.primary-button {
+  display: inline-block;
+  padding: 12px 25px; /* Kích thước lớn hơn một chút */
+  border-radius: var(--radius-md); /* Sử dụng biến CSS nếu có */
+  font-size: 1.1rem; /* Chữ to hơn */
+  font-weight: 600; /* Chữ đậm hơn */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Chuyển động mượt mà hơn */
+  border: 2px solid var(--pink_400);
+  background-color: var(--pink_400);
+  color: #fff; /* Chữ màu trắng */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ */
+}
+
+.order-status-actions-container .button:hover {
+  background-color: var(--pink_500); /* Màu hồng đậm hơn khi hover */
+  border-color: var(--pink_500);
+  transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ lên khi hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bóng đậm hơn */
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <title>Admin Panel - {{PAGE_TITLE}}</title>
+    <link rel="stylesheet" href="css/admin_styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Bảng Điều Khiển Admin</h1>
+      <nav>
+        <a href="dashboard.html" id="navDashboard">Dashboard</a>
+        <a href="manage_products.html" id="navProducts">Sản Phẩm</a>
+        <a href="manage_users.html" id="navUsers">Người Dùng</a>
+        <a href="manage_orders.html" id="navOrders">Đơn Hàng</a>
+        <a href="reports.html" id="navReports">Báo Cáo</a>
+        <button id="adminLogoutBtn">Đăng Xuất</button>
+      </nav>
+    </header>
+
+    <main id="page-content-wrapper"></main>
+
+    <footer>
+      <p>&copy; 2025 Dewora - Trang Quản Trị</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+  </body>
+</html>

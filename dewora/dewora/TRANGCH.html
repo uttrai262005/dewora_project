@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEWORA - Mỹ phẩm cao cấp</title>
+    <link rel="stylesheet" href="css/TRANGCCH.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+ <script src="js/script.js"></script>
+<body>
+    <div class="shipping-notice flex-col-center-center">
+        <div class="ui text size-textmd">Miễn phí ship nội thành. <span class="buy-now">Mua ngay!</span></div>
+        <span class="close-btn ui heading size-headingmd"onclick="this.parentElement.style.display='none'">×</span>
+    </div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="public/images/logo-dewora.png" alt="DEWORA Logo">
+            </div>
+            
+            <div class="search-container">
+                <img src="public/images/search-icon.png" alt="Search" class="search-icon">
+                <input type="text" class="search-box" placeholder="Bạn cần tìm món gì nè">
+            </div>
+            
+            <div class="user-actions">
+                <!-- Địa điểm (chỉ icon) -->
+                <div class="location-icon">
+                    <img src="public/images/location-pin.png" alt="Địa điểm" class="action-icon">
+                </div>
+                
+                <!-- Ngôn ngữ (có dropdown) -->
+                <div class="language-selector">
+                    <button class="language-current"><span class="language-text">VN</span>
+                        <img src="public/images/chevron-down.png" alt="Tiếng Việt" class="language-flag">
+                        
+                        <i class="dropdown-arrow"></i>
+                    </button>
+                    
+                    <div class="language-dropdown">
+                        <div class="language-option" data-lang="vn">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png" alt="Tiếng Việt" class="language-flag">
+                            <span>Tiếng Việt</span>
+                        </div>
+                        <div class="language-option" data-lang="en">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvRPSTcvCAL7W9UrQKApye4pp7NiCwhrW15g&sg" alt="English" class="language-flag">
+                            <span>English</span>
+                        </div>
+                        <!-- <div class="language-option" data-lang="kr">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/640px-Flag_of_South_Korea.svg.png" alt="한국어" class="language-flag">
+                            <span>한국어</span>
+                        </div> -->
+                    </div>
+                </div>
+                
+                <!-- Tài khoản & Giỏ hàng -->
+                <img src="public/images/user-icon.png" alt="Tài khoản" class="action-icon">
+                <img src="public/images/cart-icon.png" alt="Giỏ hàng" class="action-icon">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-container">
+        <div class="nav-menu">
+            <a href="#" class="nav-item active">Trang chủ</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-item">Danh mục</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-column">
+                        <h4 class="dropdown-title">MÔI</h4>
+                        <a href="#" class="dropdown-item">Son dưỡng</a>
+                        <a href="#" class="dropdown-item">Son kem</a>
+                        <a href="#" class="dropdown-item">Son thỏi</a>
+                        <a href="#" class="dropdown-item">Son bóng</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4 class="dropdown-title">MẮT</h4>
+                        <a href="#" class="dropdown-item">Mascara</a>
+                        <a href="#" class="dropdown-item">Bút kẻ mắt</a>
+                        <a href="#" class="dropdown-item">Phấn mắt</a>
+                        <a href="#" class="dropdown-item">Mi giả</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4 class="dropdown-title">DA</h4>
+                        <a href="#" class="dropdown-item">Kem nền</a>
+                        <a href="#" class="dropdown-item">Cushion</a>
+                        <a href="#" class="dropdown-item">Phấn phủ</a>
+                        <a href="#" class="dropdown-item">Má hồng</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4 class="dropdown-title">KHÁC</h4>
+                        <a href="#" class="dropdown-item">Che khuyết điểm</a>
+                        <a href="#" class="dropdown-item">Xịt khóa nền</a>
+                        <a href="#" class="dropdown-item">Highlight + Khối</a>
+                        <a href="#" class="dropdown-item">Cọ trang điểm</a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-logo">
+                <img src="public/images/mini-logo.png" alt="Mini Logo">
+            </div>
+            
+            <a href="#" class="nav-item">Blog</a>
+            <a href="#" class="nav-item">Q&A</a>
+            <a href="#" class="nav-item">Liên hệ</a>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <div class="banner-container group-852">
+    <!-- Banner Section -->
+
+    <!-- Main Banner (Slide) -->
+    <div class="main-banner">
+        <div class="slide active" data-slide="1">
+            <img src="https://image.hsv-tech.io/1920x0/bbx/common/70140655-f0f3-45e2-80f7-9c58bff93483.webp" alt="Khuyến mãi mùa hè" class="banner-img">
+        </div>
+        <div class="slide" data-slide="2">
+            <img src="https://image.hsv-tech.io/1920x0/bbx/common/21474db2-769d-4604-8377-cfb4c56d3d74.webp" alt="Sản phẩm mới" class="banner-img">
+        </div>
+        <div class="slide" data-slide="3">
+            <img src="https://image.hsv-tech.io/1920x0/bbx/common/cf950550-4c42-49b9-b303-d57900ec0cd9.webp" alt="Combo ưu đãi" class="banner-img">
+        </div>
+        
+      
+        <div class="banner-indicators">
+            <span class="indicator active" data-target="1"></span>
+            <span class="indicator" data-target="2"></span>
+            <span class="indicator" data-target="3"></span>
+            
+        </div>
+    </div>
+
+    <!-- Side Banners -->
+    <div class="side-banners">
+        <div class="small-banner">
+            <img src="https://image.hsv-tech.io/1920x0/bbx/common/aca391b8-e7ca-44d3-b856-607ac0878fd1.webp" alt="Ưu đãi đặc biệt" class="banner-img">
+        </div>
+        <div class="small-banner">
+            <img src="https://image.hsv-tech.io/1920x0/bbx/common/d9719776-39d9-44d4-9a3c-98168a574ba1.webp" alt="Bộ sưu tập mới" class="banner-img">
+        </div>
+    </div>
+</div>
+<!-- Phần sản phẩm bán chạy -->
+<section class="best-seller">
+    <div class="container">
+      <h2 class="section-title">SẢN PHẨM BÁN CHẠY</h2>
+     
+      <div class="product-scroll-container">
+        <!-- Sản phẩm 1 -->
+        <div class="product-card">
+          <div class="product-badge">3%</div>
+          <img src="https://image.hsv-tech.io/987x0/bbx/common/131fba8b-8b5a-4f51-9bf4-4f26cddb0e77.webp" alt="Son Kem Peripara" class="product-image">
+          <h3 class="product-name">Son Kem Peripera Mịn Lì Over Blur Tint 3.5g</h3>
+          <div class="product-price">
+            <span class="current-price">179.000đ</span>
+            <span class="original-price">240.000đ</span>
+          </div>
+          <div class="product-rating">★★★★☆ (2.0)</div>
+        </div>
+        
+        <!-- Sản phẩm 2 -->
+        <div class="product-card">
+          <img src="https://image.hsv-tech.io/987x0/bbx/common/f32b8ae1-66f3-494a-948b-c74d2880018e.webp" alt="Son Thỏi Freshian" class="product-image">
+          <h3 class="product-name">Son Thỏi Freshian Thuần Chay Mini Vegan Lipstick 3.5g</h3>
+          <div class="product-price">
+            <span class="current-price">569.000đ</span>
+          </div>
+        </div>
+        
+        <!-- Sản phẩm 3 -->
+        <div class="product-card">
+          <div class="product-badge">27%</div>
+          <img src="https://image.hsv-tech.io/987x0/bbx/common/bf90024c-c7c0-4343-9366-2af1314c1fa5.webp" alt="Phấn Nước Kili" class="product-image">
+          <h3 class="product-name">Phấn Nước Clio Kiềm Dầu, Lâu Trôi Kill Cover Skin Fixer Cushion 15g</h3>
+          <div class="product-price">
+            <span class="current-price">510.000đ</span>
+            <span class="original-price">494.000đ</span>
+          </div><div class="product-rating">★★★★☆ (2.0)</div>
+          <div class="product-gift">Tặng kèm refill</div>
+          
+        </div>
+        
+        <!-- Sản phẩm 4 -->
+        <div class="product-card">
+          <div class="product-badge">30%</div>
+          <img src="https://image.hsv-tech.io/987x0/bbx/common/3f3e99fd-4cc5-4789-b62b-e2218c16b1c2.webp" alt="Bông Mút" class="product-image">
+          <h3 class="product-name">Bảng Màu Mắt 12ô Clio Pro Eye Palette Air 7g</h3>
+          <div class="product-price">
+            <span class="current-price">555.000đ</span>
+            <span class="original-price">749.000đ</span>
+          </div>
+          <div class="product-rating">★★★★★ (2.0)</div>
+        </div>
+        
+        <!-- Sản phẩm 5 -->
+        <div class="product-card">
+          <img src="https://image.hsv-tech.io/987x0/bbx/common/ff0522cd-0ade-4fd7-b3d8-b8ca9b5b34ab.webp" alt="Phấn Nén" class="product-image">
+          <h3 class="product-name">Phấn Nén Kili Cover Powder Foundation 7g</h3>
+          <div class="product-price">
+            <span class="current-price">559.000đ</span>
+            <span class="original-price">794.000đ</span>
+          </div>
+          <div class="product-rating">★★★☆☆ (2.0)</div>
+        </div>
+        <!-- Sản phẩm 5 -->
+      <div class="product-card">
+        <img src="https://image.hsv-tech.io/600x600/bbx/common/ef9b0019-6331-4c93-b1a2-982cdd55120d.webp" alt="Phấn Nén" class="product-image">
+        <h3 class="product-name">Phấn Nước Che Khuyết Điểm Mịn Lì Clio Kill Cover The New Founwear Cushion SPF50+ PA+++ (15gx2)</h3>
+        <div class="product-price">
+          <span class="current-price">509.000đ</span>
+          <span class="original-price">679.000đ</span>
+        </div>
+        <div class="product-rating">★★★☆☆ (2.0)</div>
+        <div class="product-gift">Tặng kèm refill</div>
+      </div>
+
+      </div>
+       
+
+    </div>
+      <div class="view-all">
+        <a href="#" class="view-all-btn">Xem tất cả</a>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Phần sản phẩm mới nhất -->
+<section class="new-arrivals">
+    <div class="container">
+            <h2 class="section-title">SẢN PHẨM MỚI NHẤT</h2>
+        <div class="product-scroll-container new-products">
+            <!-- Sản phẩm 1 -->
+            <div class="product-card new-product">
+                <div class="new-tag">MỚI</div>
+                <img src="https://image.hsv-tech.io/987x0/bbx/common/53dd920f-cd75-45b8-bdd5-fd311def024c.webp" alt="Son mới" class="product-image">
+                <h3 class="product-name">Son Thạch Bóng Thuần Chay Amuse Jel-Fit Tint 3.8g</h3>
+                <div class="product-price">
+                    <span class="current-price">319.000đ</span>
+                </div>
+            </div>
+             <!-- Sản phẩm 1 -->
+             <div class="product-card new-product">
+                <div class="new-tag">MỚI</div>
+                <img src="https://image.hsv-tech.io/987x0/bbx/common/8590bb65-a9a0-4859-9aec-47ae6d5da444.webp" alt="Son mới" class="product-image">
+                <h3 class="product-name">Bảng Phấn Mắt 9 Ô Thuần Chay Amuse Eye Color Palette 11g</h3>
+                <div class="product-price">
+                    <span class="current-price">659.000đ</span>
+                </div>
+            </div> 
+            <!-- Sản phẩm 1 -->
+            <div class="product-card new-product">
+                <div class="new-tag">MỚI</div>
+                <img src="https://image.hsv-tech.io/987x0/bbx/common/f5f869c5-f354-493f-afa5-4e4d0e510152.webp" alt="Son mới" class="product-image">
+                <h3 class="product-name">Phấn Nước Thuần Chay THE FACE SHOP Che Khuyết Điểm Mỏng Nhẹ Ink Lasting Cushion Slim Fit New SPF35 PA++ 12g</h3>
+                <div class="product-price">
+                    <span class="current-price">819.000đ</span>
+                </div>
+            </div>
+             <!-- Sản phẩm 1 -->
+             <div class="product-card new-product">
+                <div class="new-tag">MỚI</div>
+                <img src="https://image.hsv-tech.io/987x0/bbx/common/c0a52c45-4090-4adf-8172-01ab963590fe.webp" alt="Son mới" class="product-image">
+                <h3 class="product-name">Phấn Má Hồng Peripera Pure Blushed Custom Cheek 05 Dreamy Cherry 4.2g</h3>
+                <div class="product-price">
+                    <span class="current-price">239.000đ</span>
+                </div>
+            </div>
+            <!-- Sản phẩm 2 -->
+            <div class="product-card new-product">
+                <div class="new-tag">HOT</div>
+                <img src="https://image.hsv-tech.io/987x0/bbx/common/4f20179b-b1bb-47eb-94a2-3aaaeabd9f95.webp" alt="Kem dưỡng mới" class="product-image">
+                <h3 class="product-name">Son Thỏi Thuần Chay Dear Dahlia Dưỡng Ẩm, Bóng Nhẹ Lip Paradise Sensual Lip Glow 3.3g</h3>
+                <div class="product-price">
+                    <span class="current-price">799.000đ</span>
+                </div>
+            </div>
+            <div class="product-card new-product">
+                <div class="new-tag">HOT</div>
+                <img src="https://image.hsv-tech.io/987x0/bbx/common/41c58363-0476-442b-ba67-42f0ee5e24f5.webp" alt="Kem dưỡng mới" class="product-image">
+                <h3 class="product-name">Kem Nền Thuần Chay THE FACE SHOP Hiệu Ứng Căng Bóng Ink Lasting Foundation Healthy Glow Spf35 Pa++ 35ml</h3>
+                <div class="product-price">
+                    <span class="current-price">799.000đ</span>
+                </div>
+            </div>
+            <!-- Thêm các sản phẩm khác ở đây -->
+        </div>
+        
+        <div class="view-all">
+            <a href="#" class="view-all-btn">Xem tất cả sản phẩm mới</a>
+        </div>
+    </div>
+</section>
+
+<!-- Section Thương hiệu nổi bật -->
+<section class="simple-brands ">
+    <div class="container">
+        <h2 class="section-title">THƯƠNG HIỆU NỔI BẬT</h2>
+        
+        <div class="brands-grid">
+            <img src="https://pos.nvncdn.com/fa43c4-151618/brand/20240124_oyRVGBup.png" alt="rom&nd" class="brand-logo">
+            <img src="https://perfectdiary.com.vn/wp-content/uploads/2023/04/Perfect-Diary-Avatar.jpg" alt="PERFECT DIARY" class="brand-logo">
+            <img src="https://images.soco.id/23ea122f-eb1b-4cd8-94a3-f9c1a2dba3fa-.jpg" alt="LEMONADE" class="brand-logo">
+            <img src="https://logolook.net/wp-content/uploads/2023/10/Maybelline-Logo.png" alt="MAYBELLINE" class="brand-logo">
+            <img src="https://upload.lixibox.com/system/brands/brand_images/000/000/689/original/silkygirl_logo.jpg" alt="SILKYGIRL" class="brand-logo">
+            <img src="data:image/png;base64,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" alt="SILKYGIRL" class="brand-logo">
+        </div>
+    </div>
+</section>
+
+
+<!-- Section Blog -->
+<section class="beauty-blog">
+    <div class="container">
+        <h2 class="section-title">BLOG LÀM ĐẸP</h2>
+        
+        <!-- Bài viết nổi bật -->
+        <div class="featured-post">
+            <h3 class="post-title">Điểm mặt TOP 15 Beauty Blogger nổi tiếng tại Việt Nam (2024)</h3>
+            <p class="post-excerpt">
+                15 KOLs dưới đây là những chuyên gia chăm sóc da, nghệ sĩ trang điểm, doanh nhân đam mê làm đẹp và biên tập viên giàu kinh nghiệm, những người đã công khai chia sẻ bí quyết làm đẹp trong và ngoài nước sẽ giúp bạn thực hiện điều đó.
+            </p>
+            <div class="read-more">
+                <a href="#" class="read-more-btn">XEM THÊM</a>
+            </div>
+        </div>
+        
+        <!-- Danh sách bài viết khác -->
+        <div class="blog-grid">
+            <!-- Bài viết 1 -->
+            <div class="blog-card">
+                <div class="post-tag">REVIEW</div>
+                <h4 class="post-title-sm">10 Thương hiệu mỹ phẩm Việt Nam được tin dùng nhất hiện nay</h4>
+                <p class="post-excerpt-sm">
+                    Những trang web review mỹ phẩm nổi tiếng với đánh giá khách quan từ người dùng thực tế. Hãy cùng DEWORA khám phá ngay trong bài viết dưới đây nhé...
+                </p>
+                <div class="read-more">
+                    <a href="#" class="read-more-link">XEM THÊM</a>
+                </div>
+            </div>
+            
+            <!-- Bài viết 2 -->
+            <div class="blog-card">
+                <div class="post-tag">REVIEW</div>
+                <h4 class="post-title-sm">8 Trang Web Review Mỹ Phẩm Chân Thật, Đình Đám Nhất (2024)</h4>
+                <p class="post-excerpt-sm">
+                    Những trang web review mỹ phẩm nổi tiếng với đánh giá khách quan từ người dùng thực tế. Hãy cùng DEWORA khám phá ngay trong bài viết dưới đây nhé...
+                </p>
+                <div class="read-more">
+                    <a href="#" class="read-more-link">XEM THÊM</a>
+                </div>
+            </div>
+                        <!-- Bài viết 2 -->
+            <div class="blog-card">
+                <div class="post-tag">REVIEW</div>
+                <h4 class="post-title-sm">8 Trang Web Review Mỹ Phẩm Chân Thật, Đình Đám Nhất (2024)</h4>
+                <p class="post-excerpt-sm">
+                    Những trang web review mỹ phẩm nổi tiếng với đánh giá khách quan từ người dùng thực tế. Hãy cùng DEWORA khám phá ngay trong bài viết dưới đây nhé...
+                </p>
+                <div class="read-more">
+                    <a href="#" class="read-more-link">XEM THÊM</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="view-all">
+        <a href="#" class="view-all-btn">Xem tất cả bài viết</a>
+    </div>
+</section>
+    <script src="script.js"></script>
+    <!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Phần thông tin công ty -->
+            <div class="footer-brand">
+                <img src="public/images/Gloréa (14).png" alt="DEWORA Logo" class="footer-logo-img">
+                <ul class="footer-contact">
+                    <li>
+                        <img src="public/images/icon-location.png" alt="Địa chỉ" class="contact-icon">
+                        Khu phố 6, Phường Linh Trung, TP. Thủ Đức, TP HCM
+                    </li>
+                    <li>
+                        <img src="public/images/icon-phone.png" alt="Hotline" class="contact-icon">
+                        Hotline: 19001111
+                    </li>
+                    <li>
+                        <img src="public/images/icon-email.png" alt="Email" class="contact-icon">
+                        contact@dewora.vn
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Phần menu -->
+            <div class="footer-menus">
+                <!-- Menu Về Dewora -->
+                <div class="footer-menu">
+                    <h3 class="menu-title">VỀ DEWORA</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng & Việc làm</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Menu Chính sách -->
+                <div class="footer-menu">
+                    <h3 class="menu-title">CHÍNH SÁCH KHÁCH HÀNG</h3>
+                    <ul>
+                        <li><a href="#">Chính sách kiểm hàng & bảo hành</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Chính sách Membership</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="footer-copyright">
+            <p>Copyright © 2025 by Dewora</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

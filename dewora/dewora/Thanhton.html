@@ -1,0 +1,412 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>DEWORA - Thanh toán</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#000000" />
+<meta name="description" content="Web site created using create-react-app" />
+<img
+    alt="logo"
+    src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+    style="width: 0px; height: 0px; display: none"
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+<link rel="stylesheet" type="text/css" href="./css/index.css" />
+<link rel="stylesheet" type="text/css" href="./css/styles.css" />
+<link rel="stylesheet" type="text/css" href="./css/components.css" />
+<link rel="stylesheet" type="text/css" href="./css/Thanhton.css" />
+<link rel="stylesheet" type="text/css" href="./css/TRANGCCH.css" />
+<script>
+    /**
+    * Handles the value change functionality in a quantity input
+    */
+    function handleQuantityInput(/** @type {HTMLElement} */ target) {
+        const fieldElement = /** @type {HTMLElement} */ target.querySelector('[quantity-for="'+target.id+'"]');
+        const stepUpButton = /** @type {HTMLElement} */ target.querySelector('[quantity-increase]');
+        const stepDownButton = /** @type {HTMLElement} */ target.querySelector('[quantity-decrease]');
+
+        const fieldElementIsInput = fieldElement instanceof HTMLInputElement;
+        const fieldElementIsNumberInput = fieldElementIsInput && fieldElement.type === "number";
+
+    function setNumberValue(/** @type {number} */ n = 0) {
+        if (fieldElementIsNumberInput) return;
+        if (fieldElementIsInput) {
+        fieldElement.value = n;
+        } else if (fieldElement) {
+        fieldElement.innerHTML = n;
+        }
+    }
+
+    const input =
+        fieldElement instanceof HTMLInputElement && fieldElement.type === "number"
+        ? fieldElement
+        : (() => {
+        const element = document.createElement("input");
+        element.type = "number";
+        element.min = 0;
+        element.step = 1;
+        element.value = 1;
+        element.hidden = true;
+        return element;
+        })();
+
+    setNumberValue(1);
+    stepUpButton?.addEventListener("click", (/** @type {MouseEvent} */ event) => {
+        input.stepUp();
+        setNumberValue(input.valueAsNumber);
+        });
+        stepDownButton?.addEventListener("click", (/** @type {MouseEvent} */ event) => {
+        input.stepDown();
+        setNumberValue(input.valueAsNumber);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const elements = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll("[quantity-input]"));
+        for (const element of elements) handleQuantityInput(element);
+    });
+
+</script>
+
+
+
+</head>
+
+<body>
+    <script>
+        // API endpoint
+        const API_URL = "https://provinces.open-api.vn/api/";
+
+        // Load tỉnh/thành phố khi trang được tải
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProvinces();
+            
+            // Thêm sự kiện cho nút đặt hàng
+            document.querySelector('.t-h-ng.ui.button').addEventListener('click', function() {
+                const address = getSelectedAddress();
+                console.log('Địa chỉ giao hàng:', address.fullAddress);
+                // Gửi dữ liệu đến server ở đây
+            });
+        });
+
+        // Hàm load tỉnh/thành phố
+        function loadProvinces() {
+            fetch(API_URL + "?depth=1")
+                .then(response => response.json())
+                .then(data => {
+                    const provinceSelect = document.querySelector('select[name="Field"]');
+                    provinceSelect.innerHTML = '<option value="">Tỉnh/Thành phố</option>';
+                    
+                    data.forEach(province => {
+                        const option = document.createElement('option');
+                        option.value = province.code;
+                        option.textContent = province.name;
+                        provinceSelect.appendChild(option);
+                    });
+                    
+                    // Thêm sự kiện khi chọn tỉnh/thành
+                    provinceSelect.addEventListener('change', function() {
+                        loadDistricts(this.value);
+                    });
+                })
+                .catch(error => console.error('Error loading provinces:', error));
+        }
+
+        // Hàm load quận/huyện
+        function loadDistricts(provinceCode) {
+            const districtSelect = document.querySelector('.group-627 select:first-child');
+            const wardSelect = document.querySelector('.group-627 select:last-child');
+            
+            // Reset quận/huyện và xã/phường
+            districtSelect.innerHTML = '<option value="">Quận/Huyện</option>';
+            wardSelect.innerHTML = '<option value="">Xã/Phường</option>';
+            districtSelect.disabled = !provinceCode;
+            wardSelect.disabled = true;
+            
+            if (!provinceCode) return;
+            
+            fetch(API_URL + "p/" + provinceCode + "?depth=2")
+                .then(response => response.json())
+                .then(province => {
+                    province.districts.forEach(district => {
+                        const option = document.createElement('option');
+                        option.value = district.code;
+                        option.textContent = district.name;
+                        districtSelect.appendChild(option);
+                    });
+                    districtSelect.disabled = false;
+                    
+                    // Thêm sự kiện khi chọn quận/huyện
+                    districtSelect.addEventListener('change', function() {
+                        loadWards(this.value);
+                    });
+                })
+                .catch(error => console.error('Error loading districts:', error));
+        }
+
+        // Hàm load xã/phường
+        function loadWards(districtCode) {
+            const wardSelect = document.querySelector('.group-627 select:last-child');
+            
+            wardSelect.innerHTML = '<option value="">Xã/Phường</option>';
+            wardSelect.disabled = !districtCode;
+            
+            if (!districtCode) return;
+            
+            fetch(API_URL + "d/" + districtCode + "?depth=2")
+                .then(response => response.json())
+                .then(district => {
+                    district.wards.forEach(ward => {
+                        const option = document.createElement('option');
+                        option.value = ward.code;
+                        option.textContent = ward.name;
+                        wardSelect.appendChild(option);
+                    });
+                    wardSelect.disabled = false;
+                })
+                .catch(error => console.error('Error loading wards:', error));
+        }
+
+        // Hàm lấy thông tin địa chỉ đã chọn
+        function getSelectedAddress() {
+            const provinceSelect = document.querySelector('select[name="Field"]');
+            const districtSelect = document.querySelector('.group-627 select:first-child');
+            const wardSelect = document.querySelector('.group-627 select:last-child');
+            const streetInput = document.querySelector('input[name="field"][placeholder="Tòa nhà, số nhà, tên đường"]');
+            
+            return {
+                province: provinceSelect.options[provinceSelect.selectedIndex].text,
+                district: districtSelect.options[districtSelect.selectedIndex].text,
+                ward: wardSelect.options[wardSelect.selectedIndex].text,
+                street: streetInput.value,
+                fullAddress: `${streetInput.value}, ${wardSelect.options[wardSelect.selectedIndex].text}, ${districtSelect.options[districtSelect.selectedIndex].text}, ${provinceSelect.options[provinceSelect.selectedIndex].text}`
+            };
+        }
+    </script>
+
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="public/images/logo-dewora.png" alt="DEWORA Logo">
+            </div>
+            <!-- Thanh tìm kiếm -->
+            <div class="search-container">
+                <img src="public/images/search-icon.png" alt="Search" class="search-icon">
+                <input type="text" class="search-box" placeholder="Bạn cần tìm món gì nè">
+            </div>
+            
+            <div class="user-actions">
+                <!-- Địa điểm (chỉ icon) -->
+                <div class="location-icon">
+                    <img src="public/images/location-pin.png" alt="Địa điểm" class="action-icon">
+                </div>
+                
+                <!-- Ngôn ngữ (có dropdown) -->
+                <div class="language-selector">
+                    <button class="language-current"><span class="language-text">VN</span>
+                        <img src="public/images/chevron-down.png" alt="Tiếng Việt" class="language-flag">
+                        
+                        <i class="dropdown-arrow"></i>
+                    </button>
+                    
+                    <div class="language-dropdown">
+                        <div class="language-option" data-lang="vn">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png" alt="Tiếng Việt" class="language-flag">
+                            <span>Tiếng Việt</span>
+                        </div>
+                        <div class="language-option" data-lang="en">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvRPSTcvCAL7W9UrQKApye4pp7NiCwhrW15g&sg" alt="English" class="language-flag">
+                            <span>English</span>
+                        </div>
+                        <!-- <div class="language-option" data-lang="kr">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/640px-Flag_of_South_Korea.svg.png" alt="한국어" class="language-flag">
+                            <span>한국어</span>
+                        </div> -->
+                    </div>
+                </div>
+                
+                <!-- Tài khoản & Giỏ hàng -->
+                <img src="public/images/user-icon.png" alt="Tài khoản" class="action-icon">
+                <img src="public/images/cart-icon.png" alt="Giỏ hàng" class="action-icon">
+            </div>
+        </div>
+    </header>
+
+<!-- Phần thanh toán-->
+    <div class="thanh-to-n">
+<!-- nội dung thanh toán -->
+        <div class="group-669">
+            <div class="group-667">
+                <div class="th-ng-tin-ng-i">
+                    <h1 class="th-ng-tin-ng-i-1 ui heading size-heading6xl">Thông tin người mua hàng</h1>
+                </div>
+                <div class="group-637">
+                    <div class="group-834">
+                        <div class="group-871">
+                            <label class="field-4 ui input white_a700_01 size-xs fill round">
+                                <input name="field" placeholder="Tên" type="text"/>
+                            </label>
+                            <label class="field-4 ui input white_a700_01 size-xs fill round">
+                                <input name="field" placeholder="Họ" type="text"/>
+                            </label>
+                        </div>
+                        <div class="group-871">
+                            <label class="field-4 ui input white_a700_01 size-xs fill round">
+                                <input name="field" placeholder="SĐT" type="text"/>
+                            </label>
+                            <label class="field-4 ui input white_a700_01 size-xs fill round">
+                                <input name="field" placeholder="Email" type="email"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="th-ng-tin-nh-n-h-ng ui heading size-heading6xl">Thông tin nhận hàng</h2>
+                <div class="group-644">
+                    <select class="field ui selectbox white_a700_01 size-xs fill round" name="Field" id="province-select">
+                        <option value="">Tỉnh/Thành phố</option>
+                    </select>
+                
+                    <div class="group-627">
+                        <select class="field-2 ui selectbox white_a700_01 size-xs fill round" name="district" id="district-select">
+                            <option value="">Quận/Huyện</option>
+                        </select>
+                        <select class="field-2 ui selectbox white_a700_01 size-xs fill round" name="ward" id="ward-select">
+                            <option value="">Xã/Phường</option>
+                        </select>
+                    </div>
+                    <label class="field-1 ui input white_a700_01 size-xs fill round">
+                        <input name="field" placeholder="Tòa nhà, số nhà, tên đường" type="text" />
+                    </label>
+                </div>
+                <div class="group-648">
+                    <h3 class="ph-ng-th-c-thanh ui heading size-heading6xl">Phương thức thanh toán</h3>
+                    <div class="group570">
+                        <label class="group570-1 ui radio">
+                            <input type="radio" class="ui radio size-sm primary" value="COD" name="group570" />
+                            <span> Thanh toán khi nhận hàng (COD)</span>
+                        </label>
+                        <label class="group570-2 ui radio">
+                            <input type="radio" class="ui radio size-sm primary" value="ChuyenKhoan" name="group570" />
+                            <span> Chuyển khoản ngân hàng</span>
+                        </label>
+                        <label class="group570-3 ui radio">
+                        <input type="radio" class="ui radio size-sm primary" value="MOMO" name="group570" />
+                            <span> Ví MOMO</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        <div class="n-h-ng">
+            <div class="group-882">
+                <div class="n-h-ng-1">
+                    <h2 class="th-ng-thn-ng-i-1 ui heading size-heading6xl">Đơn hàng</h2>
+                </div>
+                <div class="group-874">
+                    <div class="group-631">
+                        <img src="./public/images/clio.jpg" alt="Clio" class="clio" />
+                        <div class="group-615">
+                            <div class="group-883">
+                                <p class="phi-n-b-n-m-i ui text size-textmd">
+                                (Phiên bán mới) Phần Nước Clio Kiềm Dầu, Lâu Trôi Kill Cover Skin Fixer Cushion 15g (Tặng kèm lõi)</p>
+                                <div class="quantity-control">
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </div>
+                            </div>
+                            <h4 class="class-679-000-3 ui heading size-headingmd">679.000đ</h4>
+                        </div>
+                    </div>
+                    <button class="vector-6 ui button size-xs square">
+                        ⓧ
+                    </button>
+                </div>
+                
+
+                <div class="line-6-1"></div>
+                    <div class="group-599">
+                        <p class="t-ng-gi-tr-n ui text size-textxl">Tổng giá trị đơn hàng</p>
+                        <h5 class="class-679-000-2 ui heading size-headingmd">679.000đ</h5>
+                    </div>
+                    <div class="group-603">
+                        <p class="t-ng-gi-tr-n ui text size-textxl">Giảm giá</p>
+                        <h6 class="class-679-000-2 ui heading size-headingmd">100.000đ</h6>
+                    </div>
+                    <div class="group-603">
+                        <p class="t-ng-gi-tr-n ui text size-textxl">Phí vận chuyển</p>
+                        <p class="class-679-000-2 ui heading size-headingmd">0đ</p>
+                    </div>
+                    <div class="line-8"></div>
+                    <div class="group-611">
+                        <p class="t-ng-gi-tr-n ui text size-textxl">Thành tiền</p>
+                        <p class="class-679-000-2 ui heading size-headingmd">579.000đ</p>
+                    </div>
+                    <button class="t-h-ng ui button red_300_01 size-10xl fill">ĐẶT HÀNG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Phần thông tin công ty -->
+            <div class="footer-brand">
+                <img src="public/images/Gloréa (14).png" alt="DEWORA Logo" class="footer-logo-img">
+                <ul class="footer-contact">
+                    <li>
+                        <img src="public/images/icon-location.png" alt="Địa chỉ" class="contact-icon">
+                        Khu phố 6, Phường Linh Trung, TP. Thủ Đức, TP HCM
+                    </li>
+                    <li>
+                        <img src="public/images/icon-phone.png" alt="Hotline" class="contact-icon">
+                        Hotline: 19001111
+                    </li>
+                    <li>
+                        <img src="public/images/icon-email.png" alt="Email" class="contact-icon">
+                        contact@dewora.vn
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Phần menu -->
+            <div class="footer-menus">
+                <!-- Menu Về Dewora -->
+                <div class="footer-menu">
+                    <h3 class="menu-title">VỀ DEWORA</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng & Việc làm</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Menu Chính sách -->
+                <div class="footer-menu">
+                    <h3 class="menu-title">CHÍNH SÁCH KHÁCH HÀNG</h3>
+                    <ul>
+                        <li><a href="#">Chính sách kiểm hàng & bảo hành</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Chính sách Membership</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="footer-copyright">
+            <p>Copyright © 2025 by Dewora</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+</html> 

@@ -1,0 +1,11 @@
+{
+    "name": "admin/php",
+    "autoload": {
+        "psr-4": {
+            "Admin\\Php\\": "src/"
+        }
+    },
+    "require": {
+        "google/apiclient": "2.0"
+    }
+}

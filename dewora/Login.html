@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Đăng nhập - DEWORA</title>
+      <link rel="apple-touch-icon" sizes="180x180" href="./public/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./public/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./public/favicon/favicon-16x16.png">
+<link rel="manifest" href="./public/favicon/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Trang đăng nhập" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/components.css" />
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/TRANGCCH.css" />
+  </head>
+  <body>
+    <div class="log-in">
+      <div class="group-572">
+        <div class="group-955">
+          <div class="group-556">
+            <div class="frame-57">
+              <div class="group-5">
+                <div class="frame-51">
+                  <p class="ng-nh-p ui text size-text7xl">Đăng nhập</p>
+                </div>
+         <form id="loginForm">
+    <div class="group-553">
+        <div class="frame-55">
+            <p class="name ui text size-text4xl">Email</p>
+        </div>
+        <input type="email" class="login-input" name="email" required />
+
+        <div class="frame-55-1" style="margin-top: 20px;"> <p class="name ui text size-text4xl">Mật khẩu</p>
+        </div>
+        <input type="password" class="login-input" name="password" required />
+
+        <a class="forgot1" href="./forgotpassword.html" style="display: block; text-align: right; margin-top: 5px;">
+            <p class="qu-n-m-t-kh-u ui text size-textmd">
+                Quên mật khẩu?
+            </p>
+        </a>
+
+        <div id="error-message" style="color: red; margin-top: 10px;"></div>
+
+        <div class="group-552">
+            <div class="group-3">
+                <input type="checkbox" id="rememberMe" class="login-checkbox" name="rememberMe" />
+                <label for="rememberMe" class="ui text size-textmd">Ghi nhớ đăng nhập</label>
+            </div>
+            <button type="submit" class="frame-56-1 ui button red_50 size-lg fill">
+                ĐĂNG NHẬP
+            </button>
+        </div>
+    </div>
+</form>
+<button style="background-color: white; max-width: 50%;margin-left: 140px;" id="googleLoginBtn" class="frame-60 ui button blue_gray_100 size-md outline" style="width: 100%; margin-top: 15px; display: flex; justify-content: center; align-items: center; cursor: pointer;">
+    <img src="public/images/img_icons8google_1.svg" alt="Icons8-google 1" class="icons8-google-1" style="margin-right: 8px;" />
+    <span>Đăng nhập với Google</span>
+</button>
+                </div>
+              </div>
+            </div>
+            <div class="vector-3"></div>
+          </div>
+          <div class="group-555">
+            <p class="t-i-kho-n-m-i ui text size-text7xl">Tài khoản mới</p>
+            <a href="signup.html" class="signup-link">
+              <div class="frame-56">
+                <div class="frame-53">
+                  <h1 class="login ui heading size-headingxl">TẠO TÀI KHOẢN</h1>
+                </div>
+              </div>
+            </a>
+            <img
+              src="public/images/img_glor_a_1.png"
+              alt="Glor A 1"
+              class="glor-a-1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
+    // --- Xử lý đăng nhập bằng Email/Mật khẩu ---
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        const errorMessageDiv = document.getElementById('error-message');
+        errorMessageDiv.textContent = '';
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || 'Email hoặc mật khẩu không chính xác.');
+            }
+
+localStorage.setItem('user_auth_token', result.access_token);
+            localStorage.setItem('user', JSON.stringify(result.user));
+
+showCustomAlert('success', 'Thành công!', 'Đăng nhập thành công!', 'var(--pink_400)'); // Tự đóng sau 3 giây            // CHÚ Ý: Đảm bảo tên file trang chủ là TRANGCH.html
+            // Nếu là TRANGCHU.html, hãy sửa lại ở đây.
+ setTimeout(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user && user.is_admin) {
+        window.location.href = 'admin/dashboard.html'; // Redirect admins
+    } else {
+        window.location.href = 'TRANGCH.html'; // Redirect regular users
+    }
+}, 1500);
+        } catch (error) {
+            errorMessageDiv.textContent = error.message;
+            console.error('Login Error:', error);
+        }
+    });
+
+    // --- Xử lý đăng nhập bằng Google ---
+   document.addEventListener('DOMContentLoaded', () => {
+    const googleSignInButton = document.getElementById('googleLoginBtn'); 
+
+        if (googleSignInButton) {
+            googleSignInButton.addEventListener('click', () => {
+                // Trực tiếp chuyển hướng trình duyệt đến API endpoint Google redirect của bạn
+                        console.log("Nút Google được click! Chuyển hướng đến backend.");
+
+                window.location.href = 'http://127.0.0.1:8000/api/auth/google/redirect';
+            });
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script>
+      // Hàm hiển thị thông báo tùy chỉnh bằng SweetAlert2
+      function showCustomAlert(
+        icon,
+        title,
+        text,
+        confirmButtonColor = "var(--pink_400)"
+      ) {
+        Swal.fire({
+          icon: icon, // 'success', 'error', 'warning', 'info', 'question'
+          title: title,
+          text: text,
+          confirmButtonColor: confirmButtonColor,
+          customClass: {
+            confirmButton: "swal2-confirm-button", // Thêm class để tùy chỉnh thêm nếu cần
+          },
+          // Bạn có thể thêm các tùy chỉnh khác ở đây, ví dụ:
+          // background: '#fefefe',
+          // color: '#333',
+          // showCloseButton: true,
+          // timer: 3000, // Tự động đóng sau 3 giây
+          // timerProgressBar: true,
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+/* Trong css/styles.css hoặc css/reset-password.css */
+:root {
+  --gray_50_01: #f5f5f5; /* Màu xám rất nhạt */
+  --primary-color: #4285f4; /* Màu xanh ví dụ cho nút */
+  --text-color-dark: #333;
+  --text-color-light: #666;
+  --border-color: #ccc;
+  --input-bg: #fff;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* css/reset-password.css */
+
+/* Đảm bảo toàn bộ trang sử dụng font Lexend Deca nếu bạn muốn */
+body {
+  font-family: "Lexend Deca", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Dùng flexbox để căn giữa nội dung */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  min-height: 100vh; /* Chiều cao tối thiểu bằng chiều cao viewport */
+  background-color: var(--gray_50_01); /* Màu nền bạn yêu cầu */
+  color: var(--text-color-dark);
+}
+
+.container {
+  background-color: #ffffff; /* Nền trắng cho khung chứa form */
+  border-radius: 8px; /* Bo tròn góc */
+  box-shadow: var(--shadow-light); /* Đổ bóng nhẹ */
+  padding: 40px; /* Tăng khoảng đệm bên trong */
+  width: 100%; /* Chiếm toàn bộ chiều rộng có thể */
+  max-width: 450px; /* Giới hạn chiều rộng tối đa */
+  box-sizing: border-box; /* Bao gồm padding và border trong chiều rộng */
+  text-align: center; /* Căn giữa tiêu đề và nút */
+}
+
+h1.ng-nh-p {
+  /* Lớp của tiêu đề "Tạo mật khẩu mới" */
+  color: var(--primary-color); /* Hoặc màu bạn muốn cho tiêu đề */
+  margin-bottom: 30px;
+  font-size: 2.2rem; /* Điều chỉnh kích thước nếu cần */
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Sắp xếp các phần tử theo cột */
+  gap: 20px; /* Khoảng cách giữa các form-field */
+}
+
+.form-field {
+  text-align: left; /* Căn chỉnh label về bên trái */
+}
+
+.form-field label {
+  display: block; /* Đảm bảo label chiếm một dòng riêng */
+  margin-bottom: 8px;
+  font-size: 1rem; /* Kích thước chữ cho label */
+  font-weight: 500;
+  color: var(--text-color-light);
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Rất quan trọng để input không bị tràn ra ngoài */
+  background-color: var(--input-bg);
+}
+
+.login-input:focus {
+  border-color: var(--primary-color); /* Màu viền khi focus */
+  outline: none; /* Bỏ viền outline mặc định */
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2); /* Đổ bóng nhẹ khi focus */
+}
+
+#errorMessage {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -10px; /* Giảm khoảng cách với input phía trên */
+  margin-bottom: 15px;
+  text-align: left; /* Căn trái thông báo lỗi */
+}
+
+.login-button {
+  /* Sử dụng lại class login-button nếu bạn muốn nó giống nút đăng nhập */
+  background-color: var(--primary-color); /* Màu xanh */
+  color: #ffffff; /* Chữ trắng */
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  margin-top: 10px; /* Khoảng cách với thông báo lỗi/input cuối cùng */
+}
+
+.login-button:hover {
+  background-color: #357ae8; /* Màu xanh đậm hơn khi hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}

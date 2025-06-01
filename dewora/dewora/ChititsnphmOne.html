@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>39nguyn nh&#39;s Application4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <img
+      alt="logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/components.css" />
+    <link rel="stylesheet" type="text/css" href="./css/ChititspnhmOne.css" />
+    <script>
+      /**
+       * Handles the value change functionality in a quantity input
+       */
+      function handleQuantityInput(/** @type {HTMLElement} */ target) {
+        const fieldElement = /** @type {HTMLElement} */ target.querySelector(
+          `[quantity-for="${target.id}"]`
+        );
+        const stepUpButton =
+          /** @type {HTMLElement} */ target.querySelector(
+            `[quantity-increase]`
+          );
+        const stepDownButton =
+          /** @type {HTMLElement} */ target.querySelector(
+            `[quantity-decrease]`
+          );
+
+        const fieldElementIsInput = fieldElement instanceof HTMLInputElement;
+        const fieldElementIsNumberInput =
+          fieldElementIsInput && fieldElement.type === "number";
+      }
+
+      function setNumberValue(
+        /** @type {HTMLInputElement | HTMLElement} */ fieldElement,
+        /** @type {number} */ n = 0
+      ) {
+        if (fieldElementIsNumberInput) {
+          if (fieldElementIsInput) {
+            fieldElement.value = n;
+          } else if (fieldElement) {
+            fieldElement.innerHTML = n;
+          }
+        }
+      }
+
+      const input =
+        fieldElement instanceof HTMLInputElement &&
+        fieldElement.type === "number"
+          ? fieldElement
+          : (() => {
+              const element = document.createElement("input");
+              element.type = "number";
+              element.min = 0;
+              element.step = 1;
+              element.value = 1;
+              element.hidden = true;
+              return element;
+            })();
+
+      setNumberValue(1);
+      stepUpButton?.addEventListener(
+        "click",
+        (/** @type {MouseEvent} */ event) => {
+          input.stepUp();
+          setNumberValue(input.valueAsNumber);
+        }
+      );
+      stepDownButton?.addEventListener(
+        "click",
+        (/** @type {MouseEvent} */ event) => {
+          input.stepDown();
+          setNumberValue(input.valueAsNumber);
+        }
+      );
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = /** @type {NodeListOf<HTMLElement>} */ (
+          document.querySelectorAll("[quantity-input]")
+        );
+        for (const element of elements) handleQuantityInput(element);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="group-850">
+      <div class="chi-ti-t-s-n-ph-m-1">
+        <div class="group-923">
+          <img
+            src="public/images/defaultNoData.png"
+            alt="Rectangle 32"
+            class="rectangle-32"
+          />
+        </div>
+        <div class="group-915">
+          <img
+            src="public/images/img_489822487_11720.png"
+            alt="489822487 11720"
+            class="class-489822487-11720-1"
+          />
+        </div>
+        <div class="group-840">
+          <img
+            src="public/images/defaultNoData.png"
+            alt="Rectangle 30"
+            class="rectangle-30-1"
+          />
+        </div>
+        <div class="group-597">
+          <img
+            src="public/images/img_489297384_11720.png"
+            alt="489297384 11720"
+            class="class-489297384-11720-1"
+          />
+          <p class="ch-t-son-tint-b-ng-i ui text size-text4xl">
+            Chất son tint bóng mang lại đôi môi căng mọng, đầy đặn và cực kì thu
+            hút. Son có khả năng bám màu tốt suốt nhiều giờ liền.
+          </p>
+        </div>
+        <div class="group-569">
+          <div class="group-922">
+            <img
+              src="public/images/img_490375049_11720.png"
+              alt="490375049 11720"
+              class="class-490375049-11720-1"
+            />
+          </div>
+          <div class="group-921">
+            <h1 class="class-200-000-1 ui heading size-heading4xl">200.000đ</h1>
+            <p class="m-u-s-c-1 ui text size-text4xl">Màu sắc:</p>
+            <div class="group-920">
+              <p class="ui text size-text4xl">#1 best beige mun</p>
+              <p class="ui text size-text4xl">#2 coral influencer</p>
+            </div>
+          </div>
+          <div class="group-60">
+            <div class="group-5-2">
+              <p class="ui text size-text4xl">#3 rose in mind</p>
+            </div>
+          </div>
+          <p class="class-4-cherry-so-what-1 ui text size-text4xl">
+            #4 cherry so what
+          </p>
+          <img
+            src="public/images/img_489820153_11720.png"
+            alt="489820153 11720"
+            class="class-489297384-11720-1"
+          />
+          <div class="group-635">
+            <p class="ui text size-text4xl">Số lượng:</p>
+            <div quantity-input id="359_103_978_626_78_30" class="group-554">
+              <div quantity-decrease class="group-803">
+                <p class="t-ng-gi-tr-n ui text size-text4xl">-</p>
+              </div>
+              <p
+                class="group-14 ui text size-text4xl"
+                quantity-for="359_103_978_626_78_30"
+              >
+                1
+              </p>
+              <div quantity-increase class="group-803">
+                <p class="t-ng-gi-tr-n ui text size-text4xl">+</p>
+              </div>
+            </div>
+          </div>
+          <p class="class-3-rose-in-mind-1 ui text size-text4xl">
+            #3 rose in mind
+          </p>
+          <div class="group-640">
+            <img
+              src="public/images/img_glor_a_5.png"
+              alt="Glor a 5"
+              class="glor-a-5-4"
+            />
+            <p class="ui text size-text4xl">Thêm vào giỏ</p>
+          </div>
+          <p class="mua-ngay ui text size-text4xl">Mua ngay</p>
+        </div>
+        <h2>
+          class-"son-peripera-ink-1 ui heading size-heading6xl">Son Peripera Ink
+          Mood Glowy Tint
+        </h2>
+        <img
+          src="public/images/img_arrow_up.svg"
+          alt="Arrow Up"
+          class="arrow-up-1"
+        />
+        <img
+          src="public/images/img_arrow_down.svg"
+          alt="Arrow Down"
+          class="arrow-down-1"
+        />
+      </div>
+      <footer class="Frame-51-1">
+        <div class="group-968">
+          <div class="group-883">
+            <div class="group-924">
+              <img
+                src="public/images/img_glor_a_1_1.png"
+                alt="Glor a 1 1"
+                class="glor-a-1-1-2"
+              />
+              <h6 class="th-m-v-o-danh-s-ch-1 ui heading size-heading3xl">
+                Thêm vào danh sách yêu thích
+              </h6>
+            </div>
+            <img
+              src="public/images/defaultNoData.png"
+              alt="Rectangle 71"
+              class="rectangle-71-1"
+            />
+            <img
+              src="public/images/img_star_1_22x24.svg"
+              alt="Star 1"
+              class="star-1-1"
+            />
+            <p class="khu-ph-6-ph-ng-1 ui text size-text2xl">
+              Khu phố 6, Phường Linh Trung, TP. Thủ Đức, TP. HCM
+            </p>
+            <div class="group-918">
+              <div class="group-822">
+                <div class="group-828">
+                  <h5 class="ui heading size-heading4xl">VỀ DEWORA</h5>
+                  <ul class="group-855">
+                    <li>
+                      <a href="#">
+                        <p class="ui text size-text2xl">Giới thiệu</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <p class="ui text size-text2xl">Blog</p>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="group-728">
+                <h5 class="ui heading size-heading4xl">
+                  CHÍNH SÁCH KHÁCH HÀNG
+                </h5>
+                <ul class="group-819">
+                  <li>
+                    <a href="#">
+                      <p class="ui text size-text2xl">
+                        Chính sách kiểm hàng & bảo hành
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <p class="ui text size-text2xl">Chính sách bảo mật</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <p class="ui text size-text2xl">Chính sách Membership</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p class="ui text size-text2xl">Copyrights © 2025 by Dewora</p>
+          <div class="group-919">
+            <div class="group-916">
+              <img
+                src="public/images/img_bxs_phone.svg"
+                alt="Bxs Phone"
+                class="bxs-phone-1"
+              />
+              <p class="hotline-19001111-1 ui text size-text2xl">
+                Hotline: 19001111
+              </p>
+            </div>
+            <div class="group-916">
+              <img
+                src="public/images/img_tabler_mail_filled.svg"
+                alt="Tabler Mail Filled"
+                class="bxs-phone-1"
+              />
+              <p class="hotline-19001111-1 ui text size-text2xl">
+                contact@dewora.vn
+              </p>
+            </div>
+          </div>
+          <img
+            src="public/images/img_ic_round_place.svg"
+            alt="Ic Round Place"
+            class="ic-round-place-1"
+          />
+        </div>
+      </footer>
+    </div>
+    <div class="glor-a-12-1-1"></div>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách sản phẩm - Dewora</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+    <nav class="main-nav">
+      <div class="container main-nav-container">
+        <ul>
+          <li><a href="./brands-overview.html">Thương hiệu nổi bật</a></li>
+          <li><a href="da.html?label=MỚI VỀ">Sản phẩm mới nhất</a></li>
+          <li><a href="da.html?label=BÁN CHẠY">Sản phẩm bán chạy</a></li>
+          <li><a href="da.html?group=mat">Sản phẩm về mắt</a></li>
+          <li><a href="da.html?group=moi">Sản phẩm về môi</a></li>
+          <li><a href="da.html?group=da">Sản phẩm về da</a></li>
+          <li><a href="da.html?group=khac">Sản phẩm khác</a></li>
+          <li><a href="./Blog.html">Blog làm đẹp</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container content-container">
+      <aside class="sidebar-filters">
+        <h2>Bộ lọc</h2>
+
+        <div class="filter-group">
+          <h3>Giá sản phẩm</h3>
+          <ul>
+            <li>
+              <input type="checkbox" id="price1" name="price" value="price1" />
+              <label for="price1">Dưới 300.000đ</label>
+            </li>
+            <li>
+              <input type="checkbox" id="price2" name="price" value="price2" />
+              <label for="price2">300.000đ - 500.000đ</label>
+            </li>
+            <li>
+              <input type="checkbox" id="price3" name="price" value="price3" />
+              <label for="price3">500.000đ - 800.000đ</label>
+            </li>
+            <li>
+              <input type="checkbox" id="price4" name="price" value="price4" />
+              <label for="price4">800.000đ - 1.500.000đ</label>
+            </li>
+            <li>
+              <input type="checkbox" id="price5" name="price" value="price5" />
+              <label for="price5">Trên 1.500.000đ</label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="filter-group">
+          <h3>Loại sản phẩm</h3>
+          <div class="search-filter">
+            <input type="text" placeholder="Tìm..." />
+          </div>
+          <ul id="type-filter-list"></ul>
+        </div>
+
+        <div class="filter-group">
+          <h3>Thương hiệu</h3>
+          <div class="search-filter">
+            <input type="text" placeholder="Tìm..." />
+          </div>
+          <ul id="brand-filter-list"></ul>
+        </div>
+      </aside>
+      <main class="product-listing">
+        <div class="listing-header">
+          <div class="result-count">8 Kết quả</div>
+          <div class="sort-options">
+            <span>Lọc theo:</span>
+            <select></select>
+          </div>
+        </div>
+        <div class="product-grid"></div>
+      </main>
+    </div>
+    <div class="pagination-container"></div>
+    <br />
+    <div id="footer-placeholder"></div>
+    <script src="./js/common.js"></script>
+    <script src="js/header-footer.js"></script>
+    <script src="./js/scriptda.js"></script>
+  </body>
+  <link rel="stylesheet" href="./css/stylesp.css" />
+</html>

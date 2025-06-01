@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đang xử lý đăng nhập...</title>
+  </head>
+  <body>
+    <p>Đang xử lý đăng nhập, vui lòng đợi...</p>
+    <script>
+      window.onload = function () {
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get("token");
+        const name = params.get("name");
+        const email = params.get("email");
+        console.log("Token nhận được:", token);
+        console.log("Name nhận được:", name);
+        console.log("Email nhận được:", email);
+        if (token) {
+          // Lưu thông tin vào localStorage
+          localStorage.setItem("user_auth_token", token);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ name: name, email: email })
+          );
+
+          // Chuyển hướng đến trang chủ
+          window.location.href = "http://127.0.0.1:5500/TRANGCH.html";
+        } else {
+          // Nếu không có token, chuyển về trang đăng nhập
+          alert("Xác thực Google không thành công.");
+          window.location.href = "Login.html";
+        }
+      };
+    </script>
+  </body>
+</html>

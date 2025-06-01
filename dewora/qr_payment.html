@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <title>Thanh toán QR - DEWORA</title>
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/thanhtoan.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Add specific styles for this page if needed */
+      .qr-payment-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-xs);
+        text-align: center;
+      }
+      .qr-payment-container h1 {
+        color: var(--pink_400);
+        margin-bottom: 25px;
+      }
+      .qr-section,
+      .manual-transfer-section {
+        background-color: var(--gray);
+        padding: 25px;
+        border-radius: var(--radius-md);
+        margin-bottom: 25px;
+        border: 1px solid var(--border-color);
+      }
+      .qr-section h2,
+      .manual-transfer-section h2 {
+        color: var(--pink_400);
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+      }
+      .qr-code-image {
+        max-width: 200px;
+        height: auto;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        margin: 0 auto 20px auto;
+        display: block;
+      }
+      .payment-info p {
+        margin-bottom: 10px;
+        font-size: 1.1em;
+        color: var(--text-dark);
+      }
+      .payment-info strong {
+        color: var(--red_900);
+      }
+      .instruction-text {
+        font-size: 0.95em;
+        color: var(--text-light);
+        margin-top: 20px;
+      }
+      .back-to-order-btn {
+        background-color: var(--pink_400);
+        color: var(--white);
+        padding: 12px 25px;
+        border: none;
+        border-radius: var(--radius-sm);
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+        text-decoration: none; /* For anchor tag */
+        display: inline-block;
+      }
+      .back-to-order-btn:hover {
+        background-color: var(--red_900);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="qr-payment-container">
+      <h1>Thanh Toán Bằng VietQR / Chuyển Khoản Ngân Hàng</h1>
+
+      <div class="qr-section">
+        <h2>Quét Mã QR Để Thanh Toán</h2>
+        <img src="" alt="VietQR Code" class="qr-code-image" id="qrCodeImage" />
+        <div class="payment-info">
+          <p>
+            Tổng số tiền:
+            <strong id="qrTotalAmount">0đ</strong>
+          </p>
+          <p>
+            Nội dung chuyển khoản:
+            <strong id="qrOrderCode"></strong>
+          </p>
+        </div>
+        <p class="instruction-text">
+          Vui lòng quét mã QR trên bằng ứng dụng ngân hàng của bạn. Đảm bảo nội
+          dung chuyển khoản chính xác để đơn hàng được xử lý nhanh chóng.
+        </p>
+      </div>
+
+      <div class="manual-transfer-section">
+        <h2>Hoặc Chuyển Khoản Thủ Công</h2>
+        <div class="payment-info">
+          <p>Ngân hàng: <strong id="manualBankName"></strong></p>
+          <p>Số tài khoản: <strong id="manualBankAccount"></strong></p>
+          <p>Tên tài khoản: <strong id="manualAccountHolder"></strong></p>
+          <p>Số tiền: <strong id="manualTotalAmount">0đ</strong></p>
+          <p>
+            Nội dung chuyển khoản:
+            <strong id="manualOrderCode"></strong>
+          </p>
+        </div>
+        <p class="instruction-text">
+          Nếu bạn không thể quét mã QR, vui lòng chuyển khoản thủ công vào tài
+          khoản trên với số tiền và nội dung chính xác.
+        </p>
+      </div>
+
+      <a href="order-status.html" class="back-to-order-btn"
+        >Tôi đã thanh toán & Xem trạng thái đơn hàng</a
+      >
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/header-footer.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const qrPaymentDetails = JSON.parse(
+          localStorage.getItem("qr_payment_details")
+        );
+        const orderCode = localStorage.getItem("dewora_order_code"); // Get order code for redirection
+
+        if (qrPaymentDetails) {
+          const formatPrice = (price) =>
+            new Intl.NumberFormat("vi-VN", {
+              style: "currency",
+              currency: "VND",
+            }).format(price);
+
+          document.getElementById("qrCodeImage").src =
+            qrPaymentDetails.qr_code_image;
+          document.getElementById("qrTotalAmount").textContent = formatPrice(
+            qrPaymentDetails.total_amount
+          );
+          document.getElementById("qrOrderCode").textContent =
+            qrPaymentDetails.order_code;
+
+          document.getElementById("manualBankName").textContent =
+            qrPaymentDetails.bank_name;
+          document.getElementById("manualBankAccount").textContent =
+            qrPaymentDetails.bank_account_number;
+          document.getElementById("manualAccountHolder").textContent =
+            qrPaymentDetails.account_holder;
+          document.getElementById("manualTotalAmount").textContent =
+            formatPrice(qrPaymentDetails.total_amount);
+          document.getElementById("manualOrderCode").textContent =
+            qrPaymentDetails.order_code;
+        } else {
+          // If no details found, redirect back to cart or show an error
+          alert(
+            "Không tìm thấy thông tin thanh toán. Vui lòng thử lại quá trình đặt hàng."
+          );
+          window.location.href = "cart.html";
+        }
+
+        // Add event listener for the "Tôi đã thanh toán & Xem trạng thái đơn hàng" button
+        document
+          .querySelector(".back-to-order-btn")
+          .addEventListener("click", (e) => {
+            // No need to prevent default if it's an anchor tag leading to order-status.html
+            // If it was a button and you wanted to confirm, you could add Swal.fire here.
+            localStorage.removeItem("qr_payment_details"); // Clean up localStorage after user acknowledges
+          });
+      });
+    </script>
+  </body>
+</html>

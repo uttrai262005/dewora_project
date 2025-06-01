@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <title>Admin Dashboard - Bảng Điều Khiển</title>
+    <link rel="stylesheet" href="css/admin_styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Bảng Điều Khiển Admin</h1>
+      <nav>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="manage_products.html">Sản Phẩm</a>
+        <a href="manage_users.html">Người Dùng</a>
+        <a href="manage_orders.html">Đơn Hàng</a>
+        <button id="adminLogoutBtn">Đăng Xuất</button>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Tổng Quan</h2>
+      <div id="dashboardStatsContainer" class="dashboard-cards">
+        <div class="card">
+          <h3>Đang tải...</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="charts-grid" style="margin-top: 30px">
+        <div class="chart-container">
+          <h3>Đơn Hàng Theo Trạng Thái</h3>
+          <canvas id="ordersByStatusChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3>Doanh Thu Hàng Ngày</h3>
+          <canvas id="revenueOverTimeChart"></canvas>
+        </div>
+      </div>
+
+      <div class="recent-orders-container" style="margin-top: 30px">
+        <h2>Đơn Hàng Gần Đây</h2>
+        <table id="recentOrdersTable">
+          <thead>
+            <tr>
+              <th>ID Đơn</th>
+              <th>Mã Đơn</th>
+              <th>Người Dùng</th>
+              <th>Tổng Tiền</th>
+              <th>Trạng Thái</th>
+              <th>Ngày Đặt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="6">Đang tải...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Dewora - Trang Quản Trị</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

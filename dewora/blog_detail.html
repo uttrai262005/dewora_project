@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết bài viết</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/blog-detail.css" />
+    <script src="js/blog_data.js"></script>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <section class="breadcrumb">
+      <div class="container">
+        <a href="#">Trang chủ</a> / <a href="Blog.html">Blog làm đẹp</a> /
+        <span>Chi tiết bài viết</span>
+      </div>
+    </section>
+
+    <section class="article-container">
+      <div class="container">
+        <div class="article-header">
+          <div class="article-meta">
+            <span class="article-category" id="article-category"></span>
+            <span id="article-date"></span>
+            <span id="article-read-time"></span>
+          </div>
+          <h1 class="article-title" id="article-title"></h1>
+          <div class="article-author">
+            <img
+              src="https://via.placeholder.com/50x50"
+              alt="Author Avatar"
+              class="author-avatar"
+            />
+            <div class="author-info">
+              <span class="author-by">Bài viết bởi</span>
+              <span class="author-name" id="article-author"></span>
+            </div>
+          </div>
+        </div>
+        <div class="article-featured-image">
+          <img id="article-featured-image" src="" alt="Featured Image" />
+        </div>
+        <div class="article-content">
+          <p class="article-intro" id="article-excerpt"></p>
+          <div id="article-content"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/header-footer.js"></script>
+
+    <script>
+      // Function to get query parameter
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // Load blog post data
+      window.onload = function () {
+        const postId = getQueryParam("id");
+        const post = blogPosts.find((p) => p.id == postId);
+
+        if (post) {
+          document.getElementById("article-category").textContent =
+            post.category;
+          document.getElementById("article-date").textContent = post.date;
+          document.getElementById("article-read-time").textContent =
+            post.readTime;
+          document.getElementById("article-title").textContent = post.title;
+          document.getElementById("article-author").textContent = post.author;
+          document.getElementById("article-featured-image").src =
+            post.featuredImage;
+          document.getElementById("article-excerpt").textContent = post.excerpt;
+          document.getElementById("article-content").innerHTML = post.content;
+        } else {
+          document.getElementById("article-content").innerHTML =
+            "<p>Bài viết không tồn tại.</p>";
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,616 @@
+
+/*========== TABLE OF CONTENTS ==========
+
+1. Common CSS
+2. Layout & Structure
+3. Header & Navigation
+4. Shopping Cart Content
+5. Tab System
+6. Product Items
+7. Price Display
+8. Buttons & Controls
+9. Empty Cart State
+10. Responsive Styles
+11. Checkout Section
+
+========================================*/
+
+/*--------------------------------------
+    1. Common CSS
+---------------------------------------*/
+:root {
+  --gray_50: #f9f9f9;
+  --gray_100: #f5f5f5;
+  --gray_500: #9e9e9e;
+  --gray_500_28: rgba(158, 158, 158, 0.28);
+  --blue_gray_100: #d1d5db;
+  --black_900_01: #000000;
+  --white_a700_01: #ffffff;
+  --red_300_01: #e57373;
+  --red_900_01: #b71c1c;
+  --yellow_50: #fffde7;
+  --pink_400: #ec407a;
+  --tab_inactive: #888888;
+  --checkbox_red: #d32f2f;
+  --button_red: #b21c35; /* Added button red color for header background */
+  --pink_bg: #f8e1e7; /* Màu nền hồng nhạt */
+  --pink_text: #d76c82; /* Màu chữ hồng đậm */
+  --checkbox_pink: #d76c82; /* Màu checkbox hồng */
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-6xl: 48px;
+  --space-7xl: 56px;
+  --space-8xl: 64px;
+  --space-9x1: 72px;
+  --space-13x1: 104px;
+
+  --radius-sm: 4px;
+  --radius-xl: 12px;
+  --radius-3xl: 24px;
+  --radius-5x1: 40px;
+}
+
+* {
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+body {
+  font-family: 'Lexend Deca', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--gray_50);
+  display: block;
+}
+
+/*--------------------------------------
+    2. Layout & Structure
+---------------------------------------*/
+.cart-container {
+  width: 33.33%;
+  max-width: 400px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  background-color: var(--pink_bg);
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.cart-container * {
+  box-sizing: border-box;
+}
+
+.group-882 {
+  width: 100%;
+  margin-bottom: 16px;
+  max-width: 100%;
+}
+
+.group-949, .frame-1-1 {
+  width: 100%;
+}
+
+.group-951 {
+  /* Changed from red_300_01 to button_red to match button */
+  background-color: #d76c82;
+  padding: var(--space-xl) var(--space-3xl);
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+
+/*--------------------------------------
+    3. Header & Navigation
+---------------------------------------*/
+
+.gi-h-ng-c-a-t-i-2 {
+  color: var(--yellow_50) !important;
+  font-size: 20px;
+  margin: 0;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.rectangle-3-1 {
+  height: 12px;
+  margin-top: 8px;
+  object-fit: cover;
+}
+
+.group-929 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+/*--------------------------------------
+    4. Shopping Cart Content
+---------------------------------------*/
+.group-789, .group-948 {
+  background-color: var(--pink_bg);
+  padding: 10px 15px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.label-ch-n-t-t-c-1 {
+  margin: 10px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+/*--------------------------------------
+    5. Tab System
+---------------------------------------*/
+.group-617 {
+  display: flex;
+  border-bottom: 1px solid var(--gray_500_28);
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  justify-content: center;
+  padding: 0 20px;
+  background-color: var(--pink_bg);
+}
+
+.giao-h-ng-5-1, .l-y-t-i-c-a-h-ng-1 {
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--black_900_01) !important; /* Thay đổi từ tab_inactive sang đen */
+  text-align: center;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  margin: 10px 5px;
+  flex: 1;
+}
+
+.active {
+  color: var(--white_a700_01) !important;
+  font-weight: 700;
+  background-color: var(--black_900_01);
+}
+
+/* Fixed tab panel display issues */
+.tabcontent {
+  display: none;
+  background-color: var(--pink_bg);
+  color: var(--black_900_01);
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+/*--------------------------------------
+    6. Product Items
+---------------------------------------*/
+.group-706 {
+  margin: 15px 0;
+}
+
+.line-1-1 {
+  height: 1px;
+  background-color: var(--gray_500_28);
+  width: 100%;
+  margin: 8px 0;
+}
+
+.group-659 {
+  display: flex;
+  align-items: flex-start;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.group-655 {
+  display: flex;
+  margin-right: 12px;
+  position: relative;
+  align-items: flex-start;
+}
+
+.group-59 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+/* Chỉnh kích thước hình sản phẩm */
+.image-2-3 {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+.group-692 {
+  flex: 1;
+  padding-left: 12px;
+}
+
+.group-855 {
+  width: 100%;
+}
+
+.group-931 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.t-ng-gi-tr-n {
+  margin: 3px 0;
+  color: var(--black_900_01);
+  font-size: 13px;
+}
+
+.group-12 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+
+
+/*--------------------------------------
+    7. Price Display
+---------------------------------------*/
+.group-675 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 100px;
+}
+
+.click-collect-1 {
+  text-decoration: line-through; /* Gạch bỏ */
+  color: #a1887f;
+  margin: 0;
+  font-size: 14px;
+}
+
+.click-collect-2 {
+  color: #a1887f;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Changed color for the price amount in "Lấy tại cửa hàng" section */
+.group-681 .click-collect-2.ui.heading.size-headinglg {
+  color: var(--black_900_01) !important;
+}
+
+.click-collect-3 {
+  color: #a1887f;
+  margin: 0;
+  font-size: 14px;
+}
+
+
+.giao-h-ng-1 {
+  color: var(--black_900_01);
+  font-weight: 700;
+  margin: 4px 0;
+  font-size: 16px;
+}
+
+/*--------------------------------------
+    8. Buttons & Controls
+---------------------------------------*/
+.group-13 {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--blue_gray_100);
+  border-radius: var(--radius-3xl);
+  padding: 4px 12px;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.group-793 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.class-1-1 {
+  margin: 0 12px;
+  min-width: 16px;
+  text-align: center;
+}
+
+.image-3, .image-4 {
+  width: 12px;
+  height: 12px;
+}
+
+/* Cập nhật checkbox để đồng nhất */
+
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 2) Ẩn mặc định styling của input, tạo khung vuông */
+.checkbox input[type="checkbox"] {
+  /* reset native */
+  -webkit-appearance: none;
+  appearance: none;
+  /* kích thước khung */
+  width: 18px;
+  height: 18px;
+  /* viền đỏ, bo góc */
+  border: 1px solid var(--checkbox_red);
+  border-radius: 3px;
+  /* để pseudo-element có thể positioning */
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* 3) Khi checked đổi nền, vẽ tick bằng ::after */
+.checkbox input[type="checkbox"]:checked {
+  background-color: var(--checkbox_red);
+}
+.checkbox input[type="checkbox"]:checked::after {
+  content: "\2714";      /* Unicode check mark (✔) */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  line-height: 1;
+}
+
+/* 4) Label sát bên nếu cần text */
+.checkbox label {
+  margin-left: 8px;
+  font-size: 14px;
+  color: var(--black_900_01);
+  cursor: pointer;
+}
+
+
+/*--------------------------------------
+    9. Empty Cart State
+---------------------------------------*/
+.t-ng-gi-tr-n.ui.text.size-textlg {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--gray_500);
+  background-color: var(--pink_bg);
+}
+
+.line-7 {
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray_500_28);
+  margin: 20px 0;
+}
+
+/*--------------------------------------
+    10. Responsive Styles
+---------------------------------------*/
+@media only screen and (max-width: 1050px) {
+  .group-706, .group-700 {
+    padding: 0 16px;
+  }
+
+  .group-659 {
+    flex-wrap: wrap;
+  }
+
+  .group-675 {
+    align-items: flex-start;
+    margin-top: 16px;
+  }
+
+  .group-617 {
+    margin: 0;
+  }
+
+  .giao-h-ng-5-1, .l-y-t-i-c-a-h-ng-1 {
+    padding: 8px 12px;
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .cart-container {
+    width: 100%;
+    max-width: none;
+    position: relative;
+    height: auto;
+  }
+}
+
+/*--------------------------------------
+    11. Checkout Section
+---------------------------------------*/
+.group-700 {
+  margin-top: 20px;
+}
+
+.line-6-3 {
+  width: 100%;
+  height: 1px;
+  margin: 12px 0;
+}
+
+.group-694, .group-695 {
+  display: flex;
+  flex-direction: column;
+}
+
+.group-683, .group-681, .group-699 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.group-868 {
+  display: flex;
+}
+
+.group-39 {
+  background-color:#d76c82;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 12px;
+  margin-top: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* Fixed styling for empty cart tab */
+#tabpanel02 {
+  background-color: var(--pink_bg);
+  color: var(--black_900_01);
+}
+
+#tabpanel02 .t-ng-gi-tr-n {
+  color: var(--gray_500);
+}
+
+#tabpanel02 .group-695 {
+  background-color: var(--pink_bg);
+  padding: 10px 15px;
+}
+
+.group-948 {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--pink_bg);
+}
+
+.main-wrapper {
+  width: 33.33vw; /* hoặc 33.33% nếu cha là body */
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  overflow-y: auto;
+  background-color: var(--pink_bg); /* Thay đổi màu nền từ trắng sang hồng nhạt */
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+#desktop-view {
+  display: none; /* Ẩn ban đầu */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Nền trắng */
+  z-index: 999; /* Đảm bảo hiển thị dưới giỏ hàng */
+}
+
+.click-collect-label {
+  text-decoration: none;
+}
+
+.old-price {
+  text-decoration: line-through;
+}
+
+/* Điều chỉnh màu nền của tab "Lấy tại cửa hàng" */
+#page1 {
+    background-color: var(--pink_bg);
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+#close-cart-button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+
+  /* Đưa nút ra ngoài lề phải */
+  position: absolute;
+  right: -20px; /* Tùy chỉnh khoảng cách ra ngoài */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.group-931 .group-12 {
+  position: absolute;
+  right: -8px; /* Đẩy sát lề phải, chỉnh lại nếu cần */
+  top:10%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Đảm bảo bố cục các item nằm theo chiều ngang (nếu cần) */
+.group-659 {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Có thể cần giới hạn chiều rộng bên trái để đẩy nút sát phải */
+.group-692 {
+  flex: 1;
+  position: relative;
+}
+
+/* Đảm bảo tất cả text dùng Lexend Deca */
+body,
+body * {
+  font-family: 'Lexend Deca', sans-serif !important;
+}
+
+/* Ghi đè các trường hợp đặc biệt */
+input, 
+button, 
+textarea, 
+select {
+  font-family: 'Lexend Deca', sans-serif !important;
+}
+
+/* Ghi đè ngược lại các class đặc biệt */
+.class-288-000,
+.t-ng-gi-tr-n {
+  font-family: 'Lexend Deca', sans-serif !important;
+}

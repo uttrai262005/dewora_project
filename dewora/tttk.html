@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEWORA - Quản lý tài khoản</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link rel="manifest" href="./public/images/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/TRANGCCH.css" />
+    <link rel="stylesheet" href="./css/don-hang-cua-toi.css" />
+    <link rel="stylesheet" href="./css/dh.css" />
+    <link rel="stylesheet" href="./css/custom-swal.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      h2 {
+        font-size: 1.5em;
+        color: var(--pink_400);
+        margin-bottom: 20px;
+      }
+      /* Add styles for active content section if needed */
+      .account-content-section {
+        display: none; /* Hide all sections by default */
+      }
+      .account-content-section.active {
+        display: block; /* Show active section */
+      }
+
+      /* Styles for Address Section (Example) */
+      .address-list {
+        margin-top: 20px;
+      }
+      .address-item {
+        border: 1px solid #eee;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+      }
+      .address-item h4 {
+        margin-top: 0;
+        color: var(--pink_400);
+      }
+      .address-item p {
+        margin-bottom: 5px;
+      }
+      .address-actions button,
+      .address-actions a {
+        margin-right: 10px;
+        font-size: 0.9em;
+      }
+      .btn-add-address {
+        background-color: var(--pink_400);
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+      .btn-add-address:hover {
+        background-color: var(--red_900);
+      }
+      .address-form {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-top: 20px;
+        background-color: #fff;
+      }
+      .address-form .form-group {
+        margin-bottom: 15px;
+      }
+      .address-form .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+      .address-form .form-group input[type="text"],
+      .address-form .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .address-form .form-actions button {
+        margin-right: 10px;
+      }
+
+      /* Styles for Wishlist & Reorder (Example) */
+      .product-grid-account {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .product-item-account {
+        border: 1px solid #eee;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #fff;
+      }
+      .product-image-account {
+        max-width: 100%;
+        height: 150px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+      h4.product-name-account {
+        font-size: 1em;
+        margin-bottom: 5px;
+        color: var(--black);
+      }
+      .product-price-account {
+        color: var(--pink_400);
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .btn-remove-wishlist {
+        background-color: var(--pink_400);
+        color: white;
+        border: none;
+        padding: 4px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9em;
+        margin-top: 5px;
+      }
+      .btn-add-to-cart-wishlist {
+        background-color: var(--pink_400);
+        color: white;
+        border: none;
+        padding: 4px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9em;
+      }
+      .btn-remove-wishlist:hover {
+        background-color: var(--red_900);
+      }
+      .product-card-account .remove-wishlist {
+        background-color: #777;
+      }
+      .product-card-account .remove-wishlist:hover {
+        background-color: #555;
+      }
+      .empty-message {
+        text-align: center;
+        padding: 20px;
+        color: #777;
+      }
+      h4 {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="account-page">
+      <div class="account-container">
+        <aside class="account-sidebar">
+          <div class="account-header">
+            <div class="sidebar-avatar">
+              <div class="avatar-container">
+                <img
+                  src="public/images/default-avatar.png"
+                  alt="Avatar"
+                  class="user-avatar"
+                  id="user-avatar-sidebar"
+                />
+                <div class="avatar-overlay">
+                  <span>Thay đổi</span>
+                  <input
+                    type="file"
+                    id="avatar-upload-sidebar"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+            </div>
+            <h1>DEWORA</h1>
+            <p class="account-email">glow and allure</p>
+          </div>
+          <nav class="account-menu">
+            <div class="menu-section">
+              <h2>Trang chủ</h2>
+              <div class="user-greeting">
+                <p>
+                  <strong id="user-greeting-name">Hi, "Tên Người Dùng"</strong>
+                </p>
+                <p
+                  style="cursor: pointer"
+                  data-target="thong-tin-tai-khoan"
+                  class="edit-account-link"
+                >
+                  Chỉnh sửa tài khoản
+                </p>
+              </div>
+            </div>
+            <div class="menu-section">
+              <ul>
+                <li data-target="thong-tin-tai-khoan" class="active">
+                  Thông tin tài khoản
+                </li>
+                <li data-target="don-hang-cua-toi">Đơn hàng của tôi</li>
+                <li data-target="dia-chi-nhan-hang">Địa chỉ nhận hàng</li>
+                <li data-target="san-pham-yeu-thich">Sản phẩm yêu thích</li>
+              </ul>
+            </div>
+          </nav>
+        </aside>
+
+        <div class="account-content">
+          <section
+            id="thong-tin-tai-khoan"
+            class="account-content-section active"
+          >
+            <h2>Thông tin tài khoản</h2>
+            <div
+              class="avatar-section"
+              style="margin-bottom: 20px; text-align: center"
+            >
+              <div
+                class="avatar-container"
+                style="
+                  margin: 0 auto;
+                  width: 120px;
+                  height: 120px;
+                  border-radius: 50%;
+                  overflow: hidden;
+                  cursor: pointer;
+                  border: 3px solid var(--pink_400);
+                "
+              >
+                <img
+                  src="public/images/default-avatar.png"
+                  alt="Avatar"
+                  class="user-avatar"
+                  id="user-avatar-content"
+                />
+                <div
+                  class="avatar-overlay"
+                  style="
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: rgba(229, 83, 107, 0.7);
+                    color: white;
+                    text-align: center;
+                    padding: 8px 0;
+                    transform: translateY(100%);
+                    transition: all 0.3s ease;
+                  "
+                >
+                  <span>Thay đổi</span>
+                </div>
+                <input
+                  type="file"
+                  id="avatar-upload-content"
+                  accept="image/*"
+                  style="display: none"
+                />
+              </div>
+            </div>
+            <div class="name-input">
+              <h3>Họ và tên</h3>
+              <input
+                type="text"
+                class="fullname-input"
+                id="fullname-input"
+                placeholder="Nhập họ tên đầy đủ"
+              />
+            </div>
+            <div class="gender-selection">
+              <h3>Giới tính</h3>
+              <div class="gender-options">
+                <label class="gender-option"
+                  ><input type="radio" name="gender" value="male" />
+                  <span class="gender-label">Nam</span></label
+                >
+                <label class="gender-option"
+                  ><input type="radio" name="gender" value="female" />
+                  <span class="gender-label">Nữ</span></label
+                >
+                <label class="gender-option"
+                  ><input type="radio" name="gender" value="other" />
+                  <span class="gender-label">Không xác định</span></label
+                >
+              </div>
+            </div>
+            <div class="birthday-section">
+              <h3>Ngày sinh (Không bắt buộc)</h3>
+              <div class="birthday-inputs">
+                <select class="birthday-select" id="birth-day">
+                  <option value="">Ngày</option>
+                </select>
+                <select class="birthday-select" id="birth-month">
+                  <option value="">Tháng</option>
+                </select>
+                <select class="birthday-select" id="birth-year">
+                  <option value="">Năm</option>
+                </select>
+              </div>
+            </div>
+            <div class="privacy-section">
+              <div class="privacy-agreement">
+                <label
+                  ><input type="checkbox" id="privacy-check" checked />
+                  <span
+                    >Tôi đồng ý với chính sách xử lý dữ liệu cá nhân của
+                    Dewora</span
+                  ></label
+                >
+              </div>
+              <button class="update-btn save-all" id="save-profile-info">
+                Cập nhật thông tin
+              </button>
+            </div>
+            <section class="account-section">
+              <h2>Số điện thoại và Email</h2>
+              <div class="info-field">
+                <h3>Số điện thoại</h3>
+                <div class="field-content">
+                  <span class="current-value" id="current-phone"
+                    >Cập nhật số điện thoại</span
+                  >
+                  <button class="update-btn" id="update-phone-btn">
+                    Cập nhật
+                  </button>
+                </div>
+              </div>
+              <div class="info-field">
+                <h3>Email</h3>
+                <div class="field-content">
+                  <span class="current-value" id="current-email"
+                    >Cập nhật Email</span
+                  >
+                  <button class="update-btn" id="update-email-btn">
+                    Cập nhật
+                  </button>
+                </div>
+              </div>
+            </section>
+            <section class="account-section">
+              <h3>Bảo mật</h3>
+              <div class="info-field">
+                <div class="field-content">
+                  <span class="current-value">Đổi mật khẩu</span>
+                  <button class="update-btn" id="change-password-btn">
+                    Cập nhật
+                  </button>
+                </div>
+              </div>
+            </section>
+            <section class="account-section">
+              <h3>Liên kết mạng xã hội</h3>
+              <div class="info-field">
+                <div class="field-content">
+                  <span class="current-value">Facebook</span>
+                  <span class="status-connected" id="fb-status"
+                    >Chưa liên kết</span
+                  >
+                  <button
+                    class="update-btn"
+                    id="connect-fb-btn"
+                    style="display: none"
+                  >
+                    Kết nối
+                  </button>
+                </div>
+              </div>
+              <div class="info-field">
+                <div class="field-content">
+                  <span class="current-value">Google</span>
+                  <span class="status-connected" id="google-status"
+                    >Chưa liên kết</span
+                  >
+                  <button
+                    class="update-btn"
+                    id="connect-google-btn"
+                    style="display: none"
+                  >
+                    Kết nối
+                  </button>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section id="don-hang-cua-toi" class="account-content-section">
+            <div
+              id="loading-dh-content"
+              style="text-align: center; padding: 20px"
+            >
+              <i class="fas fa-spinner fa-spin"></i> Đang tải...
+            </div>
+          </section>
+
+          <section id="dia-chi-nhan-hang" class="account-content-section">
+            <h2>Địa chỉ nhận hàng</h2>
+            <button class="btn-add-address" id="btn-show-add-address-form">
+              <i class="fas fa-plus"></i> Thêm địa chỉ mới
+            </button>
+            <div class="address-form" id="add-edit-address-form">
+              <h3 id="address-form-title">Thêm địa chỉ mới</h3>
+              <input type="hidden" id="address-id" />
+              <div class="form-group">
+                <label for="address-fullname">Họ và tên:</label>
+                <input
+                  type="text"
+                  id="address-fullname"
+                  placeholder="Nguyễn Văn A"
+                />
+              </div>
+              <div class="form-group">
+                <label for="address-phone">Số điện thoại:</label>
+                <input
+                  type="text"
+                  id="address-phone"
+                  placeholder="09xxxxxxxx"
+                />
+              </div>
+              <div class="form-group">
+                <label for="address-province">Tỉnh/Thành phố:</label>
+                <select id="address-province"></select>
+              </div>
+              <div class="form-group">
+                <label for="address-district">Quận/Huyện:</label>
+                <select id="address-district"></select>
+              </div>
+              <div class="form-group">
+                <label for="address-ward">Phường/Xã:</label>
+                <select id="address-ward"></select>
+              </div>
+              <div class="form-group">
+                <label for="address-street"
+                  >Địa chỉ cụ thể (Số nhà, tên đường):</label
+                >
+                <input
+                  type="text"
+                  id="address-street"
+                  placeholder="123 Đường Đồng Khởi"
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  ><input type="checkbox" id="address-is-default" /> Đặt làm địa
+                  chỉ mặc định</label
+                >
+              </div>
+              <div class="form-actions">
+                <button class="update-btn save-all" id="btn-save-address">
+                  Lưu địa chỉ
+                </button>
+                <button class="cancel-btn" id="btn-cancel-address-form">
+                  Hủy
+                </button>
+              </div>
+            </div>
+            <div class="address-list" id="address-list-container">
+              <p
+                class="empty-message"
+                id="no-address-message"
+                style="display: none"
+              >
+                Bạn chưa có địa chỉ nào.
+              </p>
+            </div>
+          </section>
+
+          <section id="san-pham-yeu-thich" class="account-content-section">
+            <h2>Sản phẩm yêu thích</h2>
+            <div
+              class="product-grid-account"
+              id="wishlist-items-container"
+            ></div>
+            <p
+              class="empty-message"
+              id="no-wishlist-message"
+              style="display: none"
+            >
+              Danh sách yêu thích của bạn trống.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/header-footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/scriptttk.js"></script>
+  </body>
+</html>

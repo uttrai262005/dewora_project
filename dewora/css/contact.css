@@ -1,0 +1,704 @@
+:root {
+  /* ------Color variables------*/
+  --pink_400: #e5536b;
+  --pink_light: #fff2fb; /* --gray_50_02 */
+  --yellow_light: #ffffeb; /* --yellow_50 */
+  --red_900: #b21c35;
+  --white: #ffffff; /* --white_a700_01 */
+  --gray: #f1f1f1; /* --blue_gray_50 */
+  --black: #000000; /* --black_900_01 */
+  --borderpink: #e5536b;
+
+  /* Shadow variables */
+  --shadow-xs: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  /* Border radius variables */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 5px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 10px;
+  --radius-3xl: 12px;
+  --radius-4xl: 14px;
+  --radius-5xl: 16px;
+  --radius-6xl: 18px;
+  --radius-7xl: 20px;
+  --radius-8xl: 24px;
+  --radius-9xl: 26px;
+  --radius-10xl: 32px;
+
+  /* Spacing variables */
+  --space-xs: 2px;
+  --space-sm: 4px;
+  --space-md: 6px;
+  --space-lg: 7px;
+  --space-xl: 8px;
+  --space-2xl: 10px;
+  --space-3xl: 12px;
+  --space-4xl: 14px;
+  --space-5xl: 16px;
+  --space-6xl: 17px;
+  --space-7xl: 18px;
+  --space-8xl: 20px;
+  --space-9xl: 22px;
+  --space-10xl: 24px;
+  --space-11xl: 26px;
+  --space-12xl: 28px;
+  --space-13xl: 30px;
+  --space-14xl: 33px;
+  --space-15xl: 44px;
+  --space-16xl: 48px;
+}
+/* Hệ thống lề chuẩn cho toàn site */
+/* Container chuẩn cho toàn site */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Đảm bảo các section chính sử dụng container */
+.contact-hero.container,
+.contact-content.container,
+.policy-links.container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* Responsive điều chỉnh */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+body {
+  background-color: var(--white);
+}
+
+.buy-now {
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Contact Page Styles */
+.contact-page {
+  padding-bottom: 60px;
+  background-color: var(--pink_light);
+}
+
+/* Breadcrumb (giống các trang khác) */
+.breadcrumb {
+  padding: 15px 0;
+  background-color: #f5f5f5;
+  font-size: 14px;
+  color: #666;
+}
+
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #d82f8b;
+}
+
+.breadcrumb span {
+  color: #d82f8b;
+  font-weight: 500;
+}
+
+/* Contact Hero */
+.contact-hero {
+  text-align: center;
+}
+
+.page-title {
+  font-size: 36px;
+  color: #d82f8b;
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Contact Content */
+.contact-content {
+  padding: 0 20px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/* Style cho phần brand */
+.brand-section {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.brand-logo1 {
+  max-width: 380px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.brand-logo1:hover {
+  transform: scale(1.05);
+}
+
+/* Contact Info */
+.contact-info-section {
+  position: relative;
+  min-width: 200px;
+}
+
+.contact-info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 20px;
+}
+
+.contact-info-card h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.info-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.info-item i {
+  color: #d82f8b;
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+.info-item h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Map Section */
+.map-section {
+  margin-top: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Thêm vào file CSS chính */
+.info-section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin: 40px 0;
+}
+
+.section-title {
+  font-size: 24px;
+  color: #d82f8b;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title i {
+  font-size: 20px;
+}
+
+.about-dewora h3 {
+  font-size: 20px;
+  color: #333;
+  margin: 25px 0 15px;
+  padding-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.about-dewora p,
+.about-dewora ul {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.about-dewora ul {
+  padding-left: 20px;
+}
+
+.about-dewora a {
+  color: #d82f8b;
+  text-decoration: none;
+}
+
+/* Policy Accordion */
+
+.policy-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.policy-header {
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.policy-header h3 {
+  font-size: 17px;
+  color: #333;
+  margin: 0;
+}
+
+.policy-header i {
+  color: #d82f8b;
+  transition: transform 0.3s;
+}
+
+.policy-item.active .policy-header i {
+  transform: rotate(180deg);
+}
+
+.policy-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s;
+}
+
+.policy-item.active .policy-content {
+  padding: 15px 20px;
+  max-height: 1000px;
+}
+/* Privacy Policy Styling */
+.privacy-intro {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-left: 3px solid #d82f8b;
+  margin-bottom: 20px;
+}
+
+.policy-content h4 {
+  color: #d82f8b;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.privacy-update {
+  font-size: 13px;
+  color: #666;
+  border-top: 1px dashed #ddd;
+  padding-top: 15px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .policy-content {
+    padding: 15px !important;
+  }
+
+  .policy-content h4 {
+    font-size: 15px;
+  }
+}
+
+.policy-content ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+.policy-content ol {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+.policy-content p {
+  font-weight: 600;
+  margin: 15px 0 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .about-dewora h3 {
+    font-size: 18px;
+  }
+
+  .policy-header h3 {
+    font-size: 16px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .contact-form-section,
+  .contact-info-card {
+    padding: 20px;
+  }
+
+  .policy-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* Thêm vào file CSS chính */
+.info-section {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin: 40px 0;
+}
+
+.section-title {
+  font-size: 24px;
+  color: #d82f8b;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title i {
+  font-size: 20px;
+}
+
+.about-dewora h3 {
+  font-size: 20px;
+  color: #333;
+  margin: 25px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.about-dewora p,
+.about-dewora ul {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.about-dewora ul {
+  padding-left: 20px;
+}
+
+.about-dewora a {
+  color: #d82f8b;
+  text-decoration: none;
+}
+
+.blog-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.blog-item {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid #d82f8b;
+}
+
+.blog-item h4 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.blog-item p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Policy Accordion */
+.policy-accordion {
+  margin-top: 20px;
+}
+
+.policy-item {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.policy-header {
+  background: #f9f9f9;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.policy-header h3 {
+  font-size: 17px;
+  color: #333;
+  margin: 0;
+}
+
+.policy-header i {
+  color: #d82f8b;
+  transition: transform 0.3s;
+}
+
+.policy-item.active .policy-header i {
+  transform: rotate(180deg);
+}
+
+.policy-content {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s;
+}
+
+.policy-item.active .policy-content {
+  padding: 15px 20px;
+  max-height: 1000px;
+}
+
+.policy-content ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.policy-content p {
+  font-weight: 600;
+  margin: 15px 0 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .about-dewora h3 {
+    font-size: 18px;
+  }
+
+  .policy-header h3 {
+    font-size: 16px;
+  }
+}
+.main-footer {
+  background-color: var(--yellow_light);
+  color: var(--black);
+  padding: var(--space-15xl) 0 var(--space-8xl);
+  position: relative;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10xl);
+  margin-bottom: var(--space-15xl);
+}
+
+.footer-brand {
+  max-width: 300px;
+  padding-top: -30px;
+}
+
+.footer-contact {
+  list-style: none;
+}
+
+.footer-contact li {
+  margin-bottom: var(--space-3xl);
+  font-size: var(--space-5xl);
+  line-height: 1.5;
+}
+
+.footer-menus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10xl);
+}
+
+.menu-title {
+  font-size: var(--space-6xl);
+  font-weight: 600;
+  margin-bottom: var(--space-5xl);
+  position: relative;
+  padding-bottom: var(--space-sm);
+}
+
+.menu-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--white);
+}
+
+.footer-menu ul {
+  list-style: none;
+}
+
+.footer-menu li {
+  margin-bottom: var(--space-3xl);
+}
+
+.footer-menu a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: var(--space-5xl);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-menu a:hover {
+  color: var(--yellow_50);
+  padding-left: var(--space-sm);
+}
+
+.footer-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--yellow_50);
+  transition: width 0.3s ease;
+}
+
+.footer-menu a:hover::after {
+  width: 100%;
+}
+.footer-logo-img {
+  height: 80px; /* Điều chỉnh theo kích thước logo thực tế */
+  width: auto;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.05);
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: var(--space-8xl);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: var(--space-5xl);
+}
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.footer-contact li:hover .contact-icon {
+  transform: scale(1.1);
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Căn trái logo và thông tin */
+  margin-bottom: var(--space-8xl); /* Tạo khoảng cách với phần dưới */
+}
+
+.footer-logo-link {
+  margin-bottom: var(
+    --space-5xl
+  ); /* Khoảng cách giữa logo và thông tin liên hệ */
+  display: inline-block; /* Để margin có tác dụng */
+}
+
+.footer-logo-img {
+  height: 80px; /* Giảm kích thước logo nếu cần */
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.footer-contact {
+  padding-left: 0; /* Bỏ padding mặc định của ul */
+  margin-top: 0; /* Đảm bảo không có margin phía trên */
+}
+
+/* Căn chỉnh các phần trong footer-content */
+.footer-content {
+  align-items: flex-start; /* Căn các phần lên trên */
+  padding-top: var(--space-8xl); /* Thêm padding phía trên nếu cần */
+}
+.footer-brand {
+  padding-top: 0; /* Loại bỏ padding phía trên nếu có */
+  margin-top: -30px; /* Kéo logo lên trên */
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng - DEWORA</title>
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/TRANGCCH.css" />
+    <link rel="stylesheet" href="css/cart_styles.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <div id="header-placeholder"></div>
+
+  <body class="cart-page">
+    <nav class="nav-container">
+      <div class="nav-menu">
+        <a href="TRANGCH.html" class="nav-item">Trang chủ</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-item">Danh mục</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <a
+                style="text-decoration: none"
+                class="dropdown-title"
+                href="da.html?group=moi"
+                >MÔI</a
+              ><a href="da.html?type_id=1" class="dropdown-item">Son dưỡng</a
+              ><a href="da.html?type_id=2" class="dropdown-item">Son kem</a
+              ><a href="da.html?type_id=3" class="dropdown-item">Son thỏi</a
+              ><a href="da.html?type_id=4" class="dropdown-item">Son bóng</a>
+            </div>
+            <div class="dropdown-column">
+              <a
+                style="text-decoration: none"
+                class="dropdown-title"
+                href="da.html?group=mat"
+                >MẮT</a
+              ><a href="da.html?type_id=5" class="dropdown-item">Mascara</a
+              ><a href="da.html?type_id=7" class="dropdown-item">Bút kẻ mắt</a
+              ><a href="da.html?type_id=8" class="dropdown-item">Phấn mắt</a
+              ><a href="da.html?type_id=6" class="dropdown-item">Kẻ chân mày</a>
+            </div>
+            <div class="dropdown-column">
+              <a
+                style="text-decoration: none"
+                class="dropdown-title"
+                href="da.html?group=da"
+                >DA</a
+              ><a href="da.html?type_id=9" class="dropdown-item">Kem nền</a
+              ><a href="da.html?type_id=10" class="dropdown-item">Cushion</a
+              ><a href="da.html?type_id=11" class="dropdown-item">Phấn phủ</a
+              ><a href="da.html?type_id=12" class="dropdown-item">Má hồng</a>
+            </div>
+            <div class="dropdown-column">
+              <a
+                style="text-decoration: none"
+                class="dropdown-title"
+                href="da.html?group=khac"
+                >KHÁC</a
+              ><a href="da.html?type_id=13" class="dropdown-item"
+                >Che khuyết điểm</a
+              ><a href="da.html?type_id=14" class="dropdown-item"
+                >Xịt khóa nền</a
+              ><a href="da.html?type_id=15" class="dropdown-item"
+                >Highlight + Khối</a
+              ><a href="da.html?type_id=16" class="dropdown-item"
+                >Cọ trang điểm</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="nav-logo">
+          <img src="public/images/mini-logo.png" alt="Mini Logo" />
+        </div>
+        <a href="Blog.html" class="nav-item">Blog</a
+        ><a href="Q&A.html" class="nav-item">Q&A</a
+        ><a href="contact.html" class="nav-item">Liên hệ</a>
+      </div>
+    </nav>
+
+    <main class="cart-container container">
+      <h1>Giỏ Hàng Của Bạn</h1>
+      <div id="cart-items-container">
+        <p class="empty-cart-message" style="display: none">
+          Giỏ hàng của bạn đang trống.
+        </p>
+      </div>
+
+      <div
+        class="cart-summary"
+        id="cart-summary-container"
+        style="display: none"
+      >
+        <div class="summary-row">
+          <span>Tạm tính:</span>
+          <span id="cart-subtotal">0đ</span>
+        </div>
+        <hr />
+
+        <button id="checkout-button" class="btn btn-primary btn-checkout">
+          Tiến hành thanh toán
+        </button>
+      </div>
+      <div class="cart-actions">
+        <a href="da.html" class="btn btn-secondary">Tiếp tục mua sắm</a>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/cart_script.js"></script>
+    <script src="js/header-footer.js"></script>
+    <script src="js/scripttrangch.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  </body>
+  <link rel="stylesheet" href="css/cart_styles.css" />
+</html>

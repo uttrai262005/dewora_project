@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Chi Tiết Đơn Hàng</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="css/admin_styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Bảng Điều Khiển Admin</h1>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="manage_products.html">Sản Phẩm</a>
+        <a href="manage_users.html">Người Dùng</a>
+        <a href="manage_orders.html" class="active">Đơn Hàng</a>
+        <a href="reports.html">Báo Cáo</a>
+        <button id="adminLogoutBtn">Đăng Xuất</button>
+      </nav>
+    </header>
+
+    <main>
+      <h2 id="orderDetailsTitle">Chi Tiết Đơn Hàng #...</h2>
+      <div id="orderDetailsContainer" class="order-details-view">
+        <p>Đang tải chi tiết đơn hàng...</p>
+      </div>
+
+      <div
+        class="form-group"
+        id="updateStatusSection"
+        style="margin-top: 20px; display: none"
+      >
+        <label for="newOrderStatus">Cập nhật trạng thái đơn hàng:</label>
+        <select
+          id="newOrderStatus"
+          name="new_order_status"
+          class="form-control"
+          style="width: auto; display: inline-block; margin-right: 10px"
+        >
+          <option value="pending">Chờ xử lý (Pending)</option>
+          <option value="processing">Đang xử lý (Processing)</option>
+          <option value="shipped">Đã vận chuyển (Shipped)</option>
+          <option value="delivered">Đã giao (Delivered)</option>
+          <option value="completed">Hoàn thành (Completed)</option>
+          <option value="cancelled">Đã hủy (Cancelled)</option>
+          <option value="failed">Thất bại (Failed)</option>
+          <option value="refunded">Đã hoàn tiền (Refunded)</option>
+        </select>
+        <button id="updateStatusBtn" class="btn-primary">Cập Nhật</button>
+      </div>
+      <div class="form-actions" style="margin-top: 20px">
+        <a href="manage_orders.html" class="btn-secondary"
+          >Quay Lại Danh Sách Đơn Hàng</a
+        >
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Dewora - Trang Quản Trị</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/orders.js"></script>
+  </body>
+</html>

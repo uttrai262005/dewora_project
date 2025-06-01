@@ -1,0 +1,214 @@
+.sign-up {
+  min-height: 100vh;
+  background-color: var(--gray_50_01); /* Màu nền trang */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-8xl);
+  box-sizing: border-box;
+}
+
+.group-5-1 {
+  /* Container chính của form */
+  padding: 40px;
+  max-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Increase this gap for more space between form fields */
+  gap: 35px; /* Original was 25px. Try 35px or 40px for more spacing. */
+  box-sizing: border-box;
+}
+
+.frame-51-1 {
+  /* This is for the "Đăng ký" title */
+  margin-bottom: 30px; /* Original was 20px. Increase for more space below the title. */
+  width: 100%;
+  display: inline-block;
+  text-align: center !important;
+}
+
+/* Hoặc bạn có thể thử thêm text-align: center; trực tiếp vào quy tắc cho chữ Đăng ký nếu cần */
+.frame-51-1 .ng-nh-p {
+  text-align: center !important;
+}
+.form-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Adjust gap between label and input if needed, but the main gap will be from .group-5-1 */
+  gap: 8px; /* Original was 5px. Slightly increase if labels feel too close to inputs. */
+}
+
+.form-field label.name {
+  font-size: 14px;
+  color: var(--pink_400) !important;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* --- Định dạng lại INPUT --- */
+.form-field input.ui.input.signup-input {
+  background-color: transparent !important; /* Nền trong suốt */
+  border: none !important; /* Bỏ hết viền */
+  border-bottom: 1px solid var(--pink_400) !important; /* Chỉ giữ viền dưới màu hồng */
+  border-radius: 0 !important; /* Bỏ bo góc */
+  padding: 5px 0px !important; /* Chỉ cần padding dưới hoặc trên/dưới, không cần trái/phải */
+  height: auto !important; /* Chiều cao tự động theo nội dung và padding */
+  font-size: 15px; /* Cỡ chữ khi nhập liệu */
+  color: var(--black_900_01); /* Màu chữ khi nhập */
+  width: 100%;
+  box-sizing: border-box;
+  outline: none; /* Bỏ đường viền xanh khi focus */
+  margin-bottom: 15px; /* Add a bottom margin to input fields if needed, or rely on parent gap. */
+}
+/* Style cho placeholder của input mới */
+.form-field input.ui.input.signup-input::placeholder {
+  color: var(--gray_400);
+  opacity: 1;
+}
+
+/* Trong signup.css */
+
+.t-i-ng-v-i-c-c input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 16px; /* <-- Tăng chiều rộng lên 20px */
+  height: 16px; /* <-- Tăng chiều cao lên 20px */
+  border: 1px solid var(--black_900_01);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  margin-right: var(--space-2xl); /* Tăng khoảng cách phải lên (ví dụ: 10px) */
+  vertical-align: middle;
+  accent-color: var(--pink_400);
+  /* appearance: none; /* Giữ comment hoặc xóa nếu không cần custom */
+}
+
+/* Đảm bảo label vẫn căn chỉnh tốt */
+.t-i-ng-v-i-c-c {
+  color: var(--black_900_01);
+  text-align: left;
+  font-size: 16px; /* Giữ nguyên font-size cho text */
+  line-height: 1.4;
+  width: 100%;
+  display: flex;
+  align-items: center; /* Quan trọng để căn giữa checkbox và text */
+  justify-content: flex-start;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* Bỏ quy tắc :checked nếu bạn muốn dùng màu mặc định của accent-color */
+/*
+.t-i-ng-v-i-c-c input[type="checkbox"]:checked {
+  background-color: var(--pink_400);
+  border-color: var(--pink_400);
+}
+*/
+/* Hiển thị dấu check khi được chọn (ví dụ đơn giản) */
+.t-i-ng-v-i-c-c input[type="checkbox"]:checked {
+  background-color: var(--pink_400);
+  border-color: var(--pink_400);
+}
+/* Bạn có thể thêm dấu check bằng pseudo-element ::after */
+
+.frame-56-2 {
+  /* Nút Đăng Ký */
+  color: var(--pink_400) !important;
+  background-color: var(--purple_600_26) !important;
+  border: 1px solid var(--purple_600_26);
+  font-size: 15px;
+  font-weight: 700;
+  height: 42px;
+  width: 100%;
+  border-radius: var(--radius-2xl) !important;
+  padding-left: var(--space-8xl);
+  padding-right: var(--space-8xl);
+  margin-top: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.frame-56-2:hover {
+  opacity: 0.9;
+}
+
+.frame-60-1 {
+  /* Nút Google */
+  color: var(--black_900_01) !important;
+  border: 1px solid var(--blue_gray_100) !important;
+  background-color: var(--white_a700_01);
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  gap: var(--space-2xl);
+  height: 42px;
+  width: 100%;
+  border-radius: var(--radius-2xl) !important;
+  padding-left: 19px;
+  padding-right: 19px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.frame-60-1:hover {
+  background-color: var(--gray_100);
+}
+
+/* Bỏ các frame cũ không cần thiết nữa */
+.frame-55-2,
+.frame-55-3,
+.frame-64,
+.frame-65 {
+  display: none;
+}
+
+.vector-4 {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 550px) {
+  .group-5-1 {
+    padding: 20px; /* Giảm padding form */
+    margin: 10px;
+    gap: 20px; /* Giảm gap */
+  }
+  .frame-51-1 {
+    margin-bottom: 15px;
+  }
+  .ui.text.size-text7xl {
+    font-size: 24px;
+  }
+  .form-field label.name {
+    font-size: 13px;
+  }
+  .form-field input.ui.input.signup-input {
+    font-size: 14px;
+  }
+  .t-i-ng-v-i-c-c {
+    font-size: 11px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .frame-56-2,
+  .frame-60-1 {
+    height: 40px;
+  }
+}
+.frame-60 {
+  color: var(--black_900_01) !important;
+  font-family: "Lexend Deca";
+  font-size: 12px;
+  font-weight: 500;
+  gap: var(--space-2xl);
+  height: 32px;
+  min-width: 190px;
+  border-radius: 10px !important;
+  border: 1px solid var(--blue_gray_100) !important;
+  @media only screen and (max-width: 1050px) {
+    margin-right: 0px;
+  }
+}

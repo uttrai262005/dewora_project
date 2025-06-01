@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trạng thái đơn hàng - DEWORA</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/thanhtoan.css" />
+    <link rel="stylesheet" href="css/order-status.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: 30px; padding-bottom: 30px">
+      <h1>Trạng thái đơn hàng <span id="order-code-display"></span></h1>
+
+      <div id="status-notification"></div>
+
+      <div class="status-tracker" id="status-tracker"></div>
+
+      <div class="order-details-container" id="order-details"></div>
+    </main>
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+      <a href="tttk.html?tab=don-hang-cua-toi" class="button primary-button"
+        >Đến đơn hàng của tôi</a
+      >
+    </div>
+    <div id="footer-placeholder"></div>
+
+    <script src="js/order-status.js"></script>
+    <script src="js/header-footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  </body>
+</html>

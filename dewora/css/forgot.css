@@ -1,0 +1,348 @@
+/* CSS gốc của bạn */
+.log-in {
+  padding-top: 210px;
+  padding-bottom: 210px;
+  background-color: var(
+    --gray_50_01
+  ); /* Đảm bảo biến này được định nghĩa trong styles.css hoặc index.css */
+  width: 100%;
+  @media only screen and (max-width: 1050px) {
+    padding-top: var(--space-8xl); /* Đảm bảo biến này được định nghĩa */
+    padding-bottom: var(--space-8xl);
+  }
+}
+.group-572 {
+  margin-top: 18px;
+  padding-left: 56px;
+  padding-right: 56px;
+  display: flex;
+  justify-content: center;
+  @media only screen and (max-width: 1050px) {
+    padding-left: var(--space-8xl);
+    padding-right: var(--space-8xl);
+  }
+}
+.group-955 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen and (max-width: 1050px) {
+    flex-direction: column;
+    align-items: center; /* Căn giữa các mục khi xếp chồng */
+  }
+}
+
+.group-556 {
+  gap: 25px;
+  /* align-self: center; Xóa vì group-955 đã flex */
+  width: 50%; /* Chia đôi không gian */
+  display: flex;
+  /* justify-content: center; Xóa vì group-955 đã flex */
+  /* align-items: flex-start; Xóa */
+  border-right: 1px solid var(--pink_500); /* Thêm đường kẻ dọc thay thế vector-3 */
+  padding-right: 25px; /* Khoảng cách với đường kẻ */
+  @media only screen and (max-width: 1050px) {
+    width: 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+    border-right: none; /* Bỏ đường kẻ dọc */
+    border-bottom: 1px solid var(--pink_500); /* Thêm đường kẻ ngang */
+    padding-right: 0; /* Bỏ padding */
+    padding-bottom: 25px; /* Thêm khoảng cách dưới */
+    margin-bottom: 25px; /* Khoảng cách với phần tạo tài khoản */
+  }
+  @media only screen and (max-width: 550px) {
+    /* Các điều chỉnh cụ thể hơn nếu cần cho màn hình rất nhỏ */
+  }
+}
+
+.frame-57 {
+  /* padding-left: var(--space-7xl); Bỏ padding này */
+  /* padding-right: var(--space-7xl); Bỏ padding này */
+  /* align-self: center; Xóa */
+  width: 100%; /* Chiếm hết chiều rộng của group-556 */
+  /* @media only screen and (max-width: 550px) {
+    width: 100%;
+  } */
+}
+
+.group-5 {
+  /* margin-bottom: 186px; Bỏ margin lớn này */
+  gap: var(--space-xl); /* Giảm khoảng cách giữa các mục */
+  display: flex;
+  flex-direction: column;
+}
+
+.frame-51 {
+  /* margin-left: 120px; */
+  /* margin-right: 120px; */
+  display: flex;
+  justify-content: center; /* Căn giữa chữ Đăng nhập */
+  width: 100%; /* Chiếm đủ rộng */
+  margin-bottom: var(--space-15xl); /* Thêm khoảng cách dưới tiêu đề */
+  /* @media only screen and (max-width: 1050px) {
+    margin-left: 0px;
+    margin-right: 0px;
+  } */
+}
+
+.group-553 {
+  width: 100%; /* Chiếm toàn bộ chiều rộng của frame-57 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa các phần tử con */
+  gap: var(--space-md); /* Khoảng cách nhỏ giữa các phần tử */
+}
+
+.frame-55 {
+  /* padding-left: 90px; */
+  /* padding-right: 56px; */
+  /* align-self: stretch; Xóa */
+  display: flex;
+  width: 80%; /* Đồng bộ chiều rộng với input */
+  justify-content: flex-start; /* Căn trái label */
+  /* @media only screen and (max-width: 1050px) {
+    padding-left: var(--space-8xl);
+    padding-right: var(--space-8xl);
+  } */
+}
+
+.frame-55 p,
+.frame-55-1 p {
+  margin-bottom: 4px; /* Giảm khoảng cách dưới của label */
+  width: 100%; /* Đảm bảo label chiếm đủ rộng */
+  color: var(--pink_400) !important; /* Giữ màu hồng cho label */
+}
+
+.frame-55-1 {
+  /* padding-left: 92px; */
+  /* padding-right: 56px; */
+  /* align-self: stretch; Xóa */
+  display: flex;
+  width: 80%; /* Đồng bộ chiều rộng với input */
+  justify-content: flex-start; /* Căn trái label */
+  /* @media only screen and (max-width: 1050px) {
+    padding-left: var(--space-8xl);
+    padding-right: var(--space-8xl);
+  } */
+}
+
+.group-552 {
+  gap: var(--space-7xl);
+  display: flex;
+  width: 80%; /* Đồng bộ chiều rộng */
+  flex-direction: column;
+  align-items: center; /* Căn giữa nút Đăng nhập */
+  margin-top: var(--space-10xl); /* Khoảng cách trên với checkbox/input */
+  /* @media only screen and (max-width: 1050px) {
+    width: 100%;
+  } */
+}
+
+.group-3 {
+  gap: var(--space-lg);
+  display: flex;
+  align-items: center;
+  width: 100%; /* Chiếm đủ rộng trong group-552 */
+  justify-content: flex-start; /* Căn trái nội dung */
+  margin-bottom: var(
+    --space-7xl
+  ); /* Khoảng cách dưới trước khi tới nút Đăng nhập */
+}
+
+/* Bỏ .rectangle-8 vì đã thay bằng checkbox */
+/*
+.rectangle-8 {
+  height: 8px;
+  width: 8px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--black_900_01);
+}
+*/
+
+.group-3 label {
+  cursor: pointer; /* Đổi con trỏ khi di chuột qua label */
+  color: var(--black_900_01); /* Màu chữ */
+}
+
+.frame-56-1 {
+  color: var(--pink_400) !important;
+  padding-left: var(--space-14xl);
+  padding-right: var(--space-14xl);
+  font-size: 15px;
+  font-weight: 700;
+  background-color: var(--red_50) !important;
+  /* align-self: stretch; Xóa vì đã căn giữa trong group-552 */
+  height: 34px;
+  border-radius: 10px !important;
+  border: 1px solid var(--purple_100_01);
+  width: 100%; /* Chiếm đủ rộng trong group-552 */
+  cursor: pointer;
+  /* @media only screen and (max-width: 550px) {
+    padding-left: var(--space-8xl);
+    padding-right: var(--space-8xl);
+  } */
+}
+.frame-60 {
+  color: var(--black_900_01) !important;
+  margin-top: 18px; /* Giảm khoảng cách trên */
+  /* margin-right: 108px; Xóa */
+  padding-left: 19px;
+  padding-right: 19px;
+  font-family: "Lexend Deca";
+  font-size: 12px;
+  font-weight: 500;
+  gap: var(--space-2xl);
+  height: 32px;
+  min-width: 190px;
+  border-radius: 10px !important;
+  border: 1px solid var(--blue_gray_100) !important;
+  @media only screen and (max-width: 1050px) {
+    margin-right: 0px;
+  }
+}
+
+/* Bỏ vector-3 vì đã dùng border-right/border-bottom */
+/*
+.vector-3 {
+  height: 408px;
+  margin-top: 22px;
+  background-color: var(--pink_500);
+  width: 1px;
+  @media only screen and (max-width: 550px) {
+    width: 408px;
+    height: 1px;
+    margin-top: 0px;
+  }
+}
+*/
+
+.group-555 {
+  /* padding-left: 50px; */
+  /* padding-right: 50px; */
+  width: 50%; /* Chia đôi không gian */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa các mục */
+  padding-left: 25px; /* Khoảng cách với đường kẻ (hoặc phần trước đó trên mobile) */
+  @media only screen and (max-width: 1050px) {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    padding-left: 0; /* Bỏ padding */
+    /* padding-left: var(--space-8xl); */
+    /* padding-right: var(--space-8xl); */
+  }
+}
+
+.t-i-kho-n-m-i {
+  /* margin-left: 90px; */
+  margin-bottom: var(--space-15xl); /* Thêm khoảng cách dưới tiêu đề */
+  /* @media only screen and (max-width: 1050px) {
+    margin-left: 0px;
+  } */
+}
+
+/* Cập nhật frame-56 và liên kết */
+.signup-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin-top: 22px;
+  margin-bottom: 36px;
+  /* Thử tăng chiều cao một chút nếu vẫn bị lệch */
+  /* height: 42px; */ /* Bỏ height ở đây nếu frame-56 đã có */
+}
+
+.frame-56 {
+  height: 42px; /* Tăng nhẹ chiều cao của container nút */
+  position: relative;
+  width: 100%;
+}
+
+.frame-53 {
+  height: 100%;
+  background-color: var(--purple_50);
+  width: 100%;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--purple_100);
+  display: flex; /* Sử dụng flexbox */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  cursor: pointer;
+  box-sizing: border-box; /* Đảm bảo padding/border không làm tăng kích thước */
+}
+
+/* Đảm bảo text không có margin hoặc line-height gây ảnh hưởng */
+.login {
+  /* Class của thẻ H1 "TẠO TÀI KHOẢN" */
+  color: var(--pink_400) !important;
+  position: static;
+  font-size: var(--heading-xl); /* Giữ nguyên size chữ */
+  margin: 0; /* Bỏ margin mặc định của H1 */
+  line-height: 1; /* Đặt line-height để kiểm soát chiều cao dòng */
+  text-align: center; /* Đảm bảo căn giữa */
+}
+
+.glor-a-1 {
+  height: auto; /* Để ảnh tự điều chỉnh chiều cao */
+  max-height: 200px; /* Giới hạn chiều cao tối đa */
+  /* margin-top: 36px; Xóa vì đã đặt margin-bottom cho signup-link */
+  /* margin-left: 40px; */
+  width: 64%;
+  max-width: 250px; /* Giới hạn chiều rộng tối đa */
+  object-fit: contain;
+  /* @media only screen and (max-width: 1050px) {
+    margin-left: 0px;
+  } */
+}
+
+/* --- CSS THÊM MỚI --- */
+
+/* --- CSS cho input dạng gạch chân --- */
+.login-input {
+  width: 80%; /* Điều chỉnh chiều rộng nếu cần */
+  border: none; /* Bỏ các đường viền khác */
+  border-bottom: 1px solid var(--pink_400); /* Chỉ giữ lại đường gạch chân màu hồng */
+  background-color: transparent; /* Nền trong suốt */
+  padding: 8px 0; /* Thêm khoảng đệm trên dưới */
+  /* margin-top: 8px; Đã xử lý bởi gap trong group-553 */
+  margin-bottom: 16px; /* Khoảng cách với phần tử tiếp theo (Quên mật khẩu / checkbox)*/
+  font-size: var(--text-lg); /* Kích thước chữ, bạn có thể điều chỉnh */
+  color: var(--black_900_01); /* Màu chữ nhập */
+  outline: none; /* Bỏ đường viền khi focus */
+}
+.forgot1 {
+  text-decoration: none;
+  width: 80%; /* Đồng bộ chiều rộng */
+  text-align: right; /* Căn phải chữ "Quên mật khẩu?" */
+  margin-top: 0; /* Reset margin top */
+  margin-bottom: 16px; /* Thêm khoảng cách dưới */
+  font-size: var(--text-md); /* Đảm bảo kích thước chữ */
+  color: var(--black_900_01); /* Màu chữ mặc định */
+  cursor: pointer;
+}
+/* Tùy chọn: Đổi màu gạch chân khi focus */
+.login-input:focus {
+  border-bottom: 2px solid var(--pink_500);
+}
+
+/* --- CSS cho checkbox --- */
+.login-checkbox {
+  margin-right: 5px; /* Khoảng cách với text "Ghi nhớ đăng nhập" */
+  accent-color: var(--pink_400); /* Đổi màu dấu tick */
+  width: 16px; /* Kích thước checkbox */
+  height: 16px;
+  cursor: pointer;
+}
+
+/* --- Icons --- */
+.icons8-google-1 {
+  height: 18px; /* Điều chỉnh kích thước icon Google */
+  width: 18px;
+  object-fit: contain;
+}
+
+/* Đảm bảo các biến màu và không gian được định nghĩa trong các tệp CSS khác (styles.css, index.css, components.css) */

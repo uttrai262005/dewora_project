@@ -1,0 +1,316 @@
+/* css/don-hang-cua-toi.css */
+:root {
+  /* Bạn có thể định nghĩa các màu sắc chung của website tại đây hoặc trong styles.css */
+  --primary-color: #e91e63; /* Ví dụ: màu hồng chủ đạo của DEWORA */
+  --secondary-color: #4caf50; /* Màu cho nút hành động phụ */
+  --text-color: #333;
+  --border-color: #ddd;
+  --bg-light: #f9f9f9;
+  --white-color: #fff;
+
+  /* Trạng thái đơn hàng (có thể dùng chung với admin hoặc định nghĩa lại) */
+  --status-cho_xac_nhan: #777777; /* Xám */
+  --status-cho_thanh_toan: #ff8c00; /* Cam đậm */
+  --status-cho_dong_goi: #007bff; /* Xanh dương */
+  --status-dang_van_chuyen: #ffc107; /* Vàng */
+  --status-da_giao: #28a745; /* Xanh lá */
+  --status-da_huy: #dc3545; /* Đỏ */
+  --status-unknown: #a9a9a9; /* Xám đậm */
+}
+
+.my-orders-page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.my-orders-page h1 {
+  color: var(--primary-color); /* Sử dụng màu chủ đạo */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+
+.my-orders-page h1 .fa-receipt {
+  margin-right: 12px;
+}
+
+.order-filters-user {
+  justify-content: flex-end; /* Bộ lọc thường ở bên phải */
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #ffffeb;
+  border-radius: 8px;
+  width: 912px;
+  height: 82.6px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.filter-group select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 0.95em;
+  min-width: 180px;
+}
+
+.order-list-container-user {
+  background-color: var(--white-color);
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Cho phép cuộn ngang trên thiết bị nhỏ */
+}
+
+#my-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#my-orders-table th,
+#my-orders-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-size: 0.9em;
+  vertical-align: middle;
+}
+
+#my-orders-table th {
+  background-color: var(--bg-light);
+  font-weight: 600;
+  white-space: nowrap; /* Không xuống dòng tiêu đề cột */
+}
+
+#my-orders-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+#my-orders-table .product-summary {
+  font-size: 0.85em;
+  color: #555;
+  max-width: 300px; /* Giới hạn chiều rộng cột sản phẩm */
+  white-space: normal; /* Cho phép xuống dòng nếu cần */
+}
+
+#my-orders-table td .btn-view-order-details,
+#my-orders-table td .btn-cancel-order,
+#my-orders-table td .btn-repurchase {
+  /* Nút mua lại (tùy chọn) */
+  padding: 7px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: opacity 0.2s ease;
+  color: var(--white-color);
+  text-decoration: none; /* Cho thẻ <a> */
+  display: inline-block; /* Cho thẻ <a> */
+  margin-right: 5px;
+  margin-bottom: 5px; /* Cho trường hợp có nhiều nút trên mobile */
+}
+
+#my-orders-table td .btn-view-order-details {
+  background-color: var(--primary-color);
+}
+#my-orders-table td .btn-view-order-details:hover {
+  opacity: 0.85;
+}
+
+#my-orders-table td .btn-cancel-order {
+  background-color: var(--status-da_huy);
+}
+#my-orders-table td .btn-cancel-order:hover {
+  opacity: 0.85;
+}
+
+#my-orders-table td .btn-repurchase {
+  background-color: var(--secondary-color);
+}
+#my-orders-table td .btn-repurchase:hover {
+  opacity: 0.85;
+}
+
+/* Tag trạng thái (giống với trang admin nếu bạn muốn đồng bộ) */
+.status-tag {
+  padding: 5px 10px;
+  border-radius: 15px; /* Bo tròn hơn cho thân thiện */
+  color: white;
+  font-size: 0.75em;
+  font-weight: 500;
+  white-space: nowrap;
+  text-transform: uppercase; /* IN HOA chữ */
+  letter-spacing: 0.5px;
+}
+.status-tag.cho_xac_nhan {
+  background-color: var(--status-cho_xac_nhan);
+}
+.status-tag.cho_thanh_toan {
+  background-color: var(--status-cho_thanh_toan);
+}
+.status-tag.cho_dong_goi {
+  background-color: var(--status-cho_dong_goi);
+}
+.status-tag.dang_van_chuyen {
+  background-color: var(--status-dang_van_chuyen);
+}
+.status-tag.da_giao {
+  background-color: var(--status-da_giao);
+}
+.status-tag.da_huy {
+  background-color: var(--status-da_huy);
+}
+.status-tag.unknown {
+  background-color: var(--status-unknown);
+}
+
+#loading-my-orders,
+#no-my-orders-message {
+  color: var(--text-color);
+  padding: 30px 0;
+}
+#loading-my-orders .fa-spinner {
+  color: var(--primary-color);
+  font-size: 1.8em;
+}
+#no-my-orders-message a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+/* Refined styling for the orders table */
+
+/* Container for the table - can add some padding for overall spacing */
+.order-list-container-user {
+  /* Keeping existing styles, adding a subtle inner padding if desired */
+  padding: 0px; /* Adds a bit of space around the table within its container */
+  background-color: var(
+    --white-color
+  ); /* Ensures container background is white if table doesn't cover fully */
+  border-radius: var(--radius-xl); /* Consistent with table's corner radius */
+  box-shadow: var(--shadow-sm); /* Consistent with table's shadow */
+  margin-top: 20px; /* Space from the tabs above */
+  overflow: hidden; /* Ensures content respects border-radius */
+}
+
+#my-orders-table {
+  width: 100%; /* Ensures the table takes full width of its container */
+  border-collapse: collapse; /* Collapses borders between cells */
+  /* Remove margin-top, background-color, box-shadow, border-radius from here
+     if they are moved to .order-list-container-user for better container management */
+  /* If you want the table itself to have these, keep them here and remove from .order-list-container-user */
+  margin-top: 0; /* Remove top margin if container has it */
+  /* background-color: var(--white-color); */ /* Can be here or on container */
+  /* box-shadow: var(--shadow-sm); */ /* Can be here or on container */
+  /* border-radius: var(--radius-xl); */ /* Can be here or on container */
+}
+
+#my-orders-table thead th {
+  background-color: #e5536b; /* Pink header */
+  color: var(--white-color);
+  padding: 18px 25px; /* Increased vertical and horizontal padding for more space */
+  text-align: left;
+  font-weight: 700; /* Bolder font for header */
+  font-size: 1.05em; /* Slightly larger font for header text */
+  /* No individual border-bottom here as border-collapse handles it with tbody border-top */
+}
+
+#my-orders-table tbody tr {
+  border-bottom: 1px solid var(--border-color); /* Line between rows */
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+/* Add alternating row colors for better readability and aesthetic */
+#my-orders-table tbody tr:nth-child(even) {
+  background-color: var(--bg-light); /* Light background for even rows */
+}
+
+#my-orders-table tbody tr:last-child {
+  border-bottom: none; /* No border for the last row */
+}
+
+#my-orders-table tbody td {
+  padding: 20px 25px; /* Significantly increased padding for more space between data cells */
+  vertical-align: middle; /* Aligns content vertically in the middle */
+  color: var(--text-color);
+}
+
+/* Optional: Add a subtle top border to tbody for separation from header */
+#my-orders-table tbody {
+  border-top: 1px solid var(--border-color);
+}
+
+/* Enhance the status tags for a cleaner look */
+.status-tag {
+  padding: 7px 12px; /* Slightly more padding for the tag */
+  border-radius: 20px; /* More rounded corners for a modern feel */
+  font-size: 0.8em; /* Can adjust if needed, current size might be good */
+  font-weight: 600; /* A bit bolder */
+  /* text-transform: uppercase; */ /* Keep as uppercase if you prefer this style */
+  letter-spacing: 0.5px; /* Keep or adjust as desired */
+}
+
+/* You already have hover effects, ensure they are still as desired */
+#my-orders-table tbody tr:hover {
+  background-color: rgba(
+    var(--primary-color-rgb),
+    0.05
+  ); /* Subtle pinkish hover */
+  /* Or if you prefer the grey background from before: */
+  /* background-color: var(--bg-light); */
+}
+/* css/don-hang-cua-toi.css */
+
+.my-orders-page {
+  /* BỎ HOẶC COMMENT CÁC DÒNG NÀY ĐI */
+  /* max-width: 1200px; */
+  /* margin: 20px auto; */
+  padding: 0; /* Điều chỉnh padding cho phù hợp, có thể bỏ nếu account-content đã có padding */
+  /* Giữ các style khác nếu có, ví dụ: background, box-shadow nếu muốn riêng cho trang này */
+}
+
+/* Đảm bảo bảng hiển thị đúng */
+#my-orders-table {
+  width: 100%; /* Đảm bảo bảng chiếm toàn bộ chiều rộng của container */
+  border-collapse: collapse; /* Gộp các đường viền của ô */
+  margin-top: 20px; /* Khoảng cách từ các tab */
+  box-shadow: var(--shadow-xs); /* Đổ bóng nhẹ cho bảng */
+  border-radius: var(--radius-xl); /* Góc bo tròn cho bảng */
+  overflow: hidden; /* Quan trọng để bo tròn góc và ẩn phần thừa */
+}
+
+#my-orders-table thead th {
+  background-color: var(--pink_400); /* Màu nền cho header */
+  color: var(--white-color); /* Màu chữ cho header */
+  padding: 15px 25px; /* Padding cho header cells */
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+#my-orders-table tbody td {
+  padding: 15px 25px; /* Điều chỉnh padding cho nội dung của ô */
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-color); /* Đường kẻ dưới mỗi hàng */
+  color: var(--text-color);
+  font-size: 0.95em;
+}
+
+#my-orders-table tbody tr:nth-child(even) {
+  background-color: var(--bg-light); /* Màu nền xen kẽ */
+}
+
+/* Các style khác cho trạng thái đơn hàng, nút hành động, v.v., giữ nguyên */
+.order-list-container-user {
+  overflow-x: auto; /* Cho phép cuộn ngang nếu bảng quá rộng */
+}

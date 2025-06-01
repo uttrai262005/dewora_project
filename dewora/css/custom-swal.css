@@ -1,0 +1,54 @@
+:root {
+  --pink_400: #e5536b; /* Đây là một ví dụ, giá trị thực có thể khác */
+}
+.swal2-confirm.swal2-styled {
+  background-color: var(--pink_400) !important;
+  border-color: var(--pink_400) !important;
+  box-shadow: 0 0 0 3px rgba(var(--pink_400_value_rgb), 0.5) !important; /* Thay pink_400_value_rgb bằng giá trị RGB ví dụ: 229, 83, 107 */
+}
+
+.swal2-confirm.swal2-styled:focus {
+  box-shadow: 0 0 0 3px rgba(var(--pink_400), 0.5) !important;
+}
+
+.swal2-confirm.swal2-styled:hover {
+  background-color: var(
+    --red_900
+  ) !important; /* Hoặc một sắc thái đậm hơn của pink_400 nếu có */
+  border-color: var(--red_900) !important;
+}
+
+/* Thay đổi màu sắc của tiêu đề và nội dung popup */
+.swal2-title {
+  color: var(--pink_400) !important;
+}
+
+/* Nếu bạn muốn màu biểu tượng (success, error, warning) cũng theo pink_400, bạn có thể override từng loại */
+/* Ví dụ cho biểu tượng success */
+.swal2-success-line-tip,
+.swal2-success-line-long {
+  background-color: var(--pink_400) !important;
+}
+.swal2-success-circular-line-right,
+.swal2-success-fix {
+  background-color: white !important; /* Giữ nền trắng để đường tròn hiển thị */
+}
+.swal2-success {
+  border-color: var(--pink_400) !important;
+}
+
+/* Thay đổi màu của thanh tiến trình (progress bar) nếu có */
+.swal2-timer-progress-bar {
+  background-color: var(--pink_400) !important;
+}
+
+/* Nếu bạn muốn viền xung quanh popup có màu */
+.swal2-popup {
+  border-color: var(--pink_400) !important;
+}
+
+/* Để thay đổi màu nền của popup */
+/* Cần cẩn thận khi thay đổi toàn bộ nền để tránh ảnh hưởng đến khả năng đọc */
+/* .swal2-popup {
+    background-color: rgba(var(--pink_400_value_rgb), 0.1) !important; 
+} */

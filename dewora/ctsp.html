@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết sản phẩm - DEWORA</title>
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/TRANGCCH.css" />
+    <link rel="stylesheet" href="css/ctsp_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <nav class="nav-container">
+      <div class="nav-menu">
+        <a href="TRANGCH.html" class="nav-item">Trang chủ</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-item">Danh mục</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <a
+                style="text-decoration: none"
+                class="dropdown-title"
+                href="da.html?group=moi"
+                >MÔI</a
+              ><a href="da.html?type_id=1" class="dropdown-item">Son dưỡng</a
+              ><a href="da.html?type_id=2" class="dropdown-item">Son kem</a
+              ><a href="da.html?type_id=3" class="dropdown-item">Son thỏi</a
+              ><a href="da.html?type_id=4" class="dropdown-item">Son bóng</a>
+            </div>
+            <div class="dropdown-column">
+              <a
+                style="text-decoration: none"
+                class="dropdown-title"
+                href="da.html?group=mat"
+                >MẮT</a
+              ><a href="da.html?type_id=5" class="dropdown-item">Mascara</a
+              ><a href="da.html?type_id=7" class="dropdown-item">Bút kẻ mắt</a
+              ><a href="da.html?type_id=8" class="dropdown-item">Phấn mắt</a
+              ><a href="da.html?type_id=6" class="dropdown-item">Kẻ chân mày</a>
+            </div>
+            <div class="dropdown-column">
+              <a
+                style="text-decoration: none"
+                class="dropdown-title"
+                href="da.html?group=da"
+                >DA</a
+              ><a href="da.html?type_id=9" class="dropdown-item">Kem nền</a
+              ><a href="da.html?type_id=10" class="dropdown-item">Cushion</a
+              ><a href="da.html?type_id=11" class="dropdown-item">Phấn phủ</a
+              ><a href="da.html?type_id=12" class="dropdown-item">Má hồng</a>
+            </div>
+            <div class="dropdown-column">
+              <a
+                style="text-decoration: none"
+                class="dropdown-title"
+                href="da.html?group=khac"
+                >KHÁC</a
+              ><a href="da.html?type_id=13" class="dropdown-item"
+                >Che khuyết điểm</a
+              ><a href="da.html?type_id=14" class="dropdown-item"
+                >Xịt khóa nền</a
+              ><a href="da.html?type_id=15" class="dropdown-item"
+                >Highlight + Khối</a
+              ><a href="da.html?type_id=16" class="dropdown-item"
+                >Cọ trang điểm</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="nav-logo">
+          <img src="public/images/mini-logo.png" alt="Mini Logo" />
+        </div>
+        <a href="Blog.html" class="nav-item">Blog</a
+        ><a href="Q&A.html" class="nav-item">Q&A</a
+        ><a href="contact.html" class="nav-item">Liên hệ</a>
+      </div>
+    </nav>
+
+    <main class="product-detail-container container">
+      <div class="breadcrumbs">
+        <a href="TRANGCH.html">Trang chủ</a> &gt;
+        <a id="breadcrumb-category" href="da.html">Sản phẩm</a> &gt;
+        <span id="breadcrumb-product-name">Tên sản phẩm</span>
+      </div>
+      <div id="product-detail-content" class="loading">
+        <div class="product-core-info">
+          <div class="product-gallery">
+            <div class="swiper-container main-image-swiper">
+              <div class="swiper-wrapper" id="main-image-wrapper-ctsp"></div>
+              <div class="swiper-button-next main-img-next"></div>
+              <div class="swiper-button-prev main-img-prev"></div>
+              <div class="swiper-pagination main-img-pagination"></div>
+            </div>
+            <div class="swiper-container thumbnail-swiper">
+              <div class="swiper-wrapper" id="thumbnail-wrapper-ctsp"></div>
+            </div>
+          </div>
+
+          <div class="product-info-actions">
+            <h2 id="product-brand" class="product-brand-name">Thương hiệu</h2>
+            <h1 id="product-name" class="product-title">Đang tải...</h1>
+            <div id="product-rating-display" class="product-rating-ctsp">
+              <span class="stars-display"></span> (<span
+                class="review-count-display"
+                >0</span
+              >
+              đánh giá)
+            </div>
+            <div class="product-price-ctsp">
+              <span id="current-price" class="current-price-value"></span>
+              <span id="original-price" class="original-price-value"></span>
+              <span id="discount-percentage" class="discount-badge-ctsp"></span>
+            </div>
+            <p id="product-short-description" class="short-desc"></p>
+            <div
+              class="variant-selection"
+              id="color-options-container"
+              style="display: none"
+            >
+              <label>Màu sắc:</label>
+              <div id="color-selector" class="color-chips"></div>
+            </div>
+            <div class="quantity-selection">
+              <label for="quantity-input">Số lượng:</label>
+              <div class="quantity-control">
+                <button id="decrease-quantity" class="quantity-btn">-</button>
+                <input
+                  type="number"
+                  id="quantity-input"
+                  value="1"
+                  min="1"
+                  readonly
+                />
+                <button id="increase-quantity" class="quantity-btn">+</button>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button id="add-to-cart-btn" class="btn btn-primary">
+                Thêm vào giỏ hàng
+              </button>
+              <button
+                id="add-to-wishlist-btn-ctsp"
+                class="btn btn-secondary"
+                style="margin-top: 10px"
+              >
+                <i class="far fa-heart"></i> Thêm vào Yêu thích
+              </button>
+            </div>
+            <div id="product-labels-ctsp" class="product-labels-ctsp"></div>
+            <div id="gift-description-ctsp" class="gift-description-ctsp"></div>
+          </div>
+        </div>
+
+        <div class="product-detailed-info">
+          <div class="tabs">
+            <button
+              class="tab-link active"
+              onclick="openTab(event, 'description-tab')"
+            >
+              Mô tả sản phẩm
+            </button>
+            <button class="tab-link" onclick="openTab(event, 'reviews-tab')">
+              Đánh giá (<span class="review-count-display">0</span>)
+            </button>
+          </div>
+          <div id="description-tab" class="tab-content active">
+            <h3>Chi tiết sản phẩm</h3>
+            <div id="product-long-description"></div>
+          </div>
+          <div id="reviews-tab" class="tab-content">
+            <h3>Đánh giá từ khách hàng</h3>
+            <div id="product-reviews-list">
+              <p class="no-reviews">Chưa có đánh giá nào.</p>
+            </div>
+            <div
+              class="reviews-actions"
+              id="reviews-actions"
+              style="text-align: center; margin-top: 20px"
+            >
+              <button
+                id="show-more-reviews-btn"
+                class="btn-secondary"
+                style="display: none"
+              >
+                Xem thêm đánh giá
+              </button>
+              <button
+                id="hide-reviews-btn"
+                class="btn-secondary"
+                style="display: none"
+              >
+                Ẩn bớt đánh giá
+              </button>
+            </div>
+            <hr class="review-divider" />
+            <h4>Để lại đánh giá của bạn</h4>
+            <form id="review-form">
+              <div class="form-group">
+                <label for="reviewer-name">Tên của bạn:</label>
+                <input
+                  type="text"
+                  id="reviewer-name"
+                  name="reviewerName"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Đánh giá (sao):</label>
+                <div class="star-rating-input" id="star-rating-input-form">
+                  <i class="far fa-star" data-value="1"></i>
+                  <i class="far fa-star" data-value="2"></i>
+                  <i class="far fa-star" data-value="3"></i>
+                  <i class="far fa-star" data-value="4"></i>
+                  <i class="far fa-star" data-value="5"></i>
+                </div>
+                <input
+                  type="hidden"
+                  name="ratingValue"
+                  id="ratingValueHidden"
+                  value="0"
+                />
+              </div>
+              <div class="form-group">
+                <label for="review-comment">Bình luận:</label>
+                <textarea
+                  id="review-comment"
+                  name="reviewComment"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" id="nut" class="btn btn-primary">
+                Gửi đánh giá
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        id="product-not-found"
+        style="display: none; text-align: center; padding: 50px"
+      >
+        <h2>Sản phẩm không tồn tại</h2>
+        <p>Chúng tôi không tìm thấy sản phẩm bạn yêu cầu. Vui lòng thử lại.</p>
+        <a href="TRANGCH.html" class="btn btn-primary">Về Trang Chủ</a>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/header-footer.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+    <script src="js/ctsp_script.js"></script>
+  </body>
+</html>

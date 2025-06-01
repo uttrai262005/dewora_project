@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEWORA - Mỹ phẩm cao cấp</title>
+
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Shipping Notice -->
+    <div class="shipping-notice flex-col-center-center">
+      <div class="ui text size-textmd">
+        Miễn phí ship nội thành.
+        <a style="color: black" href="./da.html"
+          ><span class="buy-now">Mua ngay!</span></a
+        >
+      </div>
+      <span
+        class="close-btn ui heading size-headingmd"
+        onclick="this.parentElement.style.display='none'"
+        >×</span
+      >
+    </div>
+    <header class="main-header">
+      <div class="header-container">
+        <div class="logo">
+          <a href="TRANGCH.html">
+            <img src="public/images/logo-dewora.png" alt="DEWORA Logo"
+          /></a>
+        </div>
+
+        <div class="search-container">
+          <img
+            src="public/images/search-icon.png"
+            alt="Search"
+            class="search-icon"
+          />
+          <input
+            type="text"
+            class="search-box"
+            id="search-box"
+            placeholder="Bạn cần tìm món gì nè"
+          />
+          <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+
+        <div class="user-actions">
+          <!-- Địa điểm (chỉ icon) -->
+          <div class="location-icon">
+            <a href="contact.html#mapdc"
+              ><img
+                src="public/images/location-pin.png"
+                alt="Địa điểm"
+                class="action-icon"
+            /></a>
+          </div>
+
+          <!-- Tài khoản & Giỏ hàng -->
+          <div class="account-selector">
+            <button class="account-current">
+              <img
+                src="public/images/user-icon.png"
+                alt="Account"
+                class="action-icon"
+              />
+            </button>
+            <div class="account-dropdown">
+              <div class="account-option" data-action="account">
+                <a
+                  style="text-decoration: none"
+                  href="tttk.html?tab=thong-tin-tai-khoan"
+                  class="account-option"
+                >
+                  <img
+                    src="public/images/img_4_90375050.png"
+                    alt="Account"
+                    class="account-icon"
+                  />
+                  <span>Tài khoản của bạn</span>
+                </a>
+              </div>
+              <div class="account-option" data-action="orders">
+                <a
+                  style="text-decoration: none"
+                  href="tttk.html?tab=don-hang-cua-toi"
+                  class="account-option"
+                >
+                  <img
+                    src="public/images/img_5_80.png"
+                    alt="Orders"
+                    class="account-icon"
+                  />
+                  <span>Quản lý đơn hàng</span>
+                </a>
+              </div>
+              <div class="account-option" data-action="address">
+                <a
+                  style="text-decoration: none"
+                  href="tttk.html?tab=dia-chi-nhan-hang"
+                  class="account-option"
+                >
+                  <img
+                    src="public/images/img_6_80.png"
+                    alt="Address"
+                    class="account-icon"
+                  />
+                  <span>Địa chỉ giao hàng</span>
+                </a>
+              </div>
+              <div class="account-option" data-action="favorites">
+                <a
+                  style="text-decoration: none"
+                  href="tttk.html?tab=san-pham-yeu-thich"
+                  class="account-option"
+                >
+                  <img
+                    src="public/images/img_7_50.png"
+                    alt="Favorites"
+                    class="account-icon"
+                  />
+                  <span>Sản phẩm yêu thích</span>
+                </a>
+              </div>
+              <div class="account-option" data-action="logout">
+                <img
+                  src="public/images/img_8_1.png"
+                  alt="Logout"
+                  class="account-icon"
+                />
+                <span>Thoát</span>
+              </div>
+            </div>
+          </div>
+          <!-- Sidebar giỏ hàng -->
+          <div class="cart-selector">
+            <button class="cart-current">
+              <img
+                src="public/images/cart-icon.png"
+                alt="Cart"
+                class="action-icon"
+              />
+              <span class="cart-count" id="cart-count">0</span>
+            </button>
+            <div class="cart-sidebar" id="cart-sidebar">
+              <div class="cart-sidebar-header">
+                <h3>Giỏ hàng</h3>
+                <button class="cart-sidebar-close">×</button>
+              </div>
+              <div class="cart-empty" style="display: none">
+                <p>Giỏ hàng của bạn đang trống.</p>
+              </div>
+              <div class="cart-items" id="cart-items"></div>
+              <div class="cart-total" id="cart-total" style="display: none">
+                <span style="color: #e5536b">Tổng cộng:</span>
+                <span style="color: #e5536b" id="cart-total-amount">0 VNĐ</span>
+              </div>
+              <button
+                class="cart-checkout"
+                id="cart-checkout"
+                style="display: none"
+              >
+                Xem giỏ hàng và Thanh toán
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>

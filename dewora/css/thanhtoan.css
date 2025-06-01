@@ -1,0 +1,417 @@
+/* css/thanhtoan.css */
+
+/* KẾT THÚC QUY TẮC IMG CHUNG */
+
+:root {
+  --pink_400: #e5536b;
+  --pink_light: #fff2fb;
+  --yellow_light: #ffffeb;
+  --red_900: #b21c35;
+  --white: #ffffff;
+  --gray: #f1f1f1;
+  --black: #000000;
+  --borderpink: #e5536b;
+  --text-dark: #333;
+  --text-light: #666;
+  --border-color: #ddd;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-container.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--white);
+}
+
+.checkout-container h1 {
+  color: var(--pink_400);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.checkout-layout {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 30px;
+}
+
+.checkout-form {
+  flex: 2; /* Takes 2/3 of space */
+  min-width: 300px; /* Minimum width before wrapping */
+}
+
+.checkout-summary {
+  flex: 1; /* Takes 1/3 of space */
+  background-color: var(--pink_light);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--borderpink);
+  height: fit-content; /* Stick to its content height */
+  min-width: 280px;
+}
+
+.checkout-form section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: #fff;
+}
+
+.checkout-form h2,
+.checkout-summary h2 {
+  font-size: 1.4em;
+  color: var(--pink_400);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text-dark);
+  font-size: 0.9em;
+}
+.form-group label.inline-label {
+  display: inline-block;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 1em;
+  box-sizing: border-box;
+}
+.form-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-group .required {
+  color: var(--red_900);
+  margin-left: 2px;
+}
+
+.payment-method .payment-option {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+.payment-method .payment-option:has(input:checked) {
+  background-color: var(--yellow_light);
+  border-color: var(--pink_400);
+}
+
+.payment-method .payment-option label {
+  font-weight: normal;
+  margin-left: 8px;
+  cursor: pointer;
+}
+.payment-details {
+  font-size: 0.9em;
+  color: var(--text-light);
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  border-radius: var(--radius-sm);
+}
+.payment-details p {
+  margin: 5px 0;
+}
+
+/* Checkout Summary Order Items */
+#checkout-order-items .order-item {
+  display: flex;
+  align-items: center; /* Căn chỉnh các mục theo chiều dọc ở giữa */
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5cdd8;
+  gap: 8px; /* ĐÃ ĐIỀU CHỈNH: Khoảng cách giữa ảnh và tên sản phẩm */
+}
+#checkout-order-items .order-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+#checkout-order-items .item-image {
+  flex-shrink: 0; /* Ngăn chặn container ảnh co lại */
+  width: 60px !important; /* Đặt width cố định cho container ảnh */
+  height: 60px !important; /* Đặt height cố định cho container ảnh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#checkout-order-items .item-image img {
+  max-width: 100% !important; /* Rất quan trọng: Đảm bảo ảnh không vượt quá kích thước của container cha */
+  max-height: 100% !important; /* Rất quan trọng: Đảm bảo ảnh không vượt quá kích thước của container cha */
+  width: 60px !important; /* Đặt width của ảnh */
+  height: 60px !important; /* Đặt height của ảnh */
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray);
+  /* display: block; (Đã chuyển lên quy tắc img chung để áp dụng cho tất cả ảnh nếu cần) */
+}
+
+#checkout-order-items .item-details {
+  flex-grow: 1; /* Cho phép phần chi tiết sản phẩm chiếm không gian còn lại */
+  min-width: 0; /* Quan trọng: Cho phép phần tử flex co lại dưới kích thước nội dung của nó */
+  overflow: hidden; /* Quan trọng: Ngăn chặn văn bản tràn ra khỏi container của nó */
+}
+
+#checkout-order-items .item-name {
+  display: block;
+  font-weight: 500;
+  font-size: 0.95em;
+  color: var(--text-dark);
+  white-space: normal; /* Đảm bảo văn bản ngắt dòng */
+  word-wrap: break-word; /* Đối với các trình duyệt cũ */
+  overflow-wrap: break-word; /* Tương đương hiện đại */
+}
+#checkout-order-items .item-variant {
+  font-size: 0.8em;
+  color: var(--text-light);
+  white-space: normal; /* Đảm bảo văn bản ngắt dòng */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#checkout-order-items .item-quantity-price {
+  font-size: 0.9em;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+#checkout-order-items .item-total-price {
+  font-weight: 500;
+  color: var(--pink_400);
+  font-size: 0.95em;
+  min-width: 80px; /* Đảm bảo đủ không gian cho giá */
+  text-align: right;
+  flex-shrink: 0; /* Ngăn chặn giá co lại */
+}
+
+.summary-calculation {
+  margin-top: 20px;
+}
+
+.summary-calculation .calc-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+.summary-calculation .calc-row span:first-child {
+  color: var(--text-dark);
+}
+.summary-calculation .calc-row span:last-child,
+.summary-calculation .calc-row strong {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.summary-calculation hr {
+  border: 0;
+  border-top: 1px dashed #ccc;
+  margin: 15px 0;
+}
+
+.summary-calculation .total span,
+.summary-calculation .total strong {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--pink_400);
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  margin-top: 20px;
+  background-color: var(--pink_400);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+}
+
+.btn-checkout:hover {
+  background-color: var(--red_900);
+}
+
+.wal-message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95em;
+  text-align: center;
+}
+.wal-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.wal-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive adjustments for checkout */
+@media (max-width: 992px) {
+  /* Điều chỉnh breakpoint khi cần */
+  .checkout-layout {
+    flex-direction: column;
+  }
+  .checkout-summary {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  .checkout-form h2,
+  .checkout-summary h2 {
+    font-size: 1.2em;
+  }
+}
+#checkout-order-items .order-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border-color); /* Changed from solid #e5cdd8 */
+  gap: 8px;
+}
+#checkout-order-items .order-item:last-child {
+  border-bottom: none; /* This removes the border for the last item */
+  margin-bottom: 0;
+}
+/* Checkout Summary Order Items */
+#checkout-order-items .checkout-item {
+  display: flex;
+  align-items: center; /* Căn chỉnh các mục theo chiều dọc ở giữa */
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border-color);
+  gap: 15px; /* Đã điều chỉnh khoảng cách giữa ảnh và tên sản phẩm */
+}
+#checkout-order-items .checkout-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+#checkout-order-items .checkout-item-image {
+  flex-shrink: 0; /* Ngăn chặn hình ảnh co lại */
+  width: 80px; /* Đặt width cố định cho hình ảnh */
+  height: 80px; /* Đặt height cố định cho hình ảnh */
+  object-fit: cover; /* Đảm bảo hình ảnh được cắt để vừa vặn mà không bị méo */
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray);
+  display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+}
+
+#checkout-order-items .checkout-item-info {
+  flex-grow: 1; /* Cho phép phần thông tin chiếm không gian còn lại */
+  min-width: 0; /* Quan trọng: Cho phép phần tử flex co lại dưới kích thước nội dung của nó */
+  overflow: hidden; /* Quan trọng: Ngăn chặn văn bản tràn ra khỏi container của nó */
+}
+
+#checkout-order-items .item-name {
+  display: block;
+  font-weight: 500;
+  font-size: 0.95em;
+  color: var(--text-dark);
+  white-space: normal; /* Đảm bảo văn bản ngắt dòng */
+  word-wrap: break-word; /* Đối với các trình duyệt cũ */
+  overflow-wrap: break-word; /* Tương đương hiện đại */
+}
+#checkout-order-items .item-quantity {
+  /* Đã đổi từ .item-variant nếu có */
+  font-size: 0.8em;
+  color: var(--text-light);
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#checkout-order-items .checkout-item-price {
+  /* Đã đổi từ .item-total-price nếu có */
+  font-weight: 500;
+  color: var(--pink_400);
+  font-size: 0.95em;
+  min-width: 80px; /* Đảm bảo đủ không gian cho giá */
+  text-align: right;
+  flex-shrink: 0; /* Ngăn chặn giá co lại */
+}
+
+/* Các quy tắc responsive nếu cần */
+@media (max-width: 768px) {
+  #checkout-order-items .checkout-item {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+  #checkout-order-items .checkout-item-image {
+    margin-bottom: 10px;
+  }
+  #checkout-order-items .checkout-item-info {
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  #checkout-order-items .checkout-item-price {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+/* Trong css/thanhtoan.css */
+
+.checkout-item-info {
+  /* Đảm bảo các dòng bên trong info box được xếp chồng lên nhau */
+  display: flex;
+  flex-direction: column; /* Xếp các thẻ p theo cột */
+  gap: 5px; /* Thêm khoảng cách giữa các dòng */
+}
+
+.checkout-item-info .item-name {
+  font-weight: 600; /* Có thể làm đậm tên sản phẩm */
+  margin-bottom: 0; /* Xóa margin-bottom mặc định nếu có */
+}
+
+.checkout-item-info .item-color,
+.checkout-item-info .item-quantity {
+  font-size: 0.9em; /* Kích thước chữ nhỏ hơn một chút cho chi tiết */
+  color: #666; /* Màu xám nhẹ cho thông tin bổ sung */
+  margin-bottom: 0;
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Đăng ký - DEWORA</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/components.css" />
+    <link rel="stylesheet" type="text/css" href="./css/signup.css" />
+  </head>
+  <body>
+    <div class="sign-up">
+      <div class="group-5-1">
+        <div class="frame-51-1">
+          <p class="ng-nh-p ui text size-text7xl">Đăng ký</p>
+        </div>
+
+        <form id="signupForm">
+          <div class="form-field">
+            <label for="fullname" class="name ui text size-text4xl"
+              >Họ và tên</label
+            >
+            <input
+              type="text"
+              id="fullname"
+              name="name"
+              class="ui input size-xs signup-input"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="email" class="name ui text size-text4xl">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="ui input size-xs signup-input"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="password" class="name ui text size-text4xl"
+              >Mật khẩu</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="ui input size-xs signup-input"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="password_confirmation" class="name ui text size-text4xl"
+              >Nhập lại mật khẩu</label
+            >
+            <input
+              type="password"
+              id="password_confirmation"
+              name="password_confirmation"
+              class="ui input size-xs signup-input"
+              required
+            />
+          </div>
+
+          <label class="t-i-ng-v-i-c-c ui checkbox">
+            <input
+              type="checkbox"
+              name="terms"
+              class="ui checkbox size-md primary"
+              required
+            />
+            <div>
+              Tôi đồng ý với các điều khoản và chính sách bảo mật dữ liệu cá
+              nhân của ứng dụng
+            </div>
+          </label>
+
+          <div id="error-message" style="color: red; margin-top: 10px"></div>
+
+          <button
+            type="submit"
+            class="frame-56-2 ui button purple_600_26 size-lg fill"
+          >
+            ĐĂNG KÝ
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault(); // Ngăn form submit theo cách truyền thống
+
+          const form = event.target;
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+          const errorMessageDiv = document.getElementById("error-message");
+          errorMessageDiv.textContent = ""; // Xóa lỗi cũ
+
+          try {
+            const response = await fetch("http://127.0.0.1:8000/api/register", {
+              // <-- URL API của bạn
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+              // Xử lý lỗi validation từ Laravel
+              let errorText = "Đã có lỗi xảy ra. Vui lòng thử lại.";
+              if (result.errors) {
+                errorText = Object.values(result.errors).flat().join("\n");
+              }
+              throw new Error(errorText);
+            }
+
+            showCustomAlert("success", "Đăng ký thành công!", result.message); // "Đăng ký thành công!"
+            setTimeout(() => {
+              window.location.href = "Login.html"; // Chuyển hướng đến trang đăng nhập sau 1.5 giây
+            }, 1500);
+          } catch (error) {
+            errorMessageDiv.textContent = error.message;
+            console.error("Error:", error);
+          }
+        });
+    </script>
+    <script>
+      // Hàm hiển thị thông báo tùy chỉnh bằng SweetAlert2
+      function showCustomAlert(
+        icon,
+        title,
+        text,
+        confirmButtonColor = "var(--pink_400)"
+      ) {
+        Swal.fire({
+          icon: icon, // 'success', 'error', 'warning', 'info', 'question'
+          title: title,
+          text: text,
+          confirmButtonColor: confirmButtonColor,
+          customClass: {
+            confirmButton: "swal2-confirm-button", // Thêm class để tùy chỉnh thêm nếu cần
+          },
+          // Bạn có thể thêm các tùy chỉnh khác ở đây, ví dụ:
+          // background: '#fefefe',
+          // color: '#333',
+          // showCloseButton: true,
+          // timer: 3000, // Tự động đóng sau 3 giây
+          // timerProgressBar: true,
+        });
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

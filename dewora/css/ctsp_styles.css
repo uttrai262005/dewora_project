@@ -1,0 +1,590 @@
+/* ctsp_styles.css */
+.product-detail-container.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px; /* Ví dụ bo góc 8px */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Thêm box-shadow nhẹ cho đẹp */
+}
+#product-detail-content.loading::before {
+  content: "Đang tải...";
+  display: block;
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2em;
+}
+.breadcrumbs {
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  color: #666;
+}
+.breadcrumbs a {
+  color: var(--pink_400, #ff69b4); /* Sử dụng màu hồng, fallback là hotpink */
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.product-core-info {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.product-gallery {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+.main-image-container img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+.thumbnail-gallery {
+  margin-top: 10px;
+  position: relative;
+}
+.thumbnail-gallery .swiper-slide {
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+
+.thumbnail-gallery .swiper-slide:hover,
+.thumbnail-gallery .swiper-slide.swiper-slide-thumb-active {
+  opacity: 1;
+  border-color: var(--pink_400, #ff69b4);
+}
+.thumbnail-gallery img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
+.thumbnail-gallery .swiper-button-prev,
+.thumbnail-gallery .swiper-button-next {
+  color: #333;
+  --swiper-navigation-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.product-info-actions {
+  flex: 1 1 50%;
+  min-width: 300px;
+}
+.product-brand-name {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.product-title {
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.product-rating-ctsp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+.product-rating-ctsp .stars .fas,
+.product-rating-ctsp .stars .far {
+  color: #f8d64e;
+}
+.product-price-ctsp {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+.current-price-value {
+  color: var(--pink_400);
+  font-weight: bold;
+  margin-right: 10px;
+}
+.original-price-value {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.8em;
+  margin-right: 10px;
+}
+.discount-badge-ctsp {
+  top: var(--space-3xl);
+  left: var(--space-3xl);
+  background-color: var(--pink_400);
+  color: var(--white);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--space-5xl);
+  font-weight: 700;
+  z-index: 1;
+  min-width: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transform: rotate(-5deg);
+  border: 2px solid var(--white);
+}
+.short-desc {
+  font-size: 0.95em;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.variant-selection,
+.quantity-selection {
+  margin-bottom: 20px;
+}
+.variant-selection label,
+.quantity-selection label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.color-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.color-chip {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s;
+}
+.color-chip:hover {
+  border-color: #888;
+}
+.color-chip.active {
+  background-color: var(--pink_400, #ff69b4); /* Màu nền hồng khi active */
+  color: white;
+  border-color: var(--pink_400, #ff69b4); /* Viền hồng khi active */
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+  /* Thêm border và border-radius */
+  border: 1px solid var(--pink_400, #ff69b4); /* Viền màu hồng */
+  border-radius: 4px; /* Bo góc */
+  overflow: hidden; /* Đảm bảo nội dung bên trong không tràn viền bo góc */
+}
+
+/* Điều chỉnh border của các nút bên trong để khớp */
+.quantity-btn {
+  background-color: #f0f0f0;
+  border: none; /* Bỏ border cũ của nút */
+  padding: 8px 12px;
+  cursor: pointer;
+  /* Optional: thêm transition cho hiệu ứng hover */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#quantity-input {
+  width: 50px;
+  text-align: center;
+  padding: 8px;
+  border: none; /* Bỏ border cũ của input */
+  -moz-appearance: textfield;
+}
+
+#quantity-input::-webkit-outer-spin-button,
+#quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Thêm style hover cho nút số lượng */
+.quantity-btn:hover {
+  background-color: var(--pink_100, #ffe6f0); /* Màu nền hồng nhạt khi hover */
+  /* color: var(--pink_800, #880044); */ /* Chữ màu hồng đậm nếu muốn */
+}
+
+/* Optional: Style cho nút khi active (khi click) */
+.quantity-btn:active {
+  background-color: var(--pink_400, #860406);
+  color: white;
+}
+
+.action-buttons .btn {
+  padding: 12px 25px;
+  font-size: 1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+.product-labels-ctsp {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.product-labels-ctsp .product-label {
+  padding: 3px 7px;
+  font-size: 0.8em;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+}
+.product-labels-ctsp .label-hot {
+  background-color: #ffc107;
+  color: #212529;
+}
+.product-labels-ctsp .label-vegan {
+  background-color: #28a745;
+  color: white;
+}
+.gift-description-ctsp {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--pink_100, #ffe6f0); /* Màu hồng nhạt */
+  border: 1px solid var(--pink_200, #ffb3d1); /* Viền hồng */
+  border-radius: 8px; /* Bo góc nhiều hơn */
+  font-size: 0.9em;
+  color: var(--pink_800, #880044); /* Chữ hồng đậm */
+}
+
+.product-detailed-info {
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+.tab-link {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1.1em;
+  color: var(--red_900, #c70039); /* Màu đỏ đậm, fallback là mã màu */
+  border-bottom: 3px solid transparent;
+}
+.tab-link.active {
+  color: var(--pink_400, #ff69b4);
+  border-bottom-color: var(--pink_400, #ff69b4);
+  font-weight: 600;
+}
+.tab-content {
+  display: none;
+  padding: 15px;
+  line-height: 1.7;
+}
+.tab-content.active {
+  display: block;
+} /* Sửa lại từ .active: block; */
+#product-long-description {
+  white-space: pre-wrap;
+} /* Giữ định dạng xuống dòng từ API */
+
+.cart-item-count {
+  /* CSS cho số lượng giỏ hàng */
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 1px 5px;
+  font-size: 0.75em;
+  position: relative;
+  top: -8px;
+  left: -5px;
+}
+
+@media (max-width: 768px) {
+  .product-core-info {
+    flex-direction: column;
+  }
+  .product-gallery,
+  .product-info-actions {
+    flex-basis: 100%;
+  }
+}
+/* ... (các style ctsp đã có từ trước) ... */
+
+/* Swiper Gallery Styles */
+.product-gallery {
+  /* ... các style hiện có ... */
+  display: flex;
+  flex-direction: column; /* Sắp xếp main và thumb theo chiều dọc */
+}
+
+.main-image-swiper {
+  width: 100%;
+  height: 400px; /* Điều chỉnh chiều cao ảnh chính */
+  margin-bottom: 10px;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius-md);
+}
+.main-image-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Hoặc 'cover' tùy theo ý muốn */
+}
+.main-image-swiper .swiper-button-next,
+.main-image-swiper .swiper-button-prev {
+  color: var(--pink_400); /* Màu nút điều hướng */
+  --swiper-navigation-size: 30px;
+}
+.main-image-swiper .swiper-pagination-bullet-active {
+  background-color: var(--pink_400); /* Màu pagination active */
+}
+
+.thumbnail-swiper {
+  height: 100px; /* Chiều cao của dải thumbnail */
+  box-sizing: border-box;
+  padding: 10px 0;
+  overflow: hidden;
+}
+.thumbnail-swiper .swiper-slide {
+  /* width: 25%; */ /* Bỏ dòng này */
+  height: 100%;
+  opacity: 0.6;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+.thumbnail-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+  border-color: var(--pink_400); /* Viền cho thumbnail active */
+}
+.thumbnail-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Review System Styles */
+#reviews-tab h3,
+#reviews-tab h4 {
+  color: var(--black); /* Màu tiêu đề từ TRANGCCH */
+  margin-bottom: 15px;
+}
+.review-divider {
+  border: 0;
+  border-top: 1px solid var(--gray);
+  margin: 20px 0;
+}
+.review-item {
+  border-bottom: 1px solid var(--gray);
+  padding: 15px 0;
+}
+.review-item:last-child {
+  border-bottom: none;
+}
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.reviewer-name {
+  font-weight: 600;
+  color: var(--black);
+}
+.review-date {
+  font-size: 0.85em;
+  color: #777;
+}
+.review-rating .fa-star,
+.review-rating .fa-star-half-alt {
+  color: #f8d64e; /* Màu vàng cho sao */
+}
+.review-comment {
+  margin-top: 5px;
+  line-height: 1.6;
+  color: #333;
+}
+.no-reviews {
+  color: #777;
+  font-style: italic;
+}
+
+#review-form .form-group {
+  margin-bottom: 15px;
+}
+#review-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--black);
+}
+#review-form input[type="text"],
+#review-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius-sm);
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1em;
+}
+#review-form textarea {
+  resize: vertical;
+}
+.star-rating-input {
+  font-size: 1.5em; /* Kích thước sao lớn hơn để dễ click */
+}
+.star-rating-input .fa-star {
+  /* Dùng chung cho far và fas */
+  color: #ccc; /* Màu sao mặc định (chưa chọn) */
+  cursor: pointer;
+  margin-right: 3px;
+  transition: color 0.2s;
+}
+.star-rating-input .fa-star:hover,
+.star-rating-input .fa-star.fas {
+  /* Khi hover hoặc đã chọn (fas) */
+  color: #f8d64e; /* Màu vàng cho sao */
+}
+#review-form .btn-primary {
+  /* Kế thừa từ style chung hoặc định nghĩa lại */
+  background-color: var(--pink_400);
+  color: var(--white);
+  border-color: var(--pink_400);
+}
+#review-form .btn-primary:hover {
+  background-color: var(--red_900);
+  border-color: var(--red_900);
+}
+/* Cập nhật hiển thị số lượng đánh giá ở tab và header rating */
+.product-rating-ctsp .stars-display .fa-star,
+.product-rating-ctsp .stars-display .fa-star-half-alt {
+  color: #f8d64e; /* Màu vàng cho sao */
+}
+.product-rating-ctsp .review-count-display {
+  margin-left: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+.tabs .tab-link .review-count-display {
+  /* Cho số review trong tên tab */
+  font-size: 0.9em;
+  font-weight: normal; /* Để không bị đậm như tên tab */
+}
+.action-buttons .btn-primary {
+  /* hoặc #add-to-cart-btn */
+  background-color: var(--pink_400, #ff69b4);
+  color: white; /* Màu chữ trắng */
+  border-color: var(--pink_400, #ff69b4);
+  /* Các style padding, font-size, text-transform, border-radius giữ nguyên hoặc điều chỉnh */
+}
+
+.action-buttons .btn-primary:hover {
+  /* hoặc #add-to-cart-btn:hover */
+  background-color: var(
+    --red_900,
+    #c70039
+  ); /* Dùng màu đỏ sẫm hơn khi hover nếu có biến --red_900, nếu không dùng màu dự phòng */
+  border-color: var(--red_900, #c70039);
+  opacity: 0.9; /* Thêm hiệu ứng mờ nhẹ khi hover */
+}
+.main-image-container img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border: 1px solid #eee;
+  /* Chỉnh sửa border-radius tại đây */
+  border-radius: 4px; /* Giữ nguyên hoặc tăng nhẹ */
+}
+.product-core-info {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  align-items: flex-start; /* Đảm bảo các item căn chỉnh từ đầu trục (trên cùng) */
+}
+.quantity-btn:hover {
+  background-color: var(--pink_100, #ffe6f0); /* Màu nền hồng nhạt khi hover */
+  border-color: var(--pink_400, #ff69b4); /* Viền màu hồng */
+  color: var(--pink_800, #880044); /* Chữ màu hồng đậm */
+}
+/* Nếu muốn nút active (ví dụ: khi ấn giữ) có màu đặc biệt */
+.quantity-btn:active {
+  background-color: var(--pink_400, #ff69b4);
+  color: white;
+}
+.main-image-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Hoặc 'cover' tùy theo ý muốn */
+}
+.main-image-swiper {
+  width: 100%;
+  height: 400px; /* <-- Chiều cao cố định khác */
+  /* ... */
+}
+.main-image-swiper {
+  width: 100%; /* Chiều rộng 100% của container cha (.product-gallery) */
+  height: 450px; /* Đặt chiều cao cố định cho slider ảnh chính */
+  margin-bottom: 15px; /* Khoảng cách dưới ảnh chính */
+  border: 1px solid #eee; /* Viền nhẹ */
+  border-radius: 8px; /* Bo góc */
+  overflow: hidden; /* <--- Đảm bảo dòng này tồn tại và không bị ghi đè */
+}
+.main-image-swiper {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.quantity-control {
+  display: inline-block;
+  align-items: center;
+  border: 1px solid var(--pink_400, #ff69b4);
+  border-radius: 999px; /* <--- Giá trị lớn để tạo hình viên thuốc */
+  overflow: hidden;
+  /* Nếu bạn đặt height ở trên, border-radius = height / 2 */
+  /* Ví dụ: height: 40px; border-radius: 20px; */
+}
+.quantity-btn {
+  background-color: var(--pink_400, #ff69b4); /* Màu nền hồng */
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  color: white; /* Màu chữ trắng */
+  /* Quan trọng: Loại bỏ bo góc riêng cho nút nếu bạn đã bo góc container */
+  /* border-radius: 0; */
+}
+
+/* Bạn có thể giữ lại hiệu ứng hover nếu muốn màu nền nhạt hơn khi hover */
+/* ctsp_styles.css */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--pink_400, #ff69b4);
+  border: 1px solid var(--pink_400, #ff69b4);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--pink_400, #ff69b4);
+  color: white;
+}
+#nut {
+  background-color: var(--pink_400, #ff69b4); /* Màu nền hồng */
+  color: white; /* Chữ màu trắng */
+  padding: 15px 30px; /* Tăng padding để nút to hơn */
+  border: none; /* Không viền */
+  border-radius: 8px; /* Bo góc nhẹ */
+  cursor: pointer; /* Hiển thị con trỏ dạng pointer khi di chuột qua */
+  font-size: 1.1em; /* Cỡ chữ to hơn một chút */
+  font-weight: 600; /* Chữ đậm hơn */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển động mượt mà */
+  min-width: 180px; /* Đảm bảo nút có chiều rộng tối thiểu */
+  text-align: center; /* Căn giữa chữ */
+  display: inline-block; /* Quan trọng để padding và width hoạt động */
+  margin-top: 20px; /* Khoảng cách trên nếu form có các trường khác */
+}

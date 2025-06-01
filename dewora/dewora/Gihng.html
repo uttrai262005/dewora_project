@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>39nguyn nh&#39;s Application4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/components.css" />
+    <link rel="stylesheet" type="text/css" href="./css/Gihng.css" />
+    <script>
+      /**
+       * Handles the value change functionality in a quantity input
+       */
+      function handleQuantityInput(/** @type {HTMLElement} */ target) {
+        const fieldElement =
+          /** @type {HTMLInputElement} */ target.querySelector(
+            `[quantity-for="\${target.id}"]`
+          );
+        const stepUpButton =
+          /** @type {HTMLInputElement} */ target.querySelector(
+            `[quantity-increase]`
+          );
+        const stepDownButton =
+          /** @type {HTMLInputElement} */ target.querySelector(
+            `[quantity-decrease]`
+          );
+
+        const fieldElementIsInput = fieldElement instanceof HTMLInputElement;
+        const fieldElementIsNumberInput =
+          fieldElementIsInput && fieldElement.type === "number";
+
+        function setNumberValue(/** @type {number} */ n = 0) {
+          if (fieldElementIsNumberInput) return;
+          if (fieldElementIsInput) {
+            fieldElement.value = n;
+          } else if (fieldElement) {
+            fieldElement.innerHTML = n;
+          }
+        }
+
+        const input =
+          fieldElement instanceof HTMLInputElement &&
+          fieldElement.type === "number"
+            ? fieldElement
+            : (() => {
+                const element = document.createElement("input");
+                element.type = "number";
+                element.min = 0;
+                element.step = 1;
+                element.value = 1;
+                element.hidden = true;
+                return element;
+              })();
+
+        setNumberValue(1);
+        stepUpButton?.addEventListener(
+          "click",
+          (/** @type {MouseEvent} */ event) => {
+            input.stepUp();
+            setNumberValue(input.valueAsNumber);
+          }
+        );
+        stepDownButton?.addEventListener(
+          "click",
+          (/** @type {MouseEvent} */ event) => {
+            input.stepDown();
+            setNumberValue(input.valueAsNumber);
+          }
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        /** @type {NodeListOf<HTMLElement>} */
+        const elements = document.querySelectorAll("[quantity-input]");
+        for (const element of elements) handleQuantityInput(element);
+      });
+
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (
+          target.querySelectorAll('[role="tab"]')
+        );
+        const tabPanels = /** @type {HTMLElement[]} */ (
+          target.querySelectorAll('[role="tabpanel"]')
+        );
+        const activeClassList = ["active"];
+
+        function changeTab(/** @type {HTMLElement} */ target) {
+          target.focus();
+          const controls = /** @type {string} */ (
+            target.getAttribute("aria-controls")
+          );
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabindex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabindex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab
+              ? tab.classList.add(...activeClassList)
+              : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(/** @type {HTMLElement} */ (event.target));
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = /** @type {HTMLElement} */ (event.target);
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        /** @type {NodeListOf<HTMLElement>} */
+        const tabLists = document.querySelectorAll('[role="tablist"]');
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="gi-h-ng">
+      <div class="frame-1">
+        <div>
+          <div class="group-36">
+            <div class="group-869">
+              <h1>Giỏ hàng của tôi</h1>
+              <h2>Giỏ hàng của tôi</h2>
+            </div>
+            <img
+              src="public/images/img_rectangle_3.png"
+              alt="rectangle 3"
+              class="rectangle-3"
+            />
+          </div>
+        </div>
+        <div class="line-6"></div>
+      </div>
+      <div
+        class="group-588"
+        role="tablist"
+        aria-label="Group 588"
+        class="group-649"
+      >
+        <span>
+          <span
+            class="giao-h-ng active"
+            id="tab01"
+            role="tab"
+            aria-controls="tabpanel01"
+            aria-selected="true"
+            tabindex="0"
+          >
+            Giao hàng (5)
+          </span>
+        </span>
+        <span>
+          <span
+            class="giao-h-ng-5"
+            id="tab11"
+            role="tab"
+            aria-controls="tabpanel11"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            Lấy tại cửa hàng (0)
+          </span>
+        </span>
+      </div>
+      <div
+        id="tabpanel01"
+        class="tabpanel"
+        role="tabpanel"
+        aria-labelledby="tab01"
+        class="group-607 tabcontent"
+      >
+        <div class="group-788">
+          <label class="ch-n-t-t-c ui checkbox">
+            <input
+              type="checkbox"
+              name="Ch n tt c"
+              class="ui checkbox size-sm primary"
+            />
+            <div>Chọn tất cả</div>
+          </label>
+        </div>
+        <div class="line-1"></div>
+        <div class="group-605">
+          <div class="group-596">
+            <div class="Flex-col-center-center group-59">
+              <img
+                src="public/images/img_rectangle_11.png"
+                alt="rectangle 10"
+                class="rectangle-10"
+              />
+            </div>
+            <img
+              src="public/images/img_image_2.png"
+              alt="image 2"
+              class="image-2"
+            />
+            <div class="group-638">
+              <div class="group-855">
+                <div class="group-851">
+                  <p class="kem-che-khuy-t-i-m ui text size-texts">
+                    Kem Che Khuyết Điểm Clio Kill Cover Founwear
+                  </p>
+                </div>
+                <div class="group-57">
+                  <img
+                    src="public/images/img_image.png"
+                    alt="image"
+                    class="image"
+                  />
+                </div>
+              </div>
+              <p class="ui text size-texts">Concealer 6g</p>
+              <p class="sku-18940022 ui text size-texts">SKU: 18940022</p>
+              <div class="group-852">
+                <div
+                  class="quantity-input id_303_25_144_263_62_24"
+                  class="group-58"
+                >
+                  <div quantity-decrease class="group-793">
+                    <img
+                      src="public/images/img_image_12x10.png"
+                      alt="Image"
+                      class="image-3"
+                    />
+                  </div>
+                  <p
+                    class="ui text size-texts"
+                    quantity-for="_303_25_144_263_62_24"
+                  >
+                    1
+                  </p>
+                  <div quantity-increase class="group-794">
+                    <img
+                      src="public/images/img_image_8x8.png"
+                      alt="Image"
+                      class="image-4"
+                    />
+                  </div>
+                </div>
+                <div class="group-960">
+                  <h2 class="click-collect ui heading size-headingxs">
+                    349.000đ
+                  </h2>
+                  <h3 class="x ui heading size-headingmd">249.000đ</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group-596-2">
+            <div class="Flex-col-center-center group-59-2">
+              <img
+                src="public/images/img_rectangle_11.png"
+                alt="Rectangle 10"
+                class="rectangle-10"
+              />
+            </div>
+            <img
+              src="public/images/img_image_2.png"
+              alt="image 2"
+              class="image-2"
+            />
+            <div class="group-638">
+              <div class="group-855">
+                <div class="group-851">
+                  <p class="kem-che-khuy-t-i-m ui text size-texts">
+                    (Phiên bản Luxury Koshort) Bảng Mắt Màu 12 ô Clio
+                  </p>
+                </div>
+                <div class="group-57"></div>
+              </div>
+              <div class="group-852">
+                <div
+                  class="quantity-input id_303_25_144_263_62_24Dhi"
+                  class="group-58"
+                >
+                  <div quantity-decrease class="group-793">
+                    <img
+                      src="public/images/img_image_12x10.png"
+                      alt="Image"
+                      class="image-3"
+                    />
+                  </div>
+                  <p
+                    class="ui text size-texts"
+                    quantity-for="_303_25_144_263_62_24Dhi"
+                  >
+                    1
+                  </p>
+                  <div quantity-increase class="group-794">
+                    <img
+                      src="public/images/img_image_8x8.png"
+                      alt="Image"
+                      class="image-4"
+                    />
+                  </div>
+                </div>
+                <div class="group-960">
+                  <h6 class="click-collect ui heading size-headingxs">
+                    349.000đ
+                  </h6>
+                  <p class="x ui heading size-headingmd">249.000đ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="display: none"
+        id="tabpanel11"
+        role="tabpanel"
+        aria-labelledby="tab11"
+        class="group-607 tabcontent"
+      >
+        <span style="min-height: 360px">Lấy tại cửa hàng (0) content</span>
+      </div>
+      <div class="group-642">
+        <div class="group-865">
+          <div class="group-868">
+            <p class="ui heading size-headingxl">Giao hàng</p>
+            <p class="giao-h-ng ui heading size-headingxl">Giao hàng</p>
+          </div>
+          <p class="ui heading size-headinglg">2.361.000đ</p>
+        </div>
+        <div class="group-866">
+          <p class="click-collect ui heading size-headingxl">Click & Collect</p>
+          <p class="click-collect ui heading size-headinglg">0đ</p>
+        </div>
+        <button class="group-38 ui button pink_400 size-lg fill round">
+          Tiếp tục với hình thức giao hàng
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

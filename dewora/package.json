@@ -1,0 +1,25 @@
+{
+  "name": "dewora",
+  "version": "1.0.0",
+  "main": "vite.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "vite"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uttrai262005/Dewora.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uttrai262005/Dewora/issues"
+  },
+  "homepage": "https://github.com/uttrai262005/Dewora#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}

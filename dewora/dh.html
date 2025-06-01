@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đơn Hàng Của Tôi - DEWORA</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dh.css" />
+    <link rel="stylesheet" href="css/don-hang-cua-toi.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="container my-orders-page">
+      <h1><i class="fas fa-receipt"></i> Đơn Hàng Của Tôi</h1>
+
+      <div class="order-filters-user">
+        <div class="order-tabs-container">
+          <div class="order-tabs" id="order-status-tabs">
+            <div class="order-tab active" data-status="all">Tất cả</div>
+            <div class="order-tab" data-status="cho_xac_nhan">Chờ xác nhận</div>
+            <div class="order-tab" data-status="cho_thanh_toan">
+              Chờ thanh toán
+            </div>
+            <div class="order-tab" data-status="cho_dong_goi">Chờ đóng gói</div>
+            <div class="order-tab" data-status="dang_van_chuyen">
+              Đang vận chuyển
+            </div>
+            <div class="order-tab" data-status="da_giao">Đã giao</div>
+            <div class="order-tab" data-status="da_huy">Đã hủy</div>
+            <div class="tab-underline"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-list-container-user">
+        <table id="my-orders-table">
+          <thead>
+            <tr>
+              <th>Mã ĐH</th>
+              <th>Ngày Đặt</th>
+              <th>Sản phẩm</th>
+              <th>Tổng Tiền</th>
+              <th>Trạng Thái</th>
+              <th>Hành Động</th>
+            </tr>
+          </thead>
+          <tbody id="my-orders-tbody"></tbody>
+        </table>
+        <div
+          id="loading-my-orders"
+          style="display: none; text-align: center; padding: 20px"
+        >
+          <i class="fas fa-spinner fa-spin"></i> Đang tải đơn hàng của bạn...
+        </div>
+        <div
+          id="no-my-orders-message"
+          style="display: none; text-align: center; padding: 20px"
+        >
+          Bạn chưa có đơn hàng nào.
+          <a href="da.html">Tiếp tục mua sắm</a>!
+        </div>
+      </div>
+    </main>
+    <br />
+    <div id="footer-placeholder"></div>
+
+    <script src="js/header-footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/dh.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1989 @@
+/* ===== CSS Variables from DOCTYPE htm1.docx ===== */
+:root {
+  /* ------Color variables------*/
+  --pink_400: #e5536b;
+  --pink_light: #fff2fb; /* --gray_50_02 */
+  --yellow_light: #ffffeb; /* --yellow_50 */
+  --red_900: #b21c35;
+  --white: #ffffff; /* --white_a700_01 */
+  --gray: #f1f1f1;
+  --color-vegan: #8bc34a; /* Màu xanh lá cây */
+  --color-freeship: #fff493; /* Màu vàng nhạt */
+  --color-hot: #ff9800; /* Màu cam */
+  /* --blue_gray_50 */
+  --black: #000000; /* --black_900_01 */
+  --borderpink: #e5536b;
+  --amber_500: #ffc107;
+  /* Màu vàng cho đánh giá sao */
+  --gray_600: #828282; /* Màu xám cho giá gốc */
+  --red_50: #ffeafd;
+  /* Màu nền nhẹ cho nhãn quà tặng */
+
+  /* Shadow variables */
+  --shadow-xs: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08); /* Thêm bóng đổ tinh tế hơn */
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12); /* Bóng đổ rõ hơn khi hover */
+
+  /* Border radius variables */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 5px;
+  --radius-lg: 8px; /* Tăng một chút */
+  --radius-xl: 12px; /* Tăng một chút */
+  --radius-2xl: 10px;
+  --radius-3xl: 12px;
+  --radius-4xl: 14px;
+  --radius-5xl: 16px;
+  --radius-6xl: 18px;
+  --radius-7xl: 20px;
+  --radius-8xl: 24px;
+  --radius-9xl: 26px;
+  --radius-10xl: 32px;
+
+  /* Spacing variables */
+  --space-xs: 2px;
+  --space-sm: 4px;
+  --space-md: 6px;
+  --space-lg: 7px;
+  --space-xl: 8px;
+  --space-2xl: 10px;
+  --space-3xl: 12px;
+  --space-4xl: 14px;
+  --space-5xl: 16px;
+  --space-6xl: 17px;
+  --space-7xl: 18px;
+  --space-8xl: 20px;
+  --space-9xl: 22px;
+  --space-10xl: 24px;
+  --space-11xl: 26px;
+  --space-12xl: 28px;
+  --space-13xl: 30px;
+  --space-14xl: 33px;
+  --space-15xl: 44px;
+  --space-16xl: 48px;
+}
+
+/* ===== Reset CSS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+body {
+  background-color: var(--pink_light);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* ===== Shipping Notice (from DOCTYPE htm1.docx) ===== */
+.shipping-notice {
+  background-color: var(--gray);
+  color: var(--black);
+  padding: var(--space-sm) var(--space-13xl) var(--space-sm) 0;
+  position: relative;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: var(--space-3xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shipping-notice .ui.text {
+  font-size: var(--space-3xl);
+}
+.shipping-notice.hide {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.close-btn {
+  position: absolute;
+  right: var(--space-2xl);
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 0 var(--space-md);
+  font-size: var(--space-xl);
+  line-height: 1;
+  color: var(--black);
+}
+.close-btn:hover {
+  color: var(--pink_400);
+}
+.buy-now {
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: var(--space-sm);
+}
+
+.shipping-notice {
+  background-color: var(--gray);
+  color: var(--black);
+  padding: var(--space-sm) var(--space-13xl) var(--space-sm) 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.shipping-notice.hide {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.close-btn {
+  position: absolute;
+  right: var(--space-2xl);
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 0 var(--space-md);
+}
+
+.close-btn:hover {
+  color: var(--pink_light);
+}
+
+.buy-now {
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ===== Main Header ===== */
+.main-header {
+  background-color: var(--pink_400);
+  padding: var(--space-md) 0;
+  z-index: 1001;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-10xl);
+  gap: var(--space-3xl);
+  height: 90px;
+}
+
+/* Logo */
+.logo {
+  flex-shrink: 0; /* Ngăn không bị co lại */
+}
+
+.logo img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Search Box - Chiếm không gian tối đa còn lại */
+.search-container {
+  flex: 1;
+  max-width: 600px;
+  min-width: 200px; /* Đảm bảo không bị nhỏ quá */
+  position: relative;
+}
+
+.search-box {
+  width: 100%;
+  height: 50px;
+  border-radius: var(--radius-7xl);
+  border: none;
+  padding: 0 var(--space-5xl) 0 40px;
+  font-size: 16px;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--space-3xl);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+}
+
+/* ===== User Actions ===== */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.action-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.action-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Phần địa điểm (chỉ icon) */
+.location-icon {
+  padding: var(--space-sm);
+  cursor: pointer;
+}
+
+.search-container {
+  position: relative;
+}
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 100000;
+  max-height: 350px;
+  overflow-y: auto;
+  display: none; /* Ẩn ban đầu */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+.search-suggestions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.search-suggestions li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+.search-suggestions li:last-child a {
+  border-bottom: none;
+}
+.search-suggestions li a:hover {
+  background-color: #f5f5f5;
+}
+.suggestion-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 12px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+.suggestion-name {
+  flex-grow: 1;
+  font-size: 0.9em;
+  white-space: normal; /* Allow text to wrap */
+  line-height: 1.3;
+}
+.suggestion-name strong {
+  color: var(--pink_400);
+}
+/* Account Selector */
+.account-selector {
+  position: relative;
+}
+
+.account-current {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.account-current:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.account-icon {
+  width: 50px; /* Tăng từ 20px lên 24px */
+  height: 50px;
+  object-fit: contain;
+}
+
+.account-dropdown {
+  position: absolute;
+  top: 130%;
+  right: 0;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 250px; /* Tăng từ 200px lên 250px */
+  max-height: 300px; /* Tăng để chứa các mục lớn hơn */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 2000;
+}
+
+.account-selector.active .account-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.account-option {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* Tăng khoảng cách giữa icon và text */
+  padding: 3px 5px; /* Tăng padding từ 4px/6px lên 6px/7px */
+  cursor: pointer;
+  color: var(--black);
+  font-size: 18px; /* Tăng kích thước chữ từ ~16px lên 18px */
+  line-height: 1.5; /* Tăng khoảng cách dòng để dễ nhìn */
+  transition: all 0.2s ease;
+}
+
+.account-option:hover {
+  background: var(--pink_light);
+  color: var(--pink_400);
+}
+
+.account-option:first-child {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.account-option:last-child {
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+/* Cart Selector */
+.cart-selector {
+  position: relative;
+}
+
+.cart-current {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cart-current:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--red_900);
+  color: var(--white);
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 33.33%;
+  height: 100vh;
+  background: var(--white);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+}
+
+.cart-selector.active .cart-sidebar {
+  transform: translateX(0);
+}
+
+.cart-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md);
+  border-bottom: 1px solid #eee;
+}
+
+.cart-sidebar-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--black);
+}
+
+.cart-sidebar-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--black);
+  padding: var(--space-sm);
+}
+
+.cart-sidebar-close:hover {
+  color: var(--pink_400);
+}
+
+.cart-empty {
+  padding: var(--space-md);
+  text-align: center;
+  color: var(--black);
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm);
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: var(--space-md);
+  border-radius: var(--radius-sm);
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-name {
+  font-size: 14px;
+  color: var(--black);
+}
+
+.cart-item-price {
+  font-size: 12px;
+  color: var(--pink_400);
+}
+
+.cart-item-quantity {
+  font-size: 12px;
+  color: #666;
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--red_900);
+  font-size: 14px;
+  padding: var(--space-xs);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-md);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  border-top: 1px solid #eee;
+}
+
+.cart-checkout {
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--pink_400);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  margin-top: var(--space-sm);
+  transition: background 0.2s ease;
+}
+
+.cart-checkout:hover {
+  background: var(--red_900);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-sidebar {
+    width: 80%;
+  }
+
+  .cart-item-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-name {
+    font-size: 12px;
+  }
+
+  .cart-item-price,
+  .cart-item-quantity {
+    font-size: 10px;
+  }
+}
+
+/* ===== Navigation Menu ===== */
+.main-nav {
+  background-color: #fff;
+  color: #333;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Thêm bóng đổ nhẹ cho nav */
+}
+.main-nav-container {
+  display: flex;
+  align-items: center;
+  /* Căn giữa các mục menu nếu muốn */
+  /* justify-content: center;  */
+}
+.main-nav-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Cho phép xuống dòng trên mobile */
+}
+.main-nav-container ul li {
+  margin-right: 25px; /* Tăng khoảng cách */
+}
+.main-nav-container ul li:last-child {
+  margin-right: 0;
+}
+.main-nav-container ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500; /* Hơi đậm hơn một chút */
+  padding: 8px 0; /* Tăng padding */
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.main-nav-container ul li a:hover,
+.main-nav-container ul li a.active {
+  /* Gom style hover và active */
+  color: var(--pink_400);
+  border-bottom-color: var(--pink_400);
+}
+.main-nav-container ul li a.active {
+  font-weight: 700; /* Đậm hơn cho active */
+}
+
+/* ===== Content Area Styling (Phần được làm đẹp) ===== */
+.content-container {
+  display: flex;
+  gap: var(--space-10xl); /* Khoảng cách lớn hơn giữa sidebar và listing */
+  margin-top: var(--space-10xl); /* Tăng khoảng cách với nav */
+  padding: 0 var(--space-5xl); /* Giảm padding ngang tổng thể nếu cần */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidebar-filters {
+  width: 270px; /* Điều chỉnh chiều rộng sidebar */
+  background-color: var(--white);
+  padding: var(--space-8xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+  align-self: flex-start;
+  height: fit-content; /* Để sidebar không quá dài nếu ít filter */
+}
+
+.sidebar-filters h2 {
+  font-size: 20px;
+  color: var(--pink_400);
+  margin-bottom: var(--space-5xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid var(--pink_400);
+  font-weight: 600;
+}
+
+.filter-group {
+  margin-bottom: var(--space-8xl);
+  padding-bottom: var(--space-5xl);
+  border-bottom: 1px solid #eee;
+}
+.filter-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0; /* Bỏ margin cho group cuối */
+  padding-bottom: 0;
+}
+
+.filter-group h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333; /* Màu chữ đậm hơn */
+  margin-bottom: var(--space-4xl); /* Tăng khoảng cách */
+  /* Tùy chọn: thêm icon cho phép xổ xuống (cần JS) */
+  /* cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; */
+}
+
+.filter-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.filter-group ul li {
+  margin-bottom: var(--space-xl); /* Tăng khoảng cách */
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-group ul li input[type="checkbox"] {
+  margin-right: var(--space-sm);
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #bbb; /* Viền đậm hơn một chút */
+  border-radius: var(--radius-sm); /* Bo tròn hơn */
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  vertical-align: middle; /* Căn giữa với text */
+}
+
+.filter-group ul li input[type="checkbox"]:checked {
+  background-color: var(--pink_400);
+  border-color: var(--pink_400);
+}
+
+.filter-group ul li input[type="checkbox"]:checked::before {
+  content: "\\f00c"; /* FontAwesome check icon */
+  font-family: "Font Awesome 6 Free"; /* Đảm bảo font được load */
+  font-weight: 900; /* Bắt buộc cho FontAwesome solid icons */
+  font-size: 10px;
+  color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.filter-group ul li label {
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+  flex-grow: 1; /* Cho label chiếm hết không gian còn lại */
+}
+.filter-group ul li label:hover {
+  color: var(--pink_400);
+}
+
+.search-filter input[type="text"] {
+  width: 100%;
+  font-size: 14px;
+  padding: 10px 12px; /* Tăng padding */
+  border: 1px solid #ddd;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-filter input[type="text"]:focus {
+  border-color: var(--pink_400);
+  box-shadow: 0 0 0 3px rgba(229, 83, 107, 0.15);
+}
+
+.product-listing {
+  flex-grow: 1;
+}
+
+.listing-header {
+  background-color: var(--white); /* Giữ lại nền trắng cho header */
+  padding: var(--space-3xl) var(--space-5xl);
+  margin-bottom: var(--space-8xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.result-count {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.sort-options {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.sort-options span {
+  font-size: 15px;
+  color: #555;
+}
+.sort-options select {
+  padding: 10px 12px; /* Tăng padding */
+  border: 1px solid #ddd;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: #333;
+  background-color: var(--white);
+  cursor: pointer;
+  outline: none;
+  min-width: 200px; /* Cho select rộng hơn */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sort-options select:focus {
+  border-color: var(--pink_400);
+  box-shadow: 0 0 0 3px rgba(229, 83, 107, 0.15);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(230px, 1fr)
+  ); /* Điều chỉnh minmax */
+  gap: var(--space-8xl);
+}
+
+.product-card {
+  background-color: var(--white);
+  border-radius: var(--radius-xl);
+  overflow: hidden; /* Quan trọng để bo góc ảnh con */
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: var(--black);
+  display: block;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Để các card có chiều cao bằng nhau */
+}
+
+.product-card:hover {
+  transform: translateY(-6px); /* Nhấc card lên rõ hơn */
+  box-shadow: var(--shadow-lg);
+}
+
+/* Sử dụng class image container từ JS */
+.product-card .product-image-swiper-container {
+  position: relative;
+  width: 100%;
+  padding-top: 110%; /* Tỷ lệ có thể là 4:3 hoặc 3:4, ví dụ 110% cho ảnh hơi đứng */
+  overflow: hidden; /* Cắt ảnh thừa */
+  background-color: #f9f9f9; /* Placeholder color */
+  border-top-left-radius: var(--radius-xl); /* Bo góc theo card cha */
+  border-top-right-radius: var(--radius-xl);
+}
+
+.product-card .product-image-swiper-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Giữ nguyên */
+  height: 100%; /* Giữ nguyên */
+  display: flex; /* Giữ nguyên */
+  transition: transform 0.3s ease; /* Giữ nguyên */
+}
+
+.product-card .product-image-swiper-slide {
+  /* Giữ nguyên các thuộc tính này */
+  height: 100%;
+  flex-shrink: 0;
+  width: 100%; /* Mỗi slide chiếm 100% chiều rộng của vùng hiển thị */
+  flex-basis: 100%; /* Quan trọng: Đặt kích thước cơ bản của flex item */
+}
+
+.product-card .product-image-swiper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-image-swiper-image {
+  transform: scale(1.08); /* Hiệu ứng zoom nhẹ hơn */
+}
+
+/* Discount Badge (Ví dụ, nếu bạn có class này từ JS hoặc tự thêm) */
+.product-card .discount-badge {
+  position: absolute;
+  top: var(--space-3xl);
+  left: var(--space-3xl);
+  background-color: var(--red_900); /* Màu đỏ đậm hơn cho giảm giá */
+  color: var(--white);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 5; /* Nằm trên ảnh */
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Label (Ví dụ "FREESHIP" - nếu có class này) */
+.product-card .product-label-freeship {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: var(--space-sm);
+  background-color: rgba(0, 0, 0, 0.5); /* Nền mờ */
+  color: var(--white);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-xs);
+  font-size: 11px;
+  z-index: 5;
+}
+
+.product-info {
+  padding: var(--space-4xl) var(--space-5xl); /* Tăng padding */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.product-brand {
+  font-size: 13px;
+  color: #888; /* Màu xám nhạt hơn */
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.product-name {
+  font-size: 15px; /* Giảm nhẹ nếu tên quá dài */
+  font-weight: 600;
+  color: #222; /* Màu đen đậm hơn */
+  margin-bottom: var(--space-md); /* Tăng khoảng cách */
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(1.45em * 2); /* Đảm bảo không gian cho 2 dòng */
+}
+
+.product-price {
+  margin-top: auto; /* Đẩy giá xuống cuối cùng của product-info */
+  margin-bottom: var(--space-sm);
+  display: flex; /* Để giá và giá gốc trên cùng 1 hàng */
+  align-items: baseline; /* Căn baseline cho đẹp */
+  gap: var(--space-sm);
+}
+
+.current-price {
+  font-size: 18px;
+  color: var(--pink_400);
+  font-weight: 700;
+}
+
+.original-price {
+  font-size: 14px;
+  color: var(--gray_600);
+  text-decoration: line-through;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: var(--space-md);
+}
+.product-rating .stars {
+  color: var(--amber_500);
+  margin-right: 6px; /* Tăng khoảng cách */
+  letter-spacing: 1px; /* Khoảng cách giữa các sao */
+}
+.product-rating .stars .fas, /* FontAwesome Solid */
+.product-rating .stars .far, /* FontAwesome Regular */
+.product-rating .stars .fa-star-half-alt {
+  /* FontAwesome Half Star */
+  font-size: 14px; /* Kích thước sao */
+}
+.product-rating .review-count {
+  color: #777;
+  font-size: 12px;
+}
+
+.product-gift {
+  font-size: 12px;
+  color: var(--red_900);
+  background-color: var(--red_50);
+  padding: 5px 8px; /* Tăng padding */
+  border-radius: var(--radius-sm);
+  display: inline-block; /* Hoặc block nếu muốn chiếm cả dòng */
+  margin-top: var(--space-sm);
+  font-weight: 500;
+  border: 1px dashed var(--red_900); /* Thêm viền đứt nét */
+}
+
+/* Swiper image slider buttons and dots INSIDE product card */
+.product-card .swiper-button-prev,
+.product-card .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.4); /* Nền tối hơn */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 6; /* Trên ảnh, dưới badge */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, opacity 0.3s ease;
+  opacity: 0; /* Ẩn ban đầu */
+  font-size: 12px; /* Kích thước icon bên trong */
+}
+.product-card:hover .swiper-button-prev,
+.product-card:hover .swiper-button-next {
+  opacity: 1; /* Hiện khi hover vào card */
+}
+.product-card .swiper-button-prev:hover,
+.product-card .swiper-button-next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.product-card .swiper-button-prev {
+  left: 10px;
+}
+.product-card .swiper-button-next {
+  right: 10px;
+}
+
+.product-card .slider-dots {
+  position: absolute;
+  bottom: 12px; /* Đẩy lên một chút */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px; /* Khoảng cách giữa các chấm */
+  z-index: 6;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.product-card:hover .slider-dots {
+  opacity: 1;
+}
+.product-card .slider-dots .dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.6); /* Chấm mờ hơn */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.product-card .slider-dots .dot.active {
+  background-color: var(--pink_400); /* Chấm active màu trắng rõ */
+  transform: scale(1.2); /* Chấm active to hơn một chút */
+}
+.product-card .slider-dots .dot:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.main-footer {
+  background-color: var(--yellow_light);
+  color: var(--black);
+  padding: var(--space-15xl) 0 var(--space-8xl);
+  position: relative;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10xl);
+  margin-bottom: var(--space-15xl);
+}
+
+.footer-brand {
+  max-width: 100%;
+  padding-top: -30px;
+}
+
+.footer-contact {
+  list-style: none;
+}
+
+.footer-contact li {
+  margin-bottom: var(--space-3xl);
+  font-size: var(--space-5xl);
+  line-height: 1.5;
+}
+
+.footer-menus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10xl);
+}
+
+.menu-title {
+  font-size: var(--space-6xl);
+  font-weight: 600;
+  margin-bottom: var(--space-5xl);
+  position: relative;
+  padding-bottom: var(--space-sm);
+}
+
+.menu-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--white);
+}
+
+.footer-menu ul {
+  list-style: none;
+}
+
+.footer-menu li {
+  margin-bottom: var(--space-3xl);
+}
+
+.footer-menu a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: var(--space-5xl);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-menu a:hover {
+  color: var(--yellow_50);
+  padding-left: var(--space-sm);
+}
+
+.footer-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--yellow_50);
+  transition: width 0.3s ease;
+}
+
+.footer-menu a:hover::after {
+  width: 100%;
+}
+.footer-logo-img {
+  height: 80px; /* Điều chỉnh theo kích thước logo thực tế */
+  width: auto;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.05);
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: var(--space-8xl);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: var(--space-5xl);
+}
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.footer-contact li:hover .contact-icon {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-menus {
+    grid-template-columns: 1fr;
+    gap: var(--space-8xl);
+  }
+
+  .footer-brand {
+    max-width: 100%;
+    padding-top: -30px !important;
+  }
+
+  .footer-contact li,
+  .footer-menu a {
+    font-size: var(--space-4xl);
+  }
+}
+
+/* ===== Pagination (Giữ nguyên từ code gốc của bạn) ===== */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-10xl); /* Đã điều chỉnh ở trên, giữ lại */
+  padding: var(--space-5xl) 0; /* Đã điều chỉnh ở trên, giữ lại */
+  gap: 8px; /* Đã điều chỉnh ở trên, giữ lại */
+}
+.pagination-container button {
+  background-color: var(--white);
+  color: var(--pink_400);
+  border: 1.5px solid var(--pink_400); /* Đã điều chỉnh ở trên, giữ lại */
+  padding: 10px 15px; /* Đã điều chỉnh ở trên, giữ lại */
+  cursor: pointer;
+  border-radius: var(--radius-md); /* Đã điều chỉnh ở trên, giữ lại */
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease; /* Đã điều chỉnh ở trên, giữ lại */
+  font-weight: 500; /* Đã điều chỉnh ở trên, giữ lại */
+  font-size: 14px; /* Đã điều chỉnh ở trên, giữ lại */
+}
+.pagination-container button:hover:not(:disabled) {
+  background-color: var(--pink_400);
+  color: var(--white);
+  transform: translateY(-1px); /* Đã điều chỉnh ở trên, giữ lại */
+}
+.pagination-container button:disabled {
+  background-color: #f5f5f5; /* Đã điều chỉnh ở trên, giữ lại */
+  color: #bbb; /* Đã điều chỉnh ở trên, giữ lại */
+  border-color: #ddd; /* Đã điều chỉnh ở trên, giữ lại */
+  cursor: not-allowed;
+}
+.pagination-container button.active {
+  background-color: var(--pink_400);
+  color: var(--white);
+  font-weight: 700; /* Đã điều chỉnh ở trên, giữ lại */
+  border-color: var(--pink_400); /* Đã điều chỉnh ở trên, giữ lại */
+}
+.pagination-container span {
+  /* Dùng cho dấu "..." */
+  padding: 10px 8px; /* Đã điều chỉnh ở trên, giữ lại */
+  color: #777; /* Đã điều chỉnh ở trên, giữ lại */
+  font-size: 14px; /* Đã điều chỉnh ở trên, giữ lại */
+}
+
+/* ===== Responsive adjustments (Giữ nguyên và có thể cần tinh chỉnh thêm) ===== */
+@media (max-width: 992px) {
+  /* Thêm một breakpoint cho tablet */
+  .content-container {
+    flex-direction: column;
+    gap: var(--space-8xl);
+  }
+  .sidebar-filters {
+    width: 100%; /* Sidebar chiếm toàn bộ chiều rộng trên tablet nhỏ và mobile */
+    margin-right: 0;
+    margin-bottom: var(--space-8xl);
+  }
+  .product-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); /* Giảm min-width cho tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding: var(--space-md) var(--space-xl);
+  }
+  .header-container .logo {
+    order: 1;
+    margin-bottom: var(--space-md); /* Thêm khoảng cách nếu xuống hàng */
+  }
+  .user-actions {
+    order: 2;
+    margin-left: auto; /* Đẩy qua phải */
+    gap: var(--space-md);
+  }
+  .language-text {
+    display: none;
+  }
+  .language-current {
+    padding: var(--space-xs);
+  }
+  .search-container {
+    order: 3;
+    flex-basis: 100%;
+    margin-top: var(--space-md);
+    max-width: 100%;
+  }
+  .main-nav-container ul {
+    flex-wrap: wrap; /* Cho phép nav xuống dòng */
+    justify-content: center;
+  }
+  .main-nav-container ul li {
+    margin: 5px 10px; /* Điều chỉnh margin cho nav items */
+  }
+
+  .content-container {
+    padding: 0 var(--space-md); /* Giảm padding container chính */
+  }
+  .listing-header {
+    flex-direction: column; /* Xếp chồng header của listing */
+    gap: var(--space-md);
+    padding: var(--space-md);
+    align-items: stretch; /* Kéo dài các item */
+  }
+  .sort-options select {
+    width: 100%; /* Select chiếm full width */
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(160px, 1fr)
+    ); /* 2 cột trên mobile nhỏ hơn */
+    gap: var(--space-md);
+  }
+  .product-card {
+    /* padding: var(--space-md);  Đã có padding trong product-info */
+  }
+  /* Kích thước font cho mobile */
+  .product-brand {
+    font-size: 12px;
+  }
+  .product-name {
+    font-size: 14px;
+    min-height: calc(1.4em * 2);
+  }
+  .current-price {
+    font-size: 16px;
+  }
+  .original-price {
+    font-size: 13px;
+  }
+  .product-rating .stars .fas,
+  .product-rating .stars .far,
+  .product-rating .stars .fa-star-half-alt {
+    font-size: 13px;
+  }
+  .product-rating .review-count {
+    font-size: 11px;
+  }
+  .product-gift {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr; /* Footer 1 cột */
+    padding: 0 var(--space-md);
+    gap: var(--space-8xl); /* Tăng gap giữa các phần footer */
+  }
+  .footer-brand {
+    align-items: center; /* Căn giữa brand info trên mobile */
+    margin-top: 0;
+    text-align: center;
+  }
+  .footer-menus {
+    grid-template-columns: 1fr; /* Menu footer 1 cột */
+    gap: var(--space-5xl);
+  }
+  .footer-menu {
+    text-align: center; /* Căn giữa menu items */
+  }
+  .menu-title::after {
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa gạch chân */
+  }
+  .footer-copyright {
+    padding: var(--space-5xl) var(--space-md); /* Điều chỉnh padding copyright */
+    font-size: var(--space-4xl);
+  }
+  .footer-contact li {
+    font-size: var(--space-4xl);
+    gap: var(--space-md);
+    justify-content: center; /* Căn giữa contact items */
+  }
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+  }
+  .footer-menu a {
+    font-size: var(--space-4xl);
+  }
+  .menu-title {
+    font-size: var(--space-5xl);
+  }
+
+  .pagination-container button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .pagination-container span {
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+}
+a {
+  text-decoration: none; /* Bỏ gạch chân cho tất cả các link */
+  color: inherit; /* Giữ màu chữ mặc định */
+}
+.product-card .discount-badge {
+  opacity: 1 !important; /* Sử dụng !important để buộc ghi đè nếu cần */
+  visibility: visible !important;
+  display: block !important; /* Hoặc inline-block tùy bố cục */
+  position: absolute;
+  top: var(--space-3xl);
+  left: var(--space-3xl);
+  background-color: var(--pink_400);
+  color: var(--white);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--space-5xl);
+  font-weight: 700;
+  z-index: 1;
+  min-width: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transform: rotate(-5deg);
+  border: 2px solid var(--white);
+}
+
+/* Đảm bảo các nhãn sản phẩm luôn hiển thị */
+.product-card .product-label {
+  opacity: 1 !important;
+  visibility: visible !important;
+  /* Giữ nguyên display hiện có (có thể là inline-block hoặc block) */
+}
+
+/* Đảm bảo phần tử chứa các nhãn/badge cũng hiển thị nếu nó bị ẩn */
+.product-card .product-image-wrapper-with-badges {
+  /* Thêm style vào đây nếu phần tử chứa này bị ẩn theo mặc định */
+  /* Ví dụ: opacity: 1 !important; visibility: visible !important; */
+}
+/* Buộc phần tử chứa ảnh là ngữ cảnh định vị */
+.product-card .product-image-wrapper-with-badges {
+  position: relative !important; /* Buộc đặt vị trí tương đối */
+  overflow: hidden !important; /* Buộc cắt nội dung thừa */
+  /* Các thuộc tính khác như width, padding-top giữ nguyên hoặc điều chỉnh nếu cần */
+}
+
+/* Buộc nhãn giảm giá được định vị tuyệt đối bên trong ngữ cảnh cha */
+.product-card .discount-badge {
+  position: absolute !important; /* Buộc đặt vị trí tuyệt đối */
+  top: var(--space-3xl) !important; /* Buộc khoảng cách từ đỉnh (8px) */
+  left: var(--space-3xl) !important; /* Buộc khoảng cách từ trái (8px) */
+  z-index: 5 !important; /* Buộc z-index */
+  display: block !important; /* Buộc hiển thị dạng block */
+  visibility: visible !important; /* Buộc hiển thị */
+  opacity: 1 !important; /* Buộc độ mờ là 1 (hiển thị rõ) */
+}
+
+/* Tương tự cho các nhãn khác nếu chúng gặp vấn đề tương tự */
+.product-card .product-label {
+  /* Điều chỉnh top/right/bottom/left và các thuộc tính khác nếu cần cho vị trí của nhãn */
+  position: absolute !important; /* Buộc đặt vị trí tuyệt đối nếu nhãn này cũng là position: absolute */
+  /* Ví dụ: bottom: var(--space-sm) !important; left: var(--space-sm) !important; */
+  z-index: 5 !important;
+  display: inline-block !important; /* Hoặc block tùy ý */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+/* Đảm bảo các nhãn chung luôn hiển thị */
+.product-card .product-label {
+  opacity: 1 !important; /* Buộc độ mờ là 1 */
+  visibility: visible !important; /* Buộc hiển thị */
+  /* Giữ nguyên thuộc tính display hiện có (inline, inline-block, block) */
+}
+
+/* Đảm bảo nhãn quà tặng luôn hiển thị (có thể trùng với quy tắc trên nếu nó có cả 2 class, nhưng thêm vào để chắc chắn) */
+.product-card .product-gift {
+  opacity: 1 !important; /* Buộc độ mờ là 1 */
+  visibility: visible !important; /* Buộc hiển thị */
+  display: inline-block !important; /* Buộc dạng inline-block (theo style hiện có) */
+  /* Có thể cần thêm position: absolute và top/right/bottom/left nếu bạn muốn định vị chúng ở vị trí cụ thể giống như nhãn giảm giá, nhưng style hiện tại chỉ là inline-block */
+}
+
+/* Như đã đề cập trước đó, đảm bảo phần tử chứa có ngữ cảnh định vị và không bị ẩn */
+.product-card .product-image-wrapper-with-badges {
+  position: relative !important;
+  overflow: hidden !important;
+  visibility: visible !important; /* Buộc hiển thị phần tử chứa */
+  opacity: 1 !important; /* Buộc độ mờ là 1 cho phần tử chứa */
+}
+.product-card .product-label {
+  position: absolute !important; /* Giữ nguyên */
+  bottom: 10px !important; /* Ví dụ: Cách đáy 10px */
+  left: 10px !important; /* Ví dụ: Cách trái 10px */
+  z-index: 5 !important; /* Đảm bảo nằm trên ảnh */
+  /* ... các style khác của nhãn ... */
+}
+/* New container for badges/labels */
+.product-card .product-badges-container {
+  position: absolute; /* Position the container absolutely */
+  bottom: var(--space-3xl); /* Adjust vertical position */
+  left: var(--space-3xl); /* Adjust horizontal position */
+  right: var(--space-3xl); /* Allows the container to take up available width */
+  z-index: 5; /* Ensure it's above the image */
+  display: flex; /* Use flexbox to arrange badges/labels inside */
+  flex-wrap: wrap; /* Allow badges to wrap to the next line if needed */
+  gap: var(--space-sm); /* Add space between badges/labels */
+  pointer-events: none; /* Allow clicks to pass through the container to the image link */
+}
+
+/* Style for all badges/labels inside the container */
+.product-card .product-badge {
+  /* Remove absolute positioning from individual badges/labels */
+  position: static !important; /* Override any previous absolute positioning */
+  /* Keep other visual styles common to all badges/labels */
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  z-index: auto; /* Reset z-index as position is static */
+  pointer-events: auto; /* Re-enable pointer events on the badges themselves */
+}
+
+/* Specific style for the discount badge (adjust appearance if needed) */
+
+/* Specific style for general product labels */
+.product-card .product-label {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Example background for general labels */
+  color: var(--white);
+  /* Remove positioning properties */
+  bottom: auto !important;
+  left: auto !important;
+}
+
+/* Specific style for the gift label (if you want it different) */
+.product-card .product-gift {
+  background-color: var(--red_50);
+  color: var(--red_900);
+  border: 1px dashed var(--red_900);
+  /* Remove positioning properties */
+  position: static !important; /* Ensure it respects the flex container */
+  bottom: auto !important;
+  left: auto !important;
+}
+
+/* Ensure the wrapper is relative for the absolute container */
+.product-card .product-image-wrapper-with-badges {
+  position: relative; /* Make sure this is set */
+  overflow: hidden;
+}
+/* Container cho các nhãn khác */
+.product-card .product-labels-container {
+  position: absolute; /* Định vị container absolute */
+  bottom: var(--space-3xl); /* Khoảng cách từ đáy */
+  left: var(--space-3xl); /* Khoảng cách từ trái */
+  right: var(--space-3xl); /* Cho phép container co giãn theo chiều rộng */
+  z-index: 5; /* Đảm bảo nằm trên ảnh (có thể cùng z-index với discount badge) */
+  display: flex; /* Sử dụng flexbox để sắp xếp các nhãn con */
+  flex-wrap: wrap; /* Cho phép các nhãn xuống dòng nếu quá dài */
+  gap: var(--space-sm); /* Khoảng cách giữa các nhãn */
+  pointer-events: none; /* Cho phép click xuyên qua container đến ảnh/link */
+  /* Có thể thêm max-width nếu cần giới hạn chiều rộng */
+}
+/* Style chung cho các nhãn nằm trong container */
+.product-card .product-labels-container .product-label {
+  /* Bỏ định vị absolute; để flexbox lo việc sắp xếp */
+  position: static !important; /* Buộc vị trí tĩnh */
+  /* Giữ các style hiển thị chung của nhãn */
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  z-index: auto; /* Reset z-index */
+  pointer-events: auto; /* Cho phép tương tác với nhãn */
+
+  /* Các style riêng cho nhãn chung (không phải quà tặng) */
+  background-color: rgba(221, 23, 105, 0.677); /* Ví dụ nền */
+  color: var(--white);
+  /* Bỏ các thuộc tính định vị cũ nếu có */
+  bottom: auto !important;
+  left: auto !important;
+  display: inline-block; /* Hoặc block tùy ý */
+}
+
+/* Style riêng cho nhãn quà tặng (khi nằm trong container) */
+.product-card .product-labels-container .product-gift {
+  /* Bỏ định vị absolute; để flexbox lo việc sắp xếp */
+  position: static !important; /* Buộc vị trí tĩnh */
+  /* Giữ các style hiển thị riêng của nhãn quà tặng */
+  font-size: 12px;
+  color: var(--red_900);
+  background-color: var(--red_50);
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--red_900);
+  font-weight: 500;
+  /* Bỏ các thuộc tính định vị cũ nếu có */
+  bottom: auto !important;
+  left: auto !important;
+  margin-top: 0 !important; /* Loại bỏ margin-top nếu nó gây lệch hàng trong flexbox */
+  display: inline-block; /* Hoặc block tùy ý */
+}
+
+/* Đảm bảo phần tử chứa ảnh có position: relative */
+.product-card .product-image-wrapper-with-badges {
+  position: relative; /* Đảm bảo điều này được thiết lập */
+  overflow: hidden;
+}
+
+/* Các style cho swiper navigation và dots vẫn giữ nguyên */
+.product-card .swiper-button-prev,
+.product-card .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 6; /* Đảm bảo nằm trên ảnh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, opacity 0.3s ease;
+  opacity: 0; /* Ẩn ban đầu */
+  font-size: 12px; /* Kích thước icon */
+
+  /* Thay đổi màu nền và màu icon */
+  background-color: rgba(
+    229,
+    83,
+    107,
+    0.8
+  ); /* Nền hồng hơi trong suốt */ /* Đã sửa */
+  color: var(--white); /* Màu icon trắng */ /* Đã sửa */
+  border: none; /* Đảm bảo không có viền */
+}
+
+.product-card .slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* ... giữ các style còn lại ... */
+}
+/* Style riêng cho nhãn VEGAN */
+.product-card .product-labels-container .product-label.label-vegan {
+  background-color: var(--color-vegan);
+  color: var(--white); /* Chữ trắng trên nền xanh */
+}
+
+/* Style riêng cho nhãn FREESHIP */
+.product-card .product-labels-container .product-label.label-freeship {
+  background-color: var(--color-freeship);
+  color: var(--black); /* Chữ đen trên nền vàng nhạt */
+}
+
+/* Style riêng cho nhãn HOT */
+.product-card .product-labels-container .product-label.label-hot {
+  background-color: var(--color-hot);
+  color: var(--white); /* Chữ trắng trên nền cam */
+}
+
+/* Tiếp tục tinh chỉnh CSS cho Filter List Items */
+
+.filter-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter-group ul li {
+  display: flex;
+  align-items: center; /* Đảm bảo căn giữa theo chiều dọc */
+  margin-bottom: var(--space-md, 10px); /* Khoảng cách giữa các mục */
+  font-size: var(--text-base, 14px);
+  color: #555;
+  line-height: 1.4; /* Khoảng cách dòng */
+  /* Loại bỏ padding hay margin không mong muốn */
+  padding: 0;
+  /* margin-left/right có thể cần thiết nếu ul có padding */
+}
+
+/* Input Checkbox */
+.filter-group ul li input[type="checkbox"] {
+  margin-right: var(--space-sm, 8px); /* Khoảng cách giữa checkbox và label */
+  flex-shrink: 0; /* Ngăn checkbox bị co */
+  appearance: none; /* Ẩn checkbox gốc */
+  -webkit-appearance: none; /* Cho Webkit */
+  width: 18px; /* Kích thước */
+  height: 18px; /* Kích thước */
+  border: 1.5px solid #bbb; /* Viền */
+  border-radius: var(--radius-sm, 4px); /* Bo góc */
+  cursor: pointer;
+  position: relative; /* Cần cho dấu tick */
+  outline: none;
+  background-color: var(--white, #ffffff);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  /* Bỏ vertical-align nếu dùng flexbox */
+}
+
+/* Dấu tick cho checkbox đã check */
+.filter-group ul li input[type="checkbox"]:checked::before {
+  content: "\2713"; /* Ký tự unicode dấu tick */
+  /* Hoặc dùng FontAwesome nếu font được load */
+  /* content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; */
+  font-size: 12px; /* Kích thước dấu tick */
+  color: var(--white, #ffffff); /* Màu dấu tick */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Căn giữa hoàn hảo */
+  display: block;
+  line-height: 1; /* Đảm bảo chiều cao dòng không ảnh hưởng */
+}
+
+/* Label của Checkbox */
+.filter-group ul li label {
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+  flex-grow: 1; /* Cho label chiếm không gian còn lại */
+  /* Loại bỏ padding hay margin không mong muốn */
+  padding: 0;
+  margin: 0;
+  /* vertical-align: middle; Có thể thử thêm nếu align-items: center không đủ */
+}
+/* Hiệu ứng hover cho label */
+.filter-group ul li label:hover {
+  color: var(--pink_400, #e5536b);
+}
+
+/* Giữ nguyên các style khác cho sidebar, group, headings, search input... */
+.filter-group ul li {
+  display: flex;
+  align-items: baseline; /* <-- Đổi thành baseline để căn dòng text */
+  margin-bottom: var(--space-md, 10px); /* Giữ khoảng cách giữa các mục */
+  font-size: var(--text-base, 14px); /* Kích thước font cho text */
+  color: #555;
+  line-height: 1.4; /* Khoảng cách dòng của text */
+  padding: 0;
+  /* Đảm bảo không có padding/margin gây lệch */
+}
+
+/* Cũng đảm bảo bạn đã bỏ vertical-align trên input checkbox nếu trước đó có */
+.filter-group ul li input[type="checkbox"] {
+  /* ... các thuộc tính khác ... */
+  /* vertical-align: middle; <-- ĐẢM BẢO DÒNG NÀY ĐÃ BỊ XÓA HOẶC COMMENT LẠI */
+}
+
+/* Các style cho checkbox và label khác giữ nguyên */
+.filter-group ul li input[type="checkbox"] {
+  margin-right: var(--space-sm, 8px);
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #bbb;
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  background-color: var(--white, #ffffff);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transform: translateY(-1px); /* <-- THỬ ĐIỀU CHỈNH GIÁ TRỊ NÀY */
+}
+
+.filter-group ul li input[type="checkbox"]:checked {
+  background-color: var(--pink_400, #e5536b);
+  border-color: var(--pink_400, #e5536b);
+}
+
+.filter-group ul li input[type="checkbox"]:checked::before {
+  content: "\2713"; /* Dấu tick */
+  font-size: 12px;
+  color: var(--white, #ffffff);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  line-height: 1;
+}
+
+.filter-group ul li label {
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+  flex-grow: 1;
+  padding: 0;
+  margin: 0; /* Đảm bảo không có margin/padding */
+}
+.product-card .product-labels-container .product-label.label-best-selling {
+  background-color: rgb(220, 53, 69); /* Red */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-super-deal */
+.product-card .product-labels-container .product-label.label-super-deal {
+  background-color: rgb(0, 123, 255); /* Blue */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-new-arrivals */
+.product-card .product-labels-container .product-label.label-new-arrivals {
+  background-color: rgb(3, 84, 150); /* Gray */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-hot-deal */
+.product-card .product-labels-container .product-label.label-hot-deal {
+  background-color: rgb(255, 193, 7); /* Yellow */
+  color: rgb(0, 0, 0); /* Black */
+}
+
+/* Style for label-bestseller */
+.product-card .product-labels-container .product-label.label-bestseller {
+  background-color: rgb(23, 162, 184); /* Cyan */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-sensitive-skin */
+.product-card .product-labels-container .product-label.label-sensitive-skin {
+  background-color: rgb(102, 16, 242); /* Indigo */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-limited-edition */
+.product-card .product-labels-container .product-label.label-limited-edition {
+  background-color: rgb(111, 66, 193); /* Purple */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-buy-one-get-one */
+.product-card .product-labels-container .product-label.label-buy-one-get-one {
+  background-color: rgb(40, 167, 69); /* Green */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-shock-discount */
+.product-card .product-labels-container .product-label.label-shock-discount {
+  background-color: rgb(253, 126, 20); /* Orange */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-new-product */
+.product-card .product-labels-container .product-label.label-new-product {
+  background-color: rgb(23, 162, 184); /* Teal */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-limited */
+.product-card .product-labels-container .product-label.label-limited {
+  background-color: rgb(0, 123, 255); /* Blue */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-german-product */
+.product-card .product-labels-container .product-label.label-german-product {
+  background-color: rgb(3, 64, 124); /* Dark Gray */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-just-arrived */
+.product-card .product-labels-container .product-label.label-just-arrived {
+  background-color: rgb(11, 87, 120); /* Medium Gray */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-skincare */
+.product-card .product-labels-container .product-label.label-skincare {
+  background-color: rgb(200, 100, 150); /* Custom Pink/Purple */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-hot-product */
+.product-card .product-labels-container .product-label.label-hot-product {
+  background-color: rgb(255, 0, 0); /* Bright Red */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-foundation-hold */
+.product-card .product-labels-container .product-label.label-foundation-hold {
+  background-color: rgb(150, 75, 0); /* Brown */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-shimmer */
+.product-card .product-labels-container .product-label.label-shimmer {
+  background-color: rgb(255, 215, 0); /* Gold */
+  color: rgb(0, 0, 0); /* Black */
+}
+
+/* Style for label-makeup-hold */
+.product-card .product-labels-container .product-label.label-makeup-hold {
+  background-color: rgb(75, 0, 130); /* Indigo */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-antibacterial */
+.product-card .product-labels-container .product-label.label-antibacterial {
+  background-color: rgb(0, 128, 0); /* Dark Green */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-long-lasting */
+.product-card .product-labels-container .product-label.label-long-lasting {
+  background-color: rgb(128, 0, 0); /* Maroon */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-gift */
+.product-card .product-labels-container .product-label.label-gift {
+  background-color: rgb(255, 105, 180); /* Hot Pink */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-limited-quantity */
+.product-card .product-labels-container .product-label.label-limited-quantity {
+  background-color: rgb(178, 34, 34); /* FireBrick */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-freeship-nationwide */
+.product-card
+  .product-labels-container
+  .product-label.label-freeship-nationwide {
+  background-color: rgb(60, 179, 113); /* MediumSeaGreen */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-good-price-product */
+.product-card
+  .product-labels-container
+  .product-label.label-good-price-product {
+  background-color: rgb(255, 140, 0); /* DarkOrange */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-extremely-hot */
+.product-card .product-labels-container .product-label.label-extremely-hot {
+  background-color: rgb(139, 0, 0); /* DarkRed */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-freeship-from-50k */
+.product-card .product-labels-container .product-label.label-freeship-from-50k {
+  background-color: rgb(32, 178, 170); /* LightSeaGreen */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-genuine-product */
+.product-card .product-labels-container .product-label.label-genuine-product {
+  background-color: rgb(70, 130, 180); /* SteelBlue */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-special-discount */
+.product-card .product-labels-container .product-label.label-special-discount {
+  background-color: rgb(218, 112, 214); /* Orchid */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-fast-freeship */
+.product-card .product-labels-container .product-label.label-fast-freeship {
+  background-color: rgb(123, 104, 238); /* MediumPurple */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-summer-promo */
+.product-card .product-labels-container .product-label.label-summer-promo {
+  background-color: rgb(255, 165, 0); /* Orange */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-new-item */
+.product-card .product-labels-container .product-label.label-new-item {
+  background-color: rgb(0, 191, 255); /* DeepSkyBlue */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-premium */
+.product-card .product-labels-container .product-label.label-premium {
+  background-color: rgb(255, 99, 71); /* Tomato */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-travel-edition */
+.product-card .product-labels-container .product-label.label-travel-edition {
+  background-color: rgb(173, 216, 230); /* LightBlue */
+  color: rgb(0, 0, 0); /* Black */
+}
+
+/* Style for label-ideal-gift */
+.product-card .product-labels-container .product-label.label-ideal-gift {
+  background-color: rgb(255, 20, 147); /* DeepPink */
+  color: rgb(255, 255, 255); /* White */
+}
+
+/* Style for label-cheap-price */
+.product-card .product-labels-container .product-label.label-cheap-price {
+  background-color: rgb(144, 238, 144); /* LightGreen */
+  color: rgb(0, 0, 0); /* Black */
+}

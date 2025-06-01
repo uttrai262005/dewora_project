@@ -1,0 +1,595 @@
+/*=============== TABLE OF CONTENTS ===========
+1. Selectbox CSS
+2. Button CSS
+3. Radio CSS
+4. Fab CSS
+5. Input CSS
+6. Checkbox CSS
+7. Text CSS
+8. Heading CSS
+9. Container CSS
+===============================================*/
+
+
+/*--------------------------------------
+1. Selectbox CSS
+--------------------------------------*/
+.ui.selectbox.square {
+  border-radius: 0px;
+}
+
+
+.ui.selectbox.round {
+  border-radius: var(--radius-xl);
+}
+
+
+.ui.selectbox.size-sm {
+  height: 42px;
+  padding-left: var(--space-4xl);
+  padding-right: var(--space-4xl);
+  font-size: 23px;
+}
+
+
+.ui.selectbox.size-xs {
+  height: 40px;
+  padding-left: var(--space-4xl);
+  padding-right: var(--space-4xl);
+  font-size: 20px;
+}
+
+
+.ui.selectbox.fill.white_a700_01 {
+  background-color: var(--white_a700_01);
+  color: var(--gray_600);
+}
+
+
+.ui.selectbox {
+  display: flex;
+}
+
+
+/*--------------------------------------
+2. Button CSS
+--------------------------------------*/
+.ui.button.square {
+  border-radius: 0px;
+}
+
+
+.ui.button.round {
+  border-radius: var(--radius-6xl);
+}
+
+
+.ui.button.size-xs {
+  height: 14px;
+}
+
+
+.ui.button.size-md {
+  height: 32px;
+  padding-left: var(--space-8xl);
+  padding-right: var(--space-8xl);
+  font-size: 12px;
+}
+
+
+.ui.button.size-4xl {
+  height: 60px;
+}
+
+
+.ui.button.size-5xl {
+  height: 70px;
+  padding-left: 34px;
+  padding-right: 34px;
+  font-size: 24px;
+}
+
+
+.ui.button.size-xl {
+  height: 36px;
+}
+
+
+.ui.button.size-3xl {
+  height: 42px;
+  padding-left: var(--space-9xl);
+  padding-right: var(--space-9xl);
+  font-size: 17px;
+}
+
+
+.ui.button.size-lg {
+  height: 34px;
+  padding-left: 34px;
+  padding-right: 34px;
+  font-size: 15px;
+}
+
+
+.ui.button.size-sm {
+  height: 18px;
+  padding-left: var(--space-sm);
+  padding-right: var(--space-sm);
+}
+
+
+.ui.button.size-2xl {
+  height: 40px;
+  padding-left: 34px;
+  padding-right: 34px;
+  font-size: 20px;
+}
+
+
+.ui.button.fill.red_50 {
+  background-color: var(--red_50);
+  color: var(--pink_400);
+}
+
+
+.ui.button.fill.purple_600_26 {
+  background-color: var(--purple_600_26);
+  color: var(--pink_400);
+}
+
+
+.ui.button.fill.red_300_01 {
+  background-color: var(--red_300_01);
+  color: var(--white_a700_01);
+}
+
+
+.ui.button.outline.blue_gray_100 {
+  color: var(--black_900_01);
+  border: 1px solid var(--blue_gray_100);
+}
+
+
+.ui.button.fill.white_a700_01 {
+  background-color: var(--white_a700_01);
+  color: var(--red_300_01);
+}
+
+
+.ui.button.gradient.amber_500_01_purple_800 {
+  background: linear-gradient(
+    90deg,
+    #f9c106,
+    #db6b1f,
+    #c83330,
+    #943365,
+    #6b358f
+  );
+  color: var(--gray_100);
+}
+
+
+.ui.button.fill.pink_400 {
+  background-color: var(--pink_400);
+  color: var(--white_a700_01);
+}
+
+
+.ui.button.fill.blue_gray_100 {
+  background-color: var(--blue_gray_100);
+}
+
+
+.ui.button.fill.red_300_87 {
+  background-color: var(--red_300_87);
+  color: var(--black_900_01);
+}
+
+
+.ui.button.fill.white_a700_87 {
+  background-color: var(--white_a700_87);
+  color: var(--black_900_01);
+}
+
+
+.ui.button {
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+/*--------------------------------------
+3. Radio CSS
+--------------------------------------*/
+.ui.radio.size-xs {
+  height: 10px;
+  width: 10px;
+  border-radius: var(--radius-md);
+}
+
+
+.ui.radio.size-sm {
+  height: 20px;
+  width: 20px;
+}
+
+
+.ui.radio.primary {
+  accent-color: #000000;
+  border: 2px solid var(--black_900_01);
+}
+
+
+.ui.radio {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+
+/*--------------------------------------
+4. Fab CSS
+--------------------------------------*/
+.ui.fab.square {
+  border-radius: 0px;
+}
+
+
+.ui.fab.size-sm {
+  height: 82px;
+}
+
+
+.ui.fab.size-xs {
+  height: 64px;
+}
+
+
+/*--------------------------------------
+5. Input CSS
+--------------------------------------*/
+.ui.input.round {
+  border-radius: var(--radius-xl);
+}
+
+
+.ui.input.size-sm {
+  height: 52px;
+  padding-left: var(--space-5xl);
+  padding-right: var(--space-3xl);
+  font-size: 25px;
+}
+
+
+.ui.input.size-xs {
+  height: 40px;
+  padding-left: var(--space-5xl);
+  padding-right: var(--space-5xl);
+  font-size: 20px;
+}
+
+
+.ui.input.fill.white_a700 {
+  background-color: var(--white_a700);
+}
+
+
+.ui.input.fill.white_a700_01 {
+  background-color: var(--white_a700_01);
+  color: var(--gray_600);
+}
+
+
+.ui.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+}
+
+
+/*--------------------------------------
+6. Checkbox CSS
+--------------------------------------*/
+.ui.checkbox.size-xs {
+  height: 8px;
+  width: 8px;
+  border-radius: var(--radius-xs);
+}
+
+
+.ui.checkbox.size-sm {
+  height: 10px;
+  width: 10px;
+  border-radius: var(--radius-sm);
+}
+
+
+.ui.checkbox.primary {
+  border: 1px solid var(--black_900_01);
+}
+
+
+.ui.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+
+/*--------------------------------------
+7. Text CSS
+--------------------------------------*/
+.ui.text.size-textxs {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+
+.ui.text.size-texts {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+
+.ui.text.size-textmd {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+.ui.text.size-textlg {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+.ui.text.size-textxl {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+.ui.text.size-text2xl {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+
+.ui.text.size-text3xl {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+
+.ui.text.size-text4xl {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+
+.ui.text.size-text6xl {
+  font-size: 25px;
+  font-weight: 400;
+  @media only screen and (max-width: 1050px) {
+    font-size: 23px;
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    font-size: 21px;
+  }
+}
+
+
+.ui.text.size-text7xl {
+  font-size: 32px;
+  font-weight: 400;
+  @media only screen and (max-width: 1050px) {
+    font-size: 30px;
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    font-size: 28px;
+  }
+}
+
+
+.ui.text.size-text8xl {
+  font-size: 36px;
+  font-weight: 400;
+  @media only screen and (max-width: 1050px) {
+    font-size: 34px;
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    font-size: 32px;
+  }
+}
+
+
+.ui.text {
+  color: var(--black_900_01);
+  font-family: "Lexend Deca";
+}
+
+
+/*--------------------------------------
+8. Heading CSS
+--------------------------------------*/
+.ui.heading.size-text5xl {
+  font-size: 24px;
+  font-weight: 500;
+  @media only screen and (max-width: 1050px) {
+    font-size: 22px;
+  }
+}
+
+
+.ui.heading.size-headingxs {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+.ui.heading.size-headings {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.ui.heading.size-headingmd {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.ui.heading.size-headinglg {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.ui.heading.size-headingxl {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+.ui.heading.size-heading2xl {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+.ui.heading.size-heading3xl {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+.ui.heading.size-heading4xl {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+
+.ui.heading.size-heading5xl {
+  font-size: 23px;
+  font-weight: 700;
+  @media only screen and (max-width: 1050px) {
+    font-size: 21px;
+  }
+}
+
+
+.ui.heading.size-heading6xl {
+  font-size: 24px;
+  font-weight: 700;
+  @media only screen and (max-width: 1050px) {
+    font-size: 22px;
+  }
+}
+
+
+.ui.heading.size-heading7xl {
+  font-size: 26px;
+  font-weight: 700;
+  @media only screen and (max-width: 1050px) {
+    font-size: 24px;
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    font-size: 22px;
+  }
+}
+
+
+.ui.heading.size-heading8xl {
+  font-size: 29px;
+  font-weight: 700;
+  @media only screen and (max-width: 1050px) {
+    font-size: 27px;
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    font-size: 25px;
+  }
+}
+
+
+.ui.heading.size-heading9xl {
+  font-size: 35px;
+  font-weight: 700;
+  @media only screen and (max-width: 1050px) {
+    font-size: 33px;
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    font-size: 31px;
+  }
+}
+
+
+.ui.heading.size-heading10xl {
+  font-size: 36px;
+  font-weight: 700;
+  @media only screen and (max-width: 1050px) {
+    font-size: 34px;
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    font-size: 32px;
+  }
+}
+
+
+.ui.heading {
+  color: var(--black_900_01);
+  font-family: Lexend Deca;
+}
+
+
+/*--------------------------------------
+9. Container CSS
+--------------------------------------*/
+.container-xs {
+  max-width: 1154px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.container-sm {
+  max-width: 1158px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.container-md {
+  max-width: 1304px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+

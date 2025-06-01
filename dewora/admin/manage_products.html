@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Quản Lý Sản Phẩm</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="css/admin_styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Bảng Điều Khiển Admin</h1>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="manage_products.html" class="active">Sản Phẩm</a>
+        <a href="manage_users.html">Người Dùng</a>
+        <a href="manage_orders.html">Đơn Hàng</a>
+        <button id="adminLogoutBtn">Đăng Xuất</button>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Quản Lý Sản Phẩm</h2>
+
+      <div class="filter-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Tìm kiếm sản phẩm..."
+        />
+        <button id="searchButton" class="btn-secondary">Tìm</button>
+        <button
+          id="addProductBtn"
+          class="btn-primary"
+          style="margin-left: auto"
+        >
+          Thêm Sản Phẩm Mới
+        </button>
+      </div>
+
+      <table id="productsTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Ảnh</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Thương Hiệu</th>
+            <th>Giá</th>
+            <th>Hành Động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="6">Đang tải dữ liệu sản phẩm...</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="paginationControlsProducts" class="pagination-controls"></div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Dewora - Trang Quản Trị</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/products.js"></script>
+  </body>
+</html>

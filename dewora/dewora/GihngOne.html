@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>39nguyn nh&#39;s Application4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <img
+      alt="logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/components.css" />
+    <link rel="stylesheet" type="text/css" href="./css/gihngOne.css" />
+    <script>
+      /**
+       * Handles the value change functionality in a quantity input
+       */
+      function handleQuantityInput(target) {
+        const fieldElement = target.querySelector(
+          `[quantity-for-${target.id}]`
+        );
+        const stepUpButton = target.querySelector(`[quantity-increase]`);
+        const stepDownButton = target.querySelector(`[quantity-decrease]`);
+
+        const fieldElementIsInput = fieldElement instanceof HTMLInputElement;
+        const fieldElementIsNumberInput =
+          fieldElementIsInput && fieldElement.type === "number";
+
+        function setNumberValue(/** @type {number} */ n = 0) {
+          if (fieldElementIsNumberInput) return;
+
+          if (fieldElementIsInput) {
+            fieldElement.value = n;
+          } else if (fieldElement) {
+            fieldElement.innerHTML = n;
+          }
+        }
+
+        const input =
+          fieldElement instanceof HTMLInputElement &&
+          fieldElement.type === "number"
+            ? fieldElement
+            : (() => {
+                const element = document.createElement("input");
+                element.type = "number";
+                element.min = 0;
+                element.step = 1;
+                element.value = 1;
+                element.hidden = true;
+                return element;
+              })();
+
+        setNumberValue(1);
+        stepUpButton?.addEventListener(
+          "click",
+          (/* @type {MouseEvent} */ event) => {
+            input.stepUp();
+            setNumberValue(input.valueAsNumber);
+          }
+        );
+        stepDownButton?.addEventListener(
+          "click",
+          (/* @type {MouseEvent} */ event) => {
+            input.stepDown();
+            setNumberValue(input.valueAsNumber);
+          }
+        );
+      }
+
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (
+          target.querySelectorAll('[role="tab"]')
+        );
+        const tabPanels = /** @type {HTMLElement[]} */ (
+          target.querySelectorAll('[role="tabpanel"]')
+        );
+        const activeClassList = ["active"];
+
+        function changeTab(/** @type {HTMLElement} */ target) {
+          target.focus();
+          const controls = /** @type {string} */ (
+            target.getAttribute("aria-controls")
+          );
+
+          for (const tab of tabs) {
+            const isActiveTab = tab === target;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab
+              ? tab.classList.add(...activeClassList)
+              : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(/** @type {HTMLElement} */ (event.target));
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = /** @type {HTMLElement} */ (event.target);
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tablists = /** @type {NodeListOf<HTMLElement>} */ (
+          document.querySelectorAll('[role="tablist"]')
+        );
+        for (const tablist of tablists) handleTabs(tablist);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="group-882">
+      <div class="group-949">
+        <div class="frame-1-1">
+          <div class="group-951">
+            <div
+              id="tablist"
+              role="tablist"
+              aria-label="Group 617"
+              class="group-707"
+            >
+              <div class="group-786">
+                <div class="group-698">
+                  <div class="group-930">
+                    <div class="group-929">
+                      <h1 class="gi-h-ng-c-a-t-i-2 ui heading size-heading6xl">
+                        Giỏ hàng của tôi
+                      </h1>
+                      <img
+                        src="public/images/img_rectangle_3.png"
+                        alt="Rectangle 3"
+                        class="rectangle-3-1"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="group-617">
+      <span
+        class="giao-h-ng-5-1 active"
+        id="tab01"
+        role="tab"
+        aria-controls="tabpanel01"
+        aria-selected="true"
+        tabindex="0"
+      >
+        Giao hàng(5)
+      </span>
+      <span
+        class="l-y-t-i-c-a-h-ng-1"
+        id="tab11"
+        role="tab"
+        aria-controls="tabpanel11"
+        aria-selected="false"
+        tabindex="-1"
+      >
+        Lấy tại cửa hàng (0)
+      </span>
+    </div>
+    <div
+      id="tabpanel01"
+      role="tabpanel"
+      aria-labelledby="tab01"
+      class="tabcontent"
+    >
+      <div class="group-789">
+        <div class="label-ch-n-t-t-c-1 ui checkbox">
+          <input
+            type="checkbox"
+            name="ch n t t c"
+            class="ui checkbox-sm primary"
+          />
+          Chọn tất cả
+        </div>
+        <div class="group-706">
+          <div class="line-1-1"></div>
+          <div class="group-659">
+            <div class="group-655">
+              <div class="flex-col-center-center group-59">
+                <img
+                  src="public/images/img_rectangle_11.png"
+                  alt="Rectangle 10"
+                  class="rectangle-10"
+                />
+              </div>
+              <img
+                src="public/images/img_image_2.png"
+                alt="Image 2"
+                class="image-2-3"
+              />
+            </div>
+            <div class="group-692">
+              <div class="group-855">
+                <div class="group-931">
+                  <p class="t-ng-gi-tr-n ui text size-texts">
+                    Kem Che Khuyết Điểm Clio kill Cover Fourwear
+                  </p>
+                  <p></p>
+                  <button class="group-12 ui button blue_gray 100 size-sm fill">
+                    <img src="public/images/img_image_png.png" />
+                  </button>
+                </div>
+              </div>
+              <p class="t-ng-gi-tr-n ui text size-texts">Concealer 6g</p>
+              <p class="t-ng-gi-tr-n ui text size-texts">SKU: 18940022</p>
+              <div class="group-852">
+                <div quantity-input id="38_11_141_266_62_24" class="group-13">
+                  <div quantity-decrease class="group-793">
+                    <img
+                      src="public/images/img_image_12x10.png"
+                      alt="Image"
+                      class="image-3"
+                    />
+                  </div>
+                  <p
+                    class="class-1-1 ui text size-texts"
+                    quantity-for="38_11_141_266_62_24"
+                  >
+                    1
+                  </p>
+                  <div quantity-increase class="group-793">
+                    <img
+                      src="public/images/img_image_8x8.png"
+                      alt="Image"
+                      class="image-4"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group-675">
+            <p class="click-collect-1 ui heading size-headingxs">349.000đ</p>
+            <p class="giao-h-ng-1 ui heading size-headingmd">249.000đ</p>
+          </div>
+        </div>
+        <div class="flex-col-center-center group-59">
+          <img
+            src="public/images/img_rectangle_11.png"
+            alt="Rectangle 10"
+            class="rectangle-10"
+          />
+        </div>
+        <img
+          src="public/images/img_image_2.png"
+          alt="Image 2"
+          class="image-2-3"
+        />
+        <div class="group-700">
+          <img
+            src="public/images/img_line_6.svg"
+            alt="Line 6"
+            class="line-6-3"
+          />
+          <div class="group-694">
+            <div class="group-683">
+              <div class="group-868">
+                <p class="t-ng-gi-tr-n ui heading size-headingxl">Giao hàng:</p>
+                <p class="giao-h-ng-3 ui heading size-headingxl">Giao hàng:</p>
+              </div>
+              <p class="t-ng-gi-tr-n ui heading size-headinglg">2.361.000đ</p>
+            </div>
+            <div class="group-681">
+              <p class="click-collect-1 ui heading size-headingxl">
+                Click & collect
+              </p>
+              <p class="click-collect-1 ui heading size-headinglg">0đ</p>
+            </div>
+            <button
+              class="group-39 ui button size-lg gradient round amber 500_01 purple_800"
+            >
+              Tiếp tục với hình thức giao hàng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="tabpanel11"
+      role="tabpanel"
+      aria-labelledby="tab11"
+      class="tabcontent"
+      style="display: none"
+    >
+      <div style="min-height: 524px">
+        <span> Lấy tại cửa hàng (0) content</span>
+      </div>
+    </div>
+    <div class="group-948">
+      <p class="t-ng-gi-tr-n ui text size-textlg">
+        Bạn chưa có sản phẩm nào trong giỏ hàng click & collect
+      </p>
+      <img src="public/images/img_line_7.png" alt="Line 7" class="line-7" />
+      <div class="group-695">
+        <div class="group-699">
+          <h2 class="giao-h-ng-1 ui heading size-headingxl">Giao hàng:</h2>
+          <h3 class="t-ng-gi-tr-n ui heading size-headinglg">2.361.000đ</h3>
+        </div>
+        <div class="group-681">
+          <h4 class="click-collect-1 ui heading size-headingxl">
+            Click & Collect
+          </h4>
+          <h5 class="click-collect-1 ui heading size-headinglg">0đ</h5>
+        </div>
+        <button
+          class="group-39 ui button size-lg gradient round amber 500_01 purple_800"
+        >
+          Tiếp tục với hình thức giao hàng
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

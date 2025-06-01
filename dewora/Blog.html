@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Làm Đẹp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/blog.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <script src="js/blog_data.js"></script>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <section class="breadcrumb">
+      <div class="container">
+        <a href="TRANGCH.html">Trang chủ</a> / <a href="#">Blog làm đẹp</a>
+      </div>
+    </section>
+
+    <section class="blog-hero">
+      <div class="container">
+        <h1 class="hero-title">Blog Làm Đẹp</h1>
+        <p class="hero-subtitle">
+          Khám phá bí quyết trang điểm và xu hướng makeup mới nhất
+        </p>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="featured-post">
+          <div class="featured-image">
+            <img src="./public/images/OIP.jpg" alt="Featured Post" />
+            <span class="featured-tag">NỔI BẬT</span>
+          </div>
+          <div class="featured-details">
+            <h2 class="post-title">
+              <a href="blog_detail.html?id=1"
+                >Điểm mặt TOP 15 Beauty Blogger nổi tiếng tại Việt Nam (2024)</a
+              >
+            </h2>
+            <p class="post-excerpt">
+              Khám phá 15 beauty blogger hàng đầu, chia sẻ bí quyết trang điểm
+              để bạn tỏa sáng.
+            </p>
+            <div class="post-meta">
+              <span>20/06/2024</span>
+              <span>8 phút đọc</span>
+            </div>
+            <a href="blog_detail.html?id=1" class="read-more-btn">ĐỌC NGAY</a>
+          </div>
+        </div>
+
+        <div class="blog-categories">
+          <button class="category-btn active" data-category="all">
+            Tất cả
+          </button>
+          <button class="category-btn" data-category="Xu hướng">
+            Xu hướng
+          </button>
+          <button class="category-btn" data-category="Review">Review</button>
+          <button class="category-btn" data-category="Hướng dẫn">
+            Hướng dẫn
+          </button>
+          <button class="category-btn" data-category="Bí quyết">
+            Bí quyết
+          </button>
+        </div>
+
+        <div class="blog-grid" id="blog-grid"></div>
+
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/header-footer.js"></script>
+
+    <script>
+      // Pagination settings
+      const postsPerPage = 6; // Changed from 4 to 6
+      let currentPage = 1;
+      let currentCategory = "all";
+
+      // Function to render blog posts
+      function renderPosts() {
+        const blogGrid = document.getElementById("blog-grid");
+        blogGrid.innerHTML = "";
+
+        // Filter posts by category
+        let filteredPosts = blogPosts.filter(
+          (post) =>
+            currentCategory === "all" || post.category === currentCategory
+        );
+
+        // Exclude the featured post (id=1) from the grid
+        filteredPosts = filteredPosts.filter((post) => post.id !== 1);
+
+        // Calculate posts to display for the current page
+        const startIndex = (currentPage - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        const postsToDisplay = filteredPosts.slice(startIndex, endIndex);
+
+        // Render posts
+        postsToDisplay.forEach((post) => {
+          const postElement = document.createElement("div");
+          postElement.className = "blog-card";
+          postElement.innerHTML = `
+          <div class="post-image">
+            <img src="${post.featuredImage}" alt="Post Image">
+            <span class="post-tag">${post.category.toUpperCase()}</span>
+          </div>
+          <div class="post-content">
+            <h3 class="post-title"><a href="blog_detail.html?id=${post.id}">${
+            post.title
+          }</a></h3>
+            <p class="post-excerpt">${post.excerpt}</p>
+            <div class="post-meta">
+              <span>${post.date}</span>
+              <span>${post.readTime}</span>
+            </div>
+          </div>
+        `;
+          blogGrid.appendChild(postElement);
+        });
+
+        // Render pagination
+        renderPagination(filteredPosts.length);
+      }
+
+      // Function to render pagination
+      function renderPagination(totalPosts) {
+        const pagination = document.getElementById("pagination");
+        pagination.innerHTML = "";
+
+        const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+        // Previous button
+        const prevButton = document.createElement("a");
+        prevButton.className =
+          "page-nav" + (currentPage === 1 ? " disabled" : "");
+        prevButton.innerHTML = '<i class="arrow left"></i>';
+        prevButton.addEventListener("click", () => {
+          if (currentPage > 1) {
+            currentPage--;
+            renderPosts();
+          }
+        });
+        pagination.appendChild(prevButton);
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+          const pageButton = document.createElement("a");
+          pageButton.className =
+            "page-number" + (i === currentPage ? " active" : "");
+          pageButton.textContent = i;
+          pageButton.addEventListener("click", () => {
+            currentPage = i;
+            renderPosts();
+          });
+          pagination.appendChild(pageButton);
+        }
+
+        // Next button
+        const nextButton = document.createElement("a");
+        nextButton.className =
+          "page-nav" + (currentPage === totalPages ? " disabled" : "");
+        nextButton.innerHTML = '<i class="arrow right"></i>';
+        nextButton.addEventListener("click", () => {
+          if (currentPage < totalPages) {
+            currentPage++;
+            renderPosts();
+          }
+        });
+        pagination.appendChild(nextButton);
+      }
+
+      // Add event listeners to category buttons
+      document.querySelectorAll(".category-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          document
+            .querySelectorAll(".category-btn")
+            .forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          button.classList.add("active");
+          // Update current category and reset to first page
+          currentCategory = button.dataset.category;
+          currentPage = 1;
+          renderPosts();
+        });
+      });
+
+      // Initial render
+      window.onload = renderPosts;
+    </script>
+  </body>
+</html>
